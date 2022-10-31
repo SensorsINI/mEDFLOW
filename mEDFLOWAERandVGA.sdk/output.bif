@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\fsbl\Debug\fsbl.elf
+	[load = 0x100000]E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\brd_wrapper_hw_platform_0\brd_wrapper.bit
+	E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\ubsDVSWithMM2S\Debug\ubsDVSWithMM2S.elf
+}
