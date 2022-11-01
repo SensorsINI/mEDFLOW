@@ -513,29 +513,8 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_1_0/brd_util_vector_logic_1_0.xci">
-          <Proxy FileSetName="brd_util_vector_logic_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_1/brd_util_vector_logic_0_1.xci">
-          <Proxy FileSetName="brd_util_vector_logic_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_0/brd_util_vector_logic_0_0.xci">
-          <Proxy FileSetName="brd_util_vector_logic_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlconstant_0_0/brd_xlconstant_0_0.xci">
-          <Proxy FileSetName="brd_xlconstant_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_system_ila_0_0_1/brd_system_ila_0_0.xci">
-          <Proxy FileSetName="brd_system_ila_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xbar_0/brd_xbar_0.xci">
-          <Proxy FileSetName="brd_xbar_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_XYTSStreamToRawStream_0_0/brd_XYTSStreamToRawStream_0_0.xci">
-          <Proxy FileSetName="brd_XYTSStreamToRawStream_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_LEDShifter_0_0/brd_LEDShifter_0_0.xci">
-          <Proxy FileSetName="brd_LEDShifter_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_HIGH_0/brd_const_HIGH_0.xci">
+          <Proxy FileSetName="brd_const_HIGH_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_VCC_0/brd_const_VCC_0.xci">
           <Proxy FileSetName="brd_const_VCC_0"/>
@@ -543,20 +522,41 @@
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_axi_gpio_0_0/brd_axi_gpio_0_0.xci">
           <Proxy FileSetName="brd_axi_gpio_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_processing_system7_0_0/brd_processing_system7_0_0.xci">
+          <Proxy FileSetName="brd_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_LEDShifter_0_0/brd_LEDShifter_0_0.xci">
+          <Proxy FileSetName="brd_LEDShifter_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_testAERDVSSM_0_0/brd_testAERDVSSM_0_0.xci">
+          <Proxy FileSetName="brd_testAERDVSSM_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_system_ila_0_0_1/brd_system_ila_0_0.xci">
+          <Proxy FileSetName="brd_system_ila_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_ZERO_0/brd_const_ZERO_0.xci">
           <Proxy FileSetName="brd_const_ZERO_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xbar_0/brd_xbar_0.xci">
+          <Proxy FileSetName="brd_xbar_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_0/brd_util_vector_logic_0_0.xci">
+          <Proxy FileSetName="brd_util_vector_logic_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlslice_0_0/brd_xlslice_0_0.xci">
           <Proxy FileSetName="brd_xlslice_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_processing_system7_0_0/brd_processing_system7_0_0.xci">
-          <Proxy FileSetName="brd_processing_system7_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_1/brd_util_vector_logic_0_1.xci">
+          <Proxy FileSetName="brd_util_vector_logic_0_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_HIGH_0/brd_const_HIGH_0.xci">
-          <Proxy FileSetName="brd_const_HIGH_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_1_0/brd_util_vector_logic_1_0.xci">
+          <Proxy FileSetName="brd_util_vector_logic_1_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_testAERDVSSM_0_0/brd_testAERDVSSM_0_0.xci">
-          <Proxy FileSetName="brd_testAERDVSSM_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlconstant_0_0/brd_xlconstant_0_0.xci">
+          <Proxy FileSetName="brd_xlconstant_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_XYTSStreamToRawStream_0_0/brd_XYTSStreamToRawStream_0_0.xci">
+          <Proxy FileSetName="brd_XYTSStreamToRawStream_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/brd/hdl/brd_wrapper.vhd">
@@ -1466,9 +1466,7 @@
     </Run>
     <Run Id="brd_system_ila_0_0_synth_1" Type="Ft3:Synth" SrcSet="brd_system_ila_0_0" Part="xc7z035ffg676-2" ConstrsSet="brd_system_ila_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/brd_system_ila_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1477,9 +1475,7 @@
     </Run>
     <Run Id="brd_xbar_0_synth_1" Type="Ft3:Synth" SrcSet="brd_xbar_0" Part="xc7z035ffg676-2" ConstrsSet="brd_xbar_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/brd_xbar_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1713,9 +1709,7 @@
     </Run>
     <Run Id="brd_system_ila_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="brd_system_ila_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="brd_system_ila_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1731,9 +1725,7 @@
     </Run>
     <Run Id="brd_xbar_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="brd_xbar_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="brd_xbar_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

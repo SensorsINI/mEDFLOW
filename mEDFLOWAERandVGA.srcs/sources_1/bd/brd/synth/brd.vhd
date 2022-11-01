@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Mon Oct 31 16:26:19 2022
+--Date        : Tue Nov  1 22:52:30 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd.bd
 --Design      : brd
@@ -3187,7 +3187,6 @@ architecture STRUCTURE of brd is
     SLOT_5_AXIS_tlast : in STD_LOGIC;
     SLOT_5_AXIS_tvalid : in STD_LOGIC;
     SLOT_5_AXIS_tready : in STD_LOGIC;
-    resetn : in STD_LOGIC;
     SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_6_AXIS_tlast : in STD_LOGIC;
     SLOT_6_AXIS_tvalid : in STD_LOGIC;
@@ -3195,7 +3194,8 @@ architecture STRUCTURE of brd is
     SLOT_7_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_7_AXIS_tlast : in STD_LOGIC;
     SLOT_7_AXIS_tvalid : in STD_LOGIC;
-    SLOT_7_AXIS_tready : in STD_LOGIC
+    SLOT_7_AXIS_tready : in STD_LOGIC;
+    resetn : in STD_LOGIC
   );
   end component brd_system_ila_0_0;
   component brd_v_axi4s_vid_out_0_0 is
