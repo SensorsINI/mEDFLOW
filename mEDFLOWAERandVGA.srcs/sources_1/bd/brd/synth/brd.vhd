@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Tue Nov  1 22:52:30 2022
+--Date        : Wed Nov  2 19:16:52 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd.bd
 --Design      : brd
@@ -2590,48 +2590,12 @@ entity brd is
     vid_vsync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of brd : entity is "brd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=brd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=39,numReposBlks=30,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=4,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=35,da_bram_cntlr_cnt=3,da_clkrst_cnt=9,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of brd : entity is "brd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=brd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=40,numReposBlks=31,numNonXlnxBlks=0,numHierBlks=9,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=4,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=35,da_bram_cntlr_cnt=3,da_clkrst_cnt=9,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of brd : entity is "brd.hwdef";
 end brd;
 
 architecture STRUCTURE of brd is
-  component brd_testAERDVSSM_0_0 is
-  port (
-    USBClock_CI : in STD_LOGIC;
-    LogicClk_CI : in STD_LOGIC;
-    ADCClk_CI : in STD_LOGIC;
-    Reset_RI : in STD_LOGIC;
-    SPISlaveSelect_ABI : in STD_LOGIC;
-    SPIClock_AI : in STD_LOGIC;
-    SPIMOSI_AI : in STD_LOGIC;
-    SPIMISO_DZO : out STD_LOGIC;
-    ChipBiasEnable_SO : out STD_LOGIC;
-    ChipBiasDiagSelect_SO : out STD_LOGIC;
-    ChipBiasAddrSelect_SBO : out STD_LOGIC;
-    ChipBiasClock_CBO : out STD_LOGIC;
-    ChipBiasBitIn_DO : out STD_LOGIC;
-    ChipBiasLatch_SBO : out STD_LOGIC;
-    DVSAERData_AI : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    DVSAERReq_ABI : in STD_LOGIC;
-    DVSAERAck_SBO : out STD_LOGIC;
-    DVSAERReset_SBO : out STD_LOGIC;
-    IMUClock_CZO : out STD_LOGIC;
-    IMUData_DZIO : inout STD_LOGIC;
-    IMUInterrupt_AI : in STD_LOGIC;
-    IMUFSync_SO : out STD_LOGIC;
-    SyncOutClock_CO : out STD_LOGIC;
-    SyncOutSignal_SO : out STD_LOGIC;
-    SyncInClock_AI : in STD_LOGIC;
-    SyncInSignal_AI : in STD_LOGIC;
-    SyncInSignal1_AI : in STD_LOGIC;
-    SyncInSignal2_AI : in STD_LOGIC;
-    AERSMFifoAlmostFull_AI : in STD_LOGIC;
-    AERSMFifoFull_AI : in STD_LOGIC;
-    AERSMOutFifoWrite_SO : out STD_LOGIC;
-    AERSMOutFifoData_DO : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component brd_testAERDVSSM_0_0;
   component brd_EVMUXDataToXYTSStream_0_0 is
   port (
     dataReg_V_ap_vld : out STD_LOGIC;
@@ -2706,8 +2670,8 @@ architecture STRUCTURE of brd is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    ip2intc_irpt : out STD_LOGIC;
-    gpio_io_o : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    gpio_io_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    gpio2_io_i : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component brd_axi_gpio_0_0;
   component brd_axi_smc_0 is
@@ -3191,11 +3155,11 @@ architecture STRUCTURE of brd is
     SLOT_6_AXIS_tlast : in STD_LOGIC;
     SLOT_6_AXIS_tvalid : in STD_LOGIC;
     SLOT_6_AXIS_tready : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     SLOT_7_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_7_AXIS_tlast : in STD_LOGIC;
     SLOT_7_AXIS_tvalid : in STD_LOGIC;
-    SLOT_7_AXIS_tready : in STD_LOGIC;
-    resetn : in STD_LOGIC
+    SLOT_7_AXIS_tready : in STD_LOGIC
   );
   end component brd_system_ila_0_0;
   component brd_v_axi4s_vid_out_0_0 is
@@ -3260,6 +3224,122 @@ architecture STRUCTURE of brd is
     LEDs : out STD_LOGIC_VECTOR ( 5 downto 0 )
   );
   end component brd_LEDShifter_0_0;
+  component brd_c_counter_binary_0_0 is
+  port (
+    CLK : in STD_LOGIC;
+    CE : in STD_LOGIC;
+    THRESH0 : out STD_LOGIC;
+    Q : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component brd_c_counter_binary_0_0;
+  component brd_util_vector_logic_0_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component brd_util_vector_logic_0_0;
+  component brd_util_vector_logic_0_1 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component brd_util_vector_logic_0_1;
+  component brd_util_vector_logic_1_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component brd_util_vector_logic_1_0;
+  component brd_util_vector_logic_0_2 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  end component brd_util_vector_logic_0_2;
+  component brd_xlconstant_0_0 is
+  port (
+    dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component brd_xlconstant_0_0;
+  component brd_axi_fifo_mm_s_0_1 is
+  port (
+    interrupt : out STD_LOGIC;
+    s_axi_aclk : in STD_LOGIC;
+    s_axi_aresetn : in STD_LOGIC;
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_awvalid : in STD_LOGIC;
+    s_axi_awready : out STD_LOGIC;
+    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s_axi_wvalid : in STD_LOGIC;
+    s_axi_wready : out STD_LOGIC;
+    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_bvalid : out STD_LOGIC;
+    s_axi_bready : in STD_LOGIC;
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_arvalid : in STD_LOGIC;
+    s_axi_arready : out STD_LOGIC;
+    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s_axi_rvalid : out STD_LOGIC;
+    s_axi_rready : in STD_LOGIC;
+    s2mm_prmry_reset_out_n : out STD_LOGIC;
+    axi_str_rxd_tvalid : in STD_LOGIC;
+    axi_str_rxd_tready : out STD_LOGIC;
+    axi_str_rxd_tlast : in STD_LOGIC;
+    axi_str_rxd_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+  end component brd_axi_fifo_mm_s_0_1;
+  component brd_axis_dwidth_converter_0_0 is
+  port (
+    aclk : in STD_LOGIC;
+    aresetn : in STD_LOGIC;
+    s_axis_tvalid : in STD_LOGIC;
+    s_axis_tready : out STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tready : in STD_LOGIC;
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 )
+  );
+  end component brd_axis_dwidth_converter_0_0;
+  component brd_testAERDVSSM_0_0 is
+  port (
+    USBClock_CI : in STD_LOGIC;
+    LogicClk_CI : in STD_LOGIC;
+    ADCClk_CI : in STD_LOGIC;
+    Reset_RI : in STD_LOGIC;
+    SPISlaveSelect_ABI : in STD_LOGIC;
+    SPIClock_AI : in STD_LOGIC;
+    SPIMOSI_AI : in STD_LOGIC;
+    SPIMISO_DZO : out STD_LOGIC;
+    ChipBiasEnable_SO : out STD_LOGIC;
+    ChipBiasDiagSelect_SO : out STD_LOGIC;
+    ChipBiasAddrSelect_SBO : out STD_LOGIC;
+    ChipBiasClock_CBO : out STD_LOGIC;
+    ChipBiasBitIn_DO : out STD_LOGIC;
+    ChipBiasLatch_SBO : out STD_LOGIC;
+    DVSAERData_AI : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    DVSAERReq_ABI : in STD_LOGIC;
+    DVSAERAck_SBO : out STD_LOGIC;
+    DVSAERReset_SBO : out STD_LOGIC;
+    IMUClock_CZO : out STD_LOGIC;
+    IMUData_DZIO : inout STD_LOGIC;
+    IMUInterrupt_AI : in STD_LOGIC;
+    IMUFSync_SO : out STD_LOGIC;
+    SyncOutClock_CO : out STD_LOGIC;
+    SyncOutSignal_SO : out STD_LOGIC;
+    SyncInClock_AI : in STD_LOGIC;
+    SyncInSignal_AI : in STD_LOGIC;
+    SyncInSignal1_AI : in STD_LOGIC;
+    SyncInSignal2_AI : in STD_LOGIC;
+    AERSMFifoAlmostFull_AI : in STD_LOGIC;
+    AERSMFifoFull_AI : in STD_LOGIC;
+    AERSMOutFifoWrite_SO : out STD_LOGIC;
+    AERSMOutFifoData_DO : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component brd_testAERDVSSM_0_0;
   component brd_SFAST_process_data_0_0 is
   port (
     s_axi_config_AWADDR : in STD_LOGIC_VECTOR ( 6 downto 0 );
@@ -3314,40 +3394,6 @@ architecture STRUCTURE of brd is
     isFinalCornerStream_V_V_TDATA : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component brd_SFAST_process_data_0_0;
-  component brd_c_counter_binary_0_0 is
-  port (
-    CLK : in STD_LOGIC;
-    CE : in STD_LOGIC;
-    THRESH0 : out STD_LOGIC;
-    Q : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component brd_c_counter_binary_0_0;
-  component brd_util_vector_logic_0_0 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component brd_util_vector_logic_0_0;
-  component brd_util_vector_logic_0_1 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component brd_util_vector_logic_0_1;
-  component brd_util_vector_logic_1_0 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Op2 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component brd_util_vector_logic_1_0;
-  component brd_util_vector_logic_0_2 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  end component brd_util_vector_logic_0_2;
   component brd_XYTSStreamToRawStream_0_0 is
   port (
     tsReg_V_ap_vld : out STD_LOGIC;
@@ -3357,6 +3403,7 @@ architecture STRUCTURE of brd is
     tsDiffFlgReg_V_ap_vld : out STD_LOGIC;
     yDiffFlgReg_V_ap_vld : out STD_LOGIC;
     rotateInfoOutReg_V_ap_vld : out STD_LOGIC;
+    sentCnt_V_ap_vld : out STD_LOGIC;
     nonMonTSDiffFlgReg_V_ap_vld : out STD_LOGIC;
     tsWrappedVal_V_ap_vld : out STD_LOGIC;
     ap_clk : in STD_LOGIC;
@@ -3390,56 +3437,17 @@ architecture STRUCTURE of brd is
     tsDiffFlgReg_V : out STD_LOGIC_VECTOR ( 0 to 0 );
     yDiffFlgReg_V : out STD_LOGIC_VECTOR ( 0 to 0 );
     rotateInfoOutReg_V : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    sentCnt_V : out STD_LOGIC_VECTOR ( 31 downto 0 );
     nonMonTSDiffFlgReg_V : out STD_LOGIC_VECTOR ( 0 to 0 );
     tsWrappedVal_V : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component brd_XYTSStreamToRawStream_0_0;
-  component brd_xlconstant_0_0 is
+  component brd_xlslice_0_1 is
   port (
-    dout : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    Din : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  end component brd_xlconstant_0_0;
-  component brd_axi_fifo_mm_s_0_1 is
-  port (
-    interrupt : out STD_LOGIC;
-    s_axi_aclk : in STD_LOGIC;
-    s_axi_aresetn : in STD_LOGIC;
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_awvalid : in STD_LOGIC;
-    s_axi_awready : out STD_LOGIC;
-    s_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    s_axi_wvalid : in STD_LOGIC;
-    s_axi_wready : out STD_LOGIC;
-    s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_bvalid : out STD_LOGIC;
-    s_axi_bready : in STD_LOGIC;
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_arvalid : in STD_LOGIC;
-    s_axi_arready : out STD_LOGIC;
-    s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    s_axi_rvalid : out STD_LOGIC;
-    s_axi_rready : in STD_LOGIC;
-    s2mm_prmry_reset_out_n : out STD_LOGIC;
-    axi_str_rxd_tvalid : in STD_LOGIC;
-    axi_str_rxd_tready : out STD_LOGIC;
-    axi_str_rxd_tlast : in STD_LOGIC;
-    axi_str_rxd_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 )
-  );
-  end component brd_axi_fifo_mm_s_0_1;
-  component brd_axis_dwidth_converter_0_0 is
-  port (
-    aclk : in STD_LOGIC;
-    aresetn : in STD_LOGIC;
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tready : in STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 )
-  );
-  end component brd_axis_dwidth_converter_0_0;
+  end component brd_xlslice_0_1;
   signal DVSAERData_AI_0_1 : STD_LOGIC_VECTOR ( 10 downto 0 );
   attribute DEBUG : string;
   attribute DEBUG of DVSAERData_AI_0_1 : signal is "true";
@@ -3522,6 +3530,7 @@ architecture STRUCTURE of brd is
   signal LEDShifter_0_LEDs : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal Net1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal Net2 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal XYTSStreamToRawStream_0_sentCnt_V : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal XYTSStreamToRawStream_0_streamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute CONN_BUS_INFO of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is "XYTSStreamToRawStream_0_streamOut_V_V xilinx.com:interface:axis:1.0 None TDATA";
   attribute DEBUG of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is "true";
@@ -3935,6 +3944,7 @@ architecture STRUCTURE of brd is
   attribute MARK_DEBUG of xRegReg_V : signal is std.standard.true;
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal yRegReg_V : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute DEBUG of yRegReg_V : signal is "true";
   attribute MARK_DEBUG of yRegReg_V : signal is std.standard.true;
@@ -3958,6 +3968,7 @@ architecture STRUCTURE of brd is
   signal NLW_XYTSStreamToRawStream_0_glLastYReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_nonMonTSDiffFlgReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_rotateInfoOutReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
+  signal NLW_XYTSStreamToRawStream_0_sentCnt_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_tsDiffFlgReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_tsReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_tsWrappedVal_V_ap_vld_UNCONNECTED : STD_LOGIC;
@@ -3973,7 +3984,6 @@ architecture STRUCTURE of brd is
   signal NLW_XYTSStreamToRawStream_0_yDiffFlgReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_XYTSStreamToRawStream_0_yReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_axi_fifo_mm_s_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_axi_gpio_0_ip2intc_irpt_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_vdma_0_mm2s_introut_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_vdma_0_s2mm_introut_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_vdma_0_m_axis_mm2s_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -4205,7 +4215,7 @@ XYTSStreamToRawStream_0: component brd_XYTSStreamToRawStream_0_0
       ap_idle => NLW_XYTSStreamToRawStream_0_ap_idle_UNCONNECTED,
       ap_ready => NLW_XYTSStreamToRawStream_0_ap_ready_UNCONNECTED,
       ap_rst_n => proc_sys_reset_0_peripheral_aresetn(0),
-      ap_start => const_VCC_dout(0),
+      ap_start => xlslice_1_Dout(0),
       custDataStreamIn_V_V_TDATA(15 downto 0) => EVABMOFStream_0_pixelDataStream_V_V_TDATA(15 downto 0),
       custDataStreamIn_V_V_TREADY => EVABMOFStream_0_pixelDataStream_V_V_TREADY,
       custDataStreamIn_V_V_TVALID => EVABMOFStream_0_pixelDataStream_V_V_TVALID,
@@ -4220,6 +4230,8 @@ XYTSStreamToRawStream_0: component brd_XYTSStreamToRawStream_0_0
       polStreamIn_V_V_TVALID => EVABMOFStream_0_polStreamOut_V_V_TVALID,
       rotateInfoOutReg_V(63 downto 0) => NLW_XYTSStreamToRawStream_0_rotateInfoOutReg_V_UNCONNECTED(63 downto 0),
       rotateInfoOutReg_V_ap_vld => NLW_XYTSStreamToRawStream_0_rotateInfoOutReg_V_ap_vld_UNCONNECTED,
+      sentCnt_V(31 downto 0) => XYTSStreamToRawStream_0_sentCnt_V(31 downto 0),
+      sentCnt_V_ap_vld => NLW_XYTSStreamToRawStream_0_sentCnt_V_ap_vld_UNCONNECTED,
       streamOut_V_V_TDATA(15 downto 0) => XYTSStreamToRawStream_0_streamOut_V_V_TDATA(15 downto 0),
       streamOut_V_V_TREADY => XYTSStreamToRawStream_0_streamOut_V_V_TREADY,
       streamOut_V_V_TVALID => XYTSStreamToRawStream_0_streamOut_V_V_TVALID,
@@ -4273,8 +4285,8 @@ axi_fifo_mm_s_0: component brd_axi_fifo_mm_s_0_1
     );
 axi_gpio_0: component brd_axi_gpio_0_0
      port map (
+      gpio2_io_i(31 downto 0) => XYTSStreamToRawStream_0_sentCnt_V(31 downto 0),
       gpio_io_o(3 downto 0) => axi_gpio_0_gpio_io_o(3 downto 0),
-      ip2intc_irpt => NLW_axi_gpio_0_ip2intc_irpt_UNCONNECTED,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(8 downto 0) => ps7_0_axi_periph_M00_AXI_ARADDR(8 downto 0),
       s_axi_aresetn => proc_sys_reset_0_peripheral_aresetn(0),
@@ -5102,5 +5114,10 @@ xlslice_0: component brd_xlslice_0_0
      port map (
       Din(3 downto 0) => axi_gpio_0_gpio_io_o(3 downto 0),
       Dout(0) => xlslice_0_Dout(0)
+    );
+xlslice_1: component brd_xlslice_0_1
+     port map (
+      Din(3 downto 0) => axi_gpio_0_gpio_io_o(3 downto 0),
+      Dout(0) => xlslice_1_Dout(0)
     );
 end STRUCTURE;

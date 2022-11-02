@@ -7,4 +7,7 @@
 <Block Addr="0x80000000" Context="JTAG-jsn-JTAG-SMT2-210251A50A25-4ba00477-0.0" Size="-1"/>
 <Block Addr="0x224a00" Context="JTAG-jsn-JTAG-SMT2-210251A50A25-4ba00477-0.0" Size="-1"/>
 <Block Addr="0xE0002170" Context="JTAG-jsn-JTAG-SMT2-210251A50A25-4ba00477-0.0" Size="-1"/>
+<Block Addr="0x41200000" Context="JTAG-jsn-JTAG-SMT2-210251A50A25-4ba00477-0.0" Size="-1">
+<Rendering ID="org.eclipse.debug.ui.rendering.hexint" Pane="org.eclipse.debug.ui.MemoryView.RenderingViewPane.1"/>
+</Block>
 </Memory>

@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:XYTSStreamToRawStream:1.0
--- IP Revision: 2109261932
+-- IP Revision: 2111021435
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -62,6 +62,7 @@ ENTITY brd_XYTSStreamToRawStream_0_0 IS
     tsDiffFlgReg_V_ap_vld : OUT STD_LOGIC;
     yDiffFlgReg_V_ap_vld : OUT STD_LOGIC;
     rotateInfoOutReg_V_ap_vld : OUT STD_LOGIC;
+    sentCnt_V_ap_vld : OUT STD_LOGIC;
     nonMonTSDiffFlgReg_V_ap_vld : OUT STD_LOGIC;
     tsWrappedVal_V_ap_vld : OUT STD_LOGIC;
     ap_clk : IN STD_LOGIC;
@@ -95,6 +96,7 @@ ENTITY brd_XYTSStreamToRawStream_0_0 IS
     tsDiffFlgReg_V : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     yDiffFlgReg_V : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     rotateInfoOutReg_V : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+    sentCnt_V : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     nonMonTSDiffFlgReg_V : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     tsWrappedVal_V : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
   );
@@ -112,6 +114,7 @@ ARCHITECTURE brd_XYTSStreamToRawStream_0_0_arch OF brd_XYTSStreamToRawStream_0_0
       tsDiffFlgReg_V_ap_vld : OUT STD_LOGIC;
       yDiffFlgReg_V_ap_vld : OUT STD_LOGIC;
       rotateInfoOutReg_V_ap_vld : OUT STD_LOGIC;
+      sentCnt_V_ap_vld : OUT STD_LOGIC;
       nonMonTSDiffFlgReg_V_ap_vld : OUT STD_LOGIC;
       tsWrappedVal_V_ap_vld : OUT STD_LOGIC;
       ap_clk : IN STD_LOGIC;
@@ -145,6 +148,7 @@ ARCHITECTURE brd_XYTSStreamToRawStream_0_0_arch OF brd_XYTSStreamToRawStream_0_0
       tsDiffFlgReg_V : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       yDiffFlgReg_V : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       rotateInfoOutReg_V : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+      sentCnt_V : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       nonMonTSDiffFlgReg_V : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       tsWrappedVal_V : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
     );
@@ -157,6 +161,9 @@ ARCHITECTURE brd_XYTSStreamToRawStream_0_0_arch OF brd_XYTSStreamToRawStream_0_0
   ATTRIBUTE X_INTERFACE_PARAMETER OF nonMonTSDiffFlgReg_V: SIGNAL IS "XIL_INTERFACENAME nonMonTSDiffFlgReg_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maxim" & 
 "um {}} value false}}}}}";
   ATTRIBUTE X_INTERFACE_INFO OF nonMonTSDiffFlgReg_V: SIGNAL IS "xilinx.com:signal:data:1.0 nonMonTSDiffFlgReg_V DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF sentCnt_V: SIGNAL IS "XIL_INTERFACENAME sentCnt_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} val" & 
+"ue false}}}}}";
+  ATTRIBUTE X_INTERFACE_INFO OF sentCnt_V: SIGNAL IS "xilinx.com:signal:data:1.0 sentCnt_V DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF rotateInfoOutReg_V: SIGNAL IS "XIL_INTERFACENAME rotateInfoOutReg_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 64} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximu" & 
 "m {}} value false}}}}}";
   ATTRIBUTE X_INTERFACE_INFO OF rotateInfoOutReg_V: SIGNAL IS "xilinx.com:signal:data:1.0 rotateInfoOutReg_V DATA";
@@ -236,6 +243,7 @@ BEGIN
       tsDiffFlgReg_V_ap_vld => tsDiffFlgReg_V_ap_vld,
       yDiffFlgReg_V_ap_vld => yDiffFlgReg_V_ap_vld,
       rotateInfoOutReg_V_ap_vld => rotateInfoOutReg_V_ap_vld,
+      sentCnt_V_ap_vld => sentCnt_V_ap_vld,
       nonMonTSDiffFlgReg_V_ap_vld => nonMonTSDiffFlgReg_V_ap_vld,
       tsWrappedVal_V_ap_vld => tsWrappedVal_V_ap_vld,
       ap_clk => ap_clk,
@@ -269,6 +277,7 @@ BEGIN
       tsDiffFlgReg_V => tsDiffFlgReg_V,
       yDiffFlgReg_V => yDiffFlgReg_V,
       rotateInfoOutReg_V => rotateInfoOutReg_V,
+      sentCnt_V => sentCnt_V,
       nonMonTSDiffFlgReg_V => nonMonTSDiffFlgReg_V,
       tsWrappedVal_V => tsWrappedVal_V
     );

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov  1 22:52:47 2022" VIVADOVERSION="2018.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov  2 19:17:11 2022" VIVADOVERSION="2018.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z035" NAME="brd" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -27,14 +27,14 @@
     <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef"/>
     <PORT DIR="I" LEFT="10" NAME="DVSAERData_AI_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_DVSAERData_AI_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="testAERDVSSM_0" PORT="DVSAERData_AI"/>
         <CONNECTION INSTANCE="system_ila_0" PORT="probe15"/>
+        <CONNECTION INSTANCE="testAERDVSSM_0" PORT="DVSAERData_AI"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="DVSAERReq_ABI_0" SIGIS="undef" SIGNAME="External_Ports_DVSAERReq_ABI_0">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="testAERDVSSM_0" PORT="DVSAERReq_ABI"/>
         <CONNECTION INSTANCE="system_ila_0" PORT="probe16"/>
+        <CONNECTION INSTANCE="testAERDVSSM_0" PORT="DVSAERReq_ABI"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="ChipBiasAddrSelect_SBO_0" SIGIS="undef" SIGNAME="testAERDVSSM_0_ChipBiasAddrSelect_SBO">
@@ -114,12 +114,12 @@
         <CONNECTION INSTANCE="LEDShifter_0" PORT="LEDs"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="0" NAME="power_3v3_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
+    <PORT DIR="O" LEFT="0" NAME="power_1v8_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
       <CONNECTIONS>
         <CONNECTION INSTANCE="util_vector_logic_1" PORT="Res"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="0" NAME="power_1v8_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
+    <PORT DIR="O" LEFT="0" NAME="power_3v3_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
       <CONNECTIONS>
         <CONNECTION INSTANCE="util_vector_logic_1" PORT="Res"/>
       </CONNECTIONS>
@@ -1128,7 +1128,7 @@
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="20"/>
+        <PARAMETER NAME="latency" VALUE="16"/>
         <PARAMETER NAME="II" VALUE="x"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_CONFIG_BASEADDR" VALUE="0x43C20000"/>
@@ -1628,6 +1628,7 @@
         <PORT DIR="O" NAME="tsDiffFlgReg_V_ap_vld" SIGIS="undef"/>
         <PORT DIR="O" NAME="yDiffFlgReg_V_ap_vld" SIGIS="undef"/>
         <PORT DIR="O" NAME="rotateInfoOutReg_V_ap_vld" SIGIS="undef"/>
+        <PORT DIR="O" NAME="sentCnt_V_ap_vld" SIGIS="undef"/>
         <PORT DIR="O" NAME="nonMonTSDiffFlgReg_V_ap_vld" SIGIS="undef"/>
         <PORT DIR="O" NAME="tsWrappedVal_V_ap_vld" SIGIS="undef"/>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ap_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
@@ -1640,9 +1641,9 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="ap_start" SIGIS="undef" SIGNAME="const_VCC_dout">
+        <PORT DIR="I" NAME="ap_start" SIGIS="undef" SIGNAME="xlslice_1_Dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="const_VCC" PORT="dout"/>
+            <CONNECTION INSTANCE="xlslice_1" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="ap_done" SIGIS="undef"/>
@@ -1745,6 +1746,11 @@
         <PORT DIR="O" LEFT="0" NAME="tsDiffFlgReg_V" RIGHT="0" SIGIS="data"/>
         <PORT DIR="O" LEFT="0" NAME="yDiffFlgReg_V" RIGHT="0" SIGIS="data"/>
         <PORT DIR="O" LEFT="63" NAME="rotateInfoOutReg_V" RIGHT="0" SIGIS="data"/>
+        <PORT DIR="O" LEFT="31" NAME="sentCnt_V" RIGHT="0" SIGIS="data" SIGNAME="XYTSStreamToRawStream_0_sentCnt_V">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio2_io_i"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="0" NAME="nonMonTSDiffFlgReg_V" RIGHT="0" SIGIS="data"/>
         <PORT DIR="O" LEFT="11" NAME="tsWrappedVal_V" RIGHT="0" SIGIS="data"/>
       </PORTS>
@@ -2831,13 +2837,13 @@
         <PARAMETER NAME="C_GPIO_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_GPIO2_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_ALL_INPUTS" VALUE="0"/>
-        <PARAMETER NAME="C_ALL_INPUTS_2" VALUE="0"/>
+        <PARAMETER NAME="C_ALL_INPUTS_2" VALUE="1"/>
         <PARAMETER NAME="C_ALL_OUTPUTS" VALUE="1"/>
         <PARAMETER NAME="C_ALL_OUTPUTS_2" VALUE="0"/>
-        <PARAMETER NAME="C_INTERRUPT_PRESENT" VALUE="1"/>
+        <PARAMETER NAME="C_INTERRUPT_PRESENT" VALUE="0"/>
         <PARAMETER NAME="C_DOUT_DEFAULT" VALUE="0xFFFFFFFF"/>
         <PARAMETER NAME="C_TRI_DEFAULT" VALUE="0xFFFFFFFF"/>
-        <PARAMETER NAME="C_IS_DUAL" VALUE="0"/>
+        <PARAMETER NAME="C_IS_DUAL" VALUE="1"/>
         <PARAMETER NAME="C_DOUT_DEFAULT_2" VALUE="0x00000000"/>
         <PARAMETER NAME="C_TRI_DEFAULT_2" VALUE="0xFFFFFFFF"/>
         <PARAMETER NAME="Component_Name" VALUE="brd_axi_gpio_0_0"/>
@@ -2944,10 +2950,15 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="ip2intc_irpt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
         <PORT DIR="O" LEFT="3" NAME="gpio_io_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlslice_0" PORT="Din"/>
+            <CONNECTION INSTANCE="xlslice_1" PORT="Din"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="gpio2_io_i" RIGHT="0" SIGIS="undef" SIGNAME="XYTSStreamToRawStream_0_sentCnt_V">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="sentCnt_V"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3006,6 +3017,11 @@
         <BUSINTERFACE BUSNAME="__NOC__" NAME="GPIO" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="TRI_O" PHYSICAL="gpio_io_o"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="GPIO2" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TRI_I" PHYSICAL="gpio2_io_i"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -5879,13 +5895,12 @@
             <CONNECTION INSTANCE="EVMUXDataToXYTSStream_0" PORT="ap_start"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="ap_start"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="SPI0_SS_I"/>
-            <CONNECTION INSTANCE="SFAST_process_data_0" PORT="ap_start"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="xStream_V_V_TVALID"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="yStream_V_V_TVALID"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="polStream_V_V_TVALID"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="tsStream_V_V_TVALID"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="custDataStream_V_V_TVALID"/>
-            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="ap_start"/>
+            <CONNECTION INSTANCE="SFAST_process_data_0" PORT="ap_start"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5902,11 +5917,11 @@
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="const_ZERO_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="AERSMFifoFull_AI"/>
-            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="AERSMFifoAlmostFull_AI"/>
             <CONNECTION INSTANCE="v_axi4s_vid_out_0" PORT="fid"/>
             <CONNECTION INSTANCE="v_axi4s_vid_out_0" PORT="vid_io_out_reset"/>
             <CONNECTION INSTANCE="axi_fifo_mm_s_0" PORT="axi_str_rxd_tlast"/>
+            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="AERSMFifoAlmostFull_AI"/>
+            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="AERSMFifoFull_AI"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6464,8 +6479,6 @@
             <CONNECTION INSTANCE="axi_vdma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="eventStreamToConstEn_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="resetn"/>
-            <CONNECTION INSTANCE="SFAST_process_data_0" PORT="ap_rst_n"/>
-            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="ap_rst_n"/>
             <CONNECTION INSTANCE="axi_fifo_mm_s_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
@@ -6475,6 +6488,8 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M04_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M05_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S01_ARESETN"/>
+            <CONNECTION INSTANCE="SFAST_process_data_0" PORT="ap_rst_n"/>
+            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="ap_rst_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -8085,9 +8100,6 @@
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="USBClock_CI"/>
-            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="LogicClk_CI"/>
-            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="ADCClk_CI"/>
             <CONNECTION INSTANCE="EVMUXDataToXYTSStream_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="axi_gpio_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="axi_smc" PORT="aclk"/>
@@ -8102,8 +8114,6 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="clk"/>
             <CONNECTION INSTANCE="v_axi4s_vid_out_0" PORT="aclk"/>
-            <CONNECTION INSTANCE="SFAST_process_data_0" PORT="ap_clk"/>
-            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="axi_fifo_mm_s_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="axis_dwidth_converter_0" PORT="aclk"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP1_ACLK"/>
@@ -8116,6 +8126,11 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M04_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M05_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S01_ACLK"/>
+            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="USBClock_CI"/>
+            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="LogicClk_CI"/>
+            <CONNECTION INSTANCE="testAERDVSSM_0" PORT="ADCClk_CI"/>
+            <CONNECTION INSTANCE="SFAST_process_data_0" PORT="ap_clk"/>
+            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="ap_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="40000000" DIR="O" NAME="FCLK_CLK1" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK1">
@@ -10232,7 +10247,7 @@
         <PARAMETER NAME="C_SLOT_15_APC_MAX_WLAST_TO_AWVALID_WAITS" VALUE="0"/>
         <PARAMETER NAME="C_SLOT_15_APC_MAX_WRITE_TO_BVALID_WAITS" VALUE="0"/>
         <PARAMETER NAME="C_SLOT_15_APC_MAX_CONTINUOUS_RTRANSFERS_WAITS" VALUE="0"/>
-        <PARAMETER NAME="C_BRAM_CNT" VALUE="109"/>
+        <PARAMETER NAME="C_BRAM_CNT" VALUE="43"/>
         <PARAMETER NAME="C_SLOT_0_AXI_AW_SEL_DATA" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_0_AXI_W_SEL_DATA" VALUE="1"/>
         <PARAMETER NAME="C_SLOT_0_AXI_B_SEL_DATA" VALUE="1"/>
@@ -13955,15 +13970,15 @@
         <PORT DIR="I" NAME="SLOT_6_AXIS_tlast" SIGIS="undef"/>
         <PORT DIR="I" NAME="SLOT_6_AXIS_tvalid" SIGIS="undef"/>
         <PORT DIR="I" NAME="SLOT_6_AXIS_tready" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="15" NAME="SLOT_7_AXIS_tdata" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="SLOT_7_AXIS_tlast" SIGIS="undef"/>
-        <PORT DIR="I" NAME="SLOT_7_AXIS_tvalid" SIGIS="undef"/>
-        <PORT DIR="I" NAME="SLOT_7_AXIS_tready" SIGIS="undef"/>
         <PORT DIR="I" NAME="resetn" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="15" NAME="SLOT_7_AXIS_tdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="SLOT_7_AXIS_tlast" SIGIS="undef"/>
+        <PORT DIR="I" NAME="SLOT_7_AXIS_tvalid" SIGIS="undef"/>
+        <PORT DIR="I" NAME="SLOT_7_AXIS_tready" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="SFAST_process_data_0_xStreamOut_V_V" NAME="SLOT_0_AXIS" TYPE="MONITOR" VLNV="xilinx.com:interface:axis:1.0">
@@ -14311,8 +14326,8 @@
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_1_Res">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="power_1v8_ctrl"/>
             <CONNECTION INSTANCE="External_Ports" PORT="power_3v3_ctrl"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="power_1v8_ctrl"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -14831,6 +14846,30 @@
         <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="util_vector_logic_1" PORT="Op2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE FULLNAME="/xlslice_1" HWVERSION="1.0" INSTANCE="xlslice_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="1"/>
+        <PARAMETER NAME="DIN_TO" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="brd_xlslice_0_1"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="3" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_1_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="XYTSStreamToRawStream_0" PORT="ap_start"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

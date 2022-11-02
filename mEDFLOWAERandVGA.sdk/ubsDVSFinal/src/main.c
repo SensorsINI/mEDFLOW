@@ -77,6 +77,9 @@
 #include "xllfifo.h"
 #include "xstreamer.h"
 
+#include "xgpio.h"
+XGpio Gpio; /* The Instance of the GPIO Driver */
+
 //#include "ff.h"
 
 #include "xeventstreamtoconstencntframestream.h"
@@ -1136,8 +1139,46 @@ static int UsbIntrExample(XScuGic *IntcInstancePtr, XUsbPs *UsbInstancePtr,
 	 * This will not really work if we want to use the USB storage
 	 * example. What can we do instead?
 	 */
-	while (NumReceivedFrames < 1) {
-		/* NOP */
+
+	/* Initialize the GPIO driver */
+	Status = XGpio_Initialize(&Gpio, XPAR_GPIO_0_DEVICE_ID);
+	if (Status != XST_SUCCESS) {
+		xil_printf("Gpio Initialization Failed\r\n");
+		return XST_FAILURE;
+	}
+
+	/* Set the direction as output */
+	XGpio_SetDataDirection(&Gpio, 1, 0);
+	XGpio_DiscreteWrite(&Gpio, 1, 3);
+
+	XGpio_SetDataDirection(&Gpio, 2, 1);
+
+	u32 RxWord, RLRRegVal, RDFORegVal, ReceiveLength;
+	u32 totalReceivedBytes = 0;
+
+	while (1) {
+		u32 generatedBytes = 2 * XGpio_DiscreteRead(&Gpio, 2); // Because every raw data is 16-bit data.
+//		int DVSFIFORemainCnt = (BufferDVSTail%FIFO_BUFFER_MAX_SIZE)- (BufferDVSHead%FIFO_BUFFER_MAX_SIZE);
+//		if(DVSFIFORemainCnt < 0)
+//		{
+//			DVSFIFORemainCnt += FIFO_BUFFER_MAX_SIZE;
+//		}
+//		int DVSFIFOWritableSize = FIFO_BUFFER_MAX_SIZE - DVSFIFORemainCnt  - 10;  // 10 is a threshold
+//		RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
+//		ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
+//		int receiveSize = (DVSFIFOWritableSize >= ReceiveLength) ? ReceiveLength : DVSFIFOWritableSize;
+//		if(DVSFIFOWritableSize <= 0)
+//		{
+//			receiveSize = 0;
+//			xil_printf("DVS FIFO is full... \n\r");
+//		}
+//		for (int i = 0; i < receiveSize; i++) {
+//			RxWord = XLlFifo_RxGetWord(&FifoInstance);
+//			push(BufferDVS, RxWord, &BufferDVSHead, &BufferDVSTail);
+//		}
+//		totalReceivedBytes += 4 * receiveSize;
+//		xil_printf("Generated %d bytes, received %d bytes, dropped %d bytes.\r\n", generatedBytes, totalReceivedBytes, generatedBytes -totalReceivedBytes);
+
 	}
 
 
@@ -1320,6 +1361,54 @@ static void XUsbPs_Ep2OutEventHandler(void *CallBackRef, u8 EpNum,
 * @note 	None.
 *
 ******************************************************************************/
+//static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
+//					u8 EventType, void *Data)
+//{
+//	XUsbPs *InstancePtr;
+//	int Status;
+//	u32	Handle;
+//
+//
+//	Xil_AssertVoid(NULL != CallBackRef);
+//
+//	InstancePtr = (XUsbPs *) CallBackRef;
+//
+//	xil_printf("XUsbPs_Ep2InEventHandler is revoked.\r\n");
+//	xil_printf("Current head and tail are %d and %d.\r\n" , BufferDVSHead%FIFO_BUFFER_MAX_SIZE, BufferDVSTail%FIFO_BUFFER_MAX_SIZE);
+//
+//	u32 BufferTmp[256] ALIGNMENT_CACHELINE;
+//	int DVSFIFORemainCnt = (BufferDVSTail%FIFO_BUFFER_MAX_SIZE)- (BufferDVSHead%FIFO_BUFFER_MAX_SIZE);
+//	if(DVSFIFORemainCnt < 0)
+//	{
+//		DVSFIFORemainCnt += FIFO_BUFFER_MAX_SIZE;
+//	}
+//	int DVSFIFOReadableSize = DVSFIFORemainCnt - 10;  // 10 is a threshold
+//	int usbSendSize = (DVSFIFOReadableSize >= 256) ? 256 : DVSFIFOReadableSize;
+//
+//	switch (EventType) {
+//	case XUSBPS_EP_EVENT_DATA_TX:
+//		if(DVSFIFOReadableSize <= 0)
+//		{
+//			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)BufferDVS, 0);
+//			xil_printf("DVS FIFO is empty...\r\n");
+//		}
+//		else
+//		{
+//			for(int i = 0; i < usbSendSize; i++)
+//			{
+//				BufferTmp[i] = pull(BufferDVS, &BufferDVSHead, &BufferDVSTail);
+//			}
+//			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)BufferTmp, usbSendSize * 4);
+//		}
+//		break;
+//
+//	default:
+//		/* Unhandled event. Ignore. */
+//		break;
+//	}
+//}
+
+
 static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 					u8 EventType, void *Data)
 {
@@ -1327,38 +1416,50 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 	int Status;
 	u32	Handle;
 
+	u32 RxWord, RLRRegVal, RDFORegVal, ReceiveLength;
+
+	static u32 totalReceivedBytes = 0;
 
 	Xil_AssertVoid(NULL != CallBackRef);
 
 	InstancePtr = (XUsbPs *) CallBackRef;
 
-	xil_printf("XUsbPs_Ep2InEventHandler is revoked.\r\n");
-	xil_printf("Current head and tail are %d and %d.\r\n" , BufferDVSHead%FIFO_BUFFER_MAX_SIZE, BufferDVSTail%FIFO_BUFFER_MAX_SIZE);
+//	xil_printf("XUsbPs_Ep2InEventHandler is revoked.\r\n");
+//	xil_printf("Current head and tail are %d and %d.\r\n" , BufferDVSHead%FIFO_BUFFER_MAX_SIZE, BufferDVSTail%FIFO_BUFFER_MAX_SIZE);
 
 	u32 BufferTmp[256] ALIGNMENT_CACHELINE;
-	int DVSFIFORemainCnt = (BufferDVSTail%FIFO_BUFFER_MAX_SIZE)- (BufferDVSHead%FIFO_BUFFER_MAX_SIZE);
-	if(DVSFIFORemainCnt < 0)
-	{
-		DVSFIFORemainCnt += FIFO_BUFFER_MAX_SIZE;
-	}
-	int DVSFIFOReadableSize = (BufferDVSTail%FIFO_BUFFER_MAX_SIZE) - DVSFIFORemainCnt - 10;  // 10 is a threshold
-	int usbSendSize = (DVSFIFOReadableSize >= 256) ? 256 : DVSFIFOReadableSize;
+//	int DVSFIFORemainCnt = (BufferDVSTail%FIFO_BUFFER_MAX_SIZE)- (BufferDVSHead%FIFO_BUFFER_MAX_SIZE);
+//	if(DVSFIFORemainCnt < 0)
+//	{
+//		DVSFIFORemainCnt += FIFO_BUFFER_MAX_SIZE;
+//	}
+//	int DVSFIFOReadableSize = DVSFIFORemainCnt - 10;  // 10 is a threshold
+//	int usbSendSize = (DVSFIFOReadableSize >= 256) ? 256 : DVSFIFOReadableSize;
+
+	RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
+	ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
+	int usbSendSize = (ReceiveLength >= 256) ? 256 : ReceiveLength;
 
 	switch (EventType) {
 	case XUSBPS_EP_EVENT_DATA_TX:
-		if(DVSFIFOReadableSize < 0)
-		{
-			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)BufferDVS, 0);
-			xil_printf("DVS FIFO is empty...\r\n");
-		}
-		else
-		{
+//		if(DVSFIFOReadableSize <= 0)
+//		{
+//			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)BufferDVS, 0);
+//			xil_printf("DVS FIFO is empty...\r\n");
+//		}
+//		else
+//		{
 			for(int i = 0; i < usbSendSize; i++)
 			{
-				BufferTmp[i] = pull(BufferDVS, &BufferDVSHead, &BufferDVSTail);
+//				BufferTmp[i] = pull(BufferDVS, &BufferDVSHead, &BufferDVSTail);
+				BufferTmp[i] = XLlFifo_RxGetWord(&FifoInstance);
 			}
 			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)BufferTmp, usbSendSize * 4);
-		}
+			u32 generatedBytes = 2 * XGpio_DiscreteRead(&Gpio, 2); // Because every raw data is 16-bit data.
+			totalReceivedBytes += usbSendSize * 4;
+//			xil_printf("Generated %d bytes, received %d bytes, dropped %d bytes.\r\n",
+//					generatedBytes, totalReceivedBytes, generatedBytes - totalReceivedBytes);
+//		}
 		break;
 
 	default:

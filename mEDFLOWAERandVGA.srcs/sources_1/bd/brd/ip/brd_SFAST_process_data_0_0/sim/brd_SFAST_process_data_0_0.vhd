@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:SFAST_process_data:1.0
--- IP Revision: 2105081823
+-- IP Revision: 2111021112
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

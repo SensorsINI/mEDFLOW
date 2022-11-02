@@ -2626,7 +2626,7 @@ If the number of packets received is one, then this register returns the value o
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Oct 28 13:54:45 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 02 17:06:40 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -2644,7 +2644,7 @@ If the number of packets received is one, then this register returns the value o
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 01 13:35:29 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 02 17:06:40 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -2664,7 +2664,7 @@ If the number of packets received is one, then this register returns the value o
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 01 13:35:29 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 02 17:06:40 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -2695,7 +2695,7 @@ If the number of packets received is one, then this register returns the value o
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Oct 28 13:54:45 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 02 17:06:40 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -2715,7 +2715,7 @@ If the number of packets received is one, then this register returns the value o
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 01 13:35:29 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 02 17:06:40 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
@@ -2733,7 +2733,7 @@ If the number of packets received is one, then this register returns the value o
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 01 21:52:54 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 02 18:17:12 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>

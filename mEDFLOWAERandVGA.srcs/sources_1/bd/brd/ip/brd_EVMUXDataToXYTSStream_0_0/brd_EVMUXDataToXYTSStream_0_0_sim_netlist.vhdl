@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
--- Date        : Thu Aug 25 12:11:12 2022
+-- Date        : Wed Nov  2 18:16:10 2022
 -- Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top brd_EVMUXDataToXYTSStream_0_0 -prefix
---               brd_EVMUXDataToXYTSStream_0_0_ brd_EVMUXDataToXYTSStream_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               E:/PhD_project/vivado_prjs/mEDFLOW/mEDFLOWAERandVGA/mEDFLOWAERandVGA.srcs/sources_1/bd/brd/ip/brd_EVMUXDataToXYTSStream_0_0/brd_EVMUXDataToXYTSStream_0_0_sim_netlist.vhdl
 -- Design      : brd_EVMUXDataToXYTSStream_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -33,6 +33,8 @@ entity brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream_config_s_axi is
     s_axi_config_AWVALID : in STD_LOGIC;
     s_axi_config_WVALID : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream_config_s_axi : entity is "EVMUXDataToXYTSStream_config_s_axi";
 end brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream_config_s_axi;
 
 architecture STRUCTURE of brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream_config_s_axi is
@@ -4155,6 +4157,8 @@ entity brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream is
   attribute C_S_AXI_CONFIG_ADDR_WIDTH of brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream : entity is 6;
   attribute C_S_AXI_CONFIG_DATA_WIDTH : integer;
   attribute C_S_AXI_CONFIG_DATA_WIDTH of brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream : entity is 32;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream : entity is "EVMUXDataToXYTSStream";
 end brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream;
 
 architecture STRUCTURE of brd_EVMUXDataToXYTSStream_0_0_EVMUXDataToXYTSStream is
