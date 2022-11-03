@@ -39,33 +39,22 @@ entity bd_13e4 is
     SLOT_5_AXIS_tlast : in STD_LOGIC;
     SLOT_5_AXIS_tready : in STD_LOGIC;
     SLOT_5_AXIS_tvalid : in STD_LOGIC;
-    SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_6_AXIS_tlast : in STD_LOGIC;
     SLOT_6_AXIS_tready : in STD_LOGIC;
     SLOT_6_AXIS_tvalid : in STD_LOGIC;
-    SLOT_7_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    SLOT_7_AXIS_tlast : in STD_LOGIC;
-    SLOT_7_AXIS_tready : in STD_LOGIC;
-    SLOT_7_AXIS_tvalid : in STD_LOGIC;
     clk : in STD_LOGIC;
-    probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe0 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe10 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe13 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe14 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe15 : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe4 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe7 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe8 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe2 : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    probe3 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe7 : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
     resetn : in STD_LOGIC
   );
@@ -79,62 +68,51 @@ architecture STRUCTURE of bd_13e4 is
   component bd_13e4_ila_lib_0 is
   port (
     clk : in STD_LOGIC;
-    probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe0 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe4 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe7 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe8 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe2 : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    probe3 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe7 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe10 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe13 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe12 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe13 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe14 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe15 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe16 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe19 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe20 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe18 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe19 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe20 : in STD_LOGIC_VECTOR ( 23 downto 0 );
     probe21 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe22 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe23 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe24 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe25 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe23 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe24 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe25 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     probe26 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe27 : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    probe27 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe28 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe29 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe30 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe31 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe32 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe33 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe29 : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    probe30 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe31 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe32 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe33 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe34 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe35 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe36 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe37 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe36 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe37 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe38 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe39 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe40 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe41 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe40 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe41 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe42 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe43 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe44 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe45 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe46 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe47 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe48 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe49 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe50 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe51 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe52 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe53 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe54 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe55 : in STD_LOGIC_VECTOR ( 0 to 0 )
+    probe44 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component bd_13e4_ila_lib_0;
   component bd_13e4_g_inst_0 is
@@ -172,12 +150,8 @@ architecture STRUCTURE of bd_13e4 is
     slot_5_axis_tlast : in STD_LOGIC;
     slot_6_axis_tvalid : in STD_LOGIC;
     slot_6_axis_tready : in STD_LOGIC;
-    slot_6_axis_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    slot_6_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     slot_6_axis_tlast : in STD_LOGIC;
-    slot_7_axis_tvalid : in STD_LOGIC;
-    slot_7_axis_tready : in STD_LOGIC;
-    slot_7_axis_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    slot_7_axis_tlast : in STD_LOGIC;
     m_slot_0_axis_tvalid : out STD_LOGIC;
     m_slot_0_axis_tready : out STD_LOGIC;
     m_slot_0_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -209,12 +183,8 @@ architecture STRUCTURE of bd_13e4 is
     m_slot_5_axis_tlast : out STD_LOGIC;
     m_slot_6_axis_tvalid : out STD_LOGIC;
     m_slot_6_axis_tready : out STD_LOGIC;
-    m_slot_6_axis_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_slot_6_axis_tlast : out STD_LOGIC;
-    m_slot_7_axis_tvalid : out STD_LOGIC;
-    m_slot_7_axis_tready : out STD_LOGIC;
-    m_slot_7_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    m_slot_7_axis_tlast : out STD_LOGIC
+    m_slot_6_axis_tdata : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    m_slot_6_axis_tlast : out STD_LOGIC
   );
   end component bd_13e4_g_inst_0;
   signal Conn1_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -242,14 +212,10 @@ architecture STRUCTURE of bd_13e4 is
   signal Conn5_TLAST : STD_LOGIC;
   signal Conn5_TREADY : STD_LOGIC;
   signal Conn5_TVALID : STD_LOGIC;
-  signal Conn6_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal Conn6_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Conn6_TLAST : STD_LOGIC;
   signal Conn6_TREADY : STD_LOGIC;
   signal Conn6_TVALID : STD_LOGIC;
-  signal Conn7_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal Conn7_TLAST : STD_LOGIC;
-  signal Conn7_TREADY : STD_LOGIC;
-  signal Conn7_TVALID : STD_LOGIC;
   signal Conn_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal Conn_TLAST : STD_LOGIC;
   signal Conn_TREADY : STD_LOGIC;
@@ -284,32 +250,21 @@ architecture STRUCTURE of bd_13e4 is
   signal net_slot_5_axis_tlast : STD_LOGIC;
   signal net_slot_5_axis_tready : STD_LOGIC;
   signal net_slot_5_axis_tvalid : STD_LOGIC;
-  signal net_slot_6_axis_tdata : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal net_slot_6_axis_tdata : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal net_slot_6_axis_tlast : STD_LOGIC;
   signal net_slot_6_axis_tready : STD_LOGIC;
   signal net_slot_6_axis_tvalid : STD_LOGIC;
-  signal net_slot_7_axis_tdata : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal net_slot_7_axis_tlast : STD_LOGIC;
-  signal net_slot_7_axis_tready : STD_LOGIC;
-  signal net_slot_7_axis_tvalid : STD_LOGIC;
-  signal probe0_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe10_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe11_1 : STD_LOGIC_VECTOR ( 63 downto 0 );
-  signal probe12_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe13_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe14_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe15_1 : STD_LOGIC_VECTOR ( 10 downto 0 );
-  signal probe16_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe17_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe18_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal probe0_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal probe10_1 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal probe11_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal probe1_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe2_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe3_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe4_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe5_1 : STD_LOGIC_VECTOR ( 63 downto 0 );
-  signal probe6_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe7_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal probe8_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal probe2_1 : STD_LOGIC_VECTOR ( 63 downto 0 );
+  signal probe3_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal probe4_1 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal probe5_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal probe6_1 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal probe7_1 : STD_LOGIC_VECTOR ( 10 downto 0 );
+  signal probe8_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal probe9_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal resetn_1 : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
@@ -334,12 +289,9 @@ architecture STRUCTURE of bd_13e4 is
   attribute X_INTERFACE_INFO of SLOT_6_AXIS_tlast : signal is "xilinx.com:interface:axis:1.0 SLOT_6_AXIS TLAST";
   attribute X_INTERFACE_INFO of SLOT_6_AXIS_tready : signal is "xilinx.com:interface:axis:1.0 SLOT_6_AXIS TREADY";
   attribute X_INTERFACE_INFO of SLOT_6_AXIS_tvalid : signal is "xilinx.com:interface:axis:1.0 SLOT_6_AXIS TVALID";
-  attribute X_INTERFACE_INFO of SLOT_7_AXIS_tlast : signal is "xilinx.com:interface:axis:1.0 SLOT_7_AXIS TLAST";
-  attribute X_INTERFACE_INFO of SLOT_7_AXIS_tready : signal is "xilinx.com:interface:axis:1.0 SLOT_7_AXIS TREADY";
-  attribute X_INTERFACE_INFO of SLOT_7_AXIS_tvalid : signal is "xilinx.com:interface:axis:1.0 SLOT_7_AXIS TVALID";
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 CLK.CLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_BUSIF SLOT_0_AXIS:SLOT_1_AXIS:SLOT_2_AXIS:SLOT_3_AXIS:SLOT_4_AXIS:SLOT_5_AXIS:SLOT_6_AXIS:SLOT_7_AXIS, ASSOCIATED_RESET resetn, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 100000000, PHASE 0.000";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_BUSIF SLOT_0_AXIS:SLOT_1_AXIS:SLOT_2_AXIS:SLOT_3_AXIS:SLOT_4_AXIS:SLOT_5_AXIS:SLOT_6_AXIS, ASSOCIATED_RESET resetn, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 100000000, PHASE 0.000";
   attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 RST.RESETN RST";
   attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME RST.RESETN, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of SLOT_0_AXIS_tdata : signal is "xilinx.com:interface:axis:1.0 SLOT_0_AXIS TDATA";
@@ -360,9 +312,7 @@ architecture STRUCTURE of bd_13e4 is
   attribute X_INTERFACE_INFO of SLOT_5_AXIS_tdata : signal is "xilinx.com:interface:axis:1.0 SLOT_5_AXIS TDATA";
   attribute X_INTERFACE_PARAMETER of SLOT_5_AXIS_tdata : signal is "XIL_INTERFACENAME SLOT_5_AXIS, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 10} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 16}, PHASE 0.000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0";
   attribute X_INTERFACE_INFO of SLOT_6_AXIS_tdata : signal is "xilinx.com:interface:axis:1.0 SLOT_6_AXIS TDATA";
-  attribute X_INTERFACE_PARAMETER of SLOT_6_AXIS_tdata : signal is "XIL_INTERFACENAME SLOT_6_AXIS, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0";
-  attribute X_INTERFACE_INFO of SLOT_7_AXIS_tdata : signal is "xilinx.com:interface:axis:1.0 SLOT_7_AXIS TDATA";
-  attribute X_INTERFACE_PARAMETER of SLOT_7_AXIS_tdata : signal is "XIL_INTERFACENAME SLOT_7_AXIS, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 16}, PHASE 0.000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0";
+  attribute X_INTERFACE_PARAMETER of SLOT_6_AXIS_tdata : signal is "XIL_INTERFACENAME SLOT_6_AXIS, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 16}, PHASE 0.000, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0";
 begin
   Conn1_TDATA(15 downto 0) <= SLOT_1_AXIS_tdata(15 downto 0);
   Conn1_TLAST <= SLOT_1_AXIS_tlast;
@@ -389,37 +339,26 @@ begin
   Conn5_TLAST <= SLOT_5_AXIS_tlast;
   Conn5_TREADY <= SLOT_5_AXIS_tready;
   Conn5_TVALID <= SLOT_5_AXIS_tvalid;
-  Conn6_TDATA(31 downto 0) <= SLOT_6_AXIS_tdata(31 downto 0);
+  Conn6_TDATA(15 downto 0) <= SLOT_6_AXIS_tdata(15 downto 0);
   Conn6_TLAST <= SLOT_6_AXIS_tlast;
   Conn6_TREADY <= SLOT_6_AXIS_tready;
   Conn6_TVALID <= SLOT_6_AXIS_tvalid;
-  Conn7_TDATA(15 downto 0) <= SLOT_7_AXIS_tdata(15 downto 0);
-  Conn7_TLAST <= SLOT_7_AXIS_tlast;
-  Conn7_TREADY <= SLOT_7_AXIS_tready;
-  Conn7_TVALID <= SLOT_7_AXIS_tvalid;
   Conn_TDATA(15 downto 0) <= SLOT_0_AXIS_tdata(15 downto 0);
   Conn_TLAST <= SLOT_0_AXIS_tlast;
   Conn_TREADY <= SLOT_0_AXIS_tready;
   Conn_TVALID <= SLOT_0_AXIS_tvalid;
   clk_1 <= clk;
-  probe0_1(0) <= probe0(0);
-  probe10_1(15 downto 0) <= probe10(15 downto 0);
-  probe11_1(63 downto 0) <= probe11(63 downto 0);
-  probe12_1(0) <= probe12(0);
-  probe13_1(15 downto 0) <= probe13(15 downto 0);
-  probe14_1(0) <= probe14(0);
-  probe15_1(10 downto 0) <= probe15(10 downto 0);
-  probe16_1(0) <= probe16(0);
-  probe17_1(0) <= probe17(0);
-  probe18_1(31 downto 0) <= probe18(31 downto 0);
+  probe0_1(15 downto 0) <= probe0(15 downto 0);
+  probe10_1(0) <= probe10(0);
+  probe11_1(0) <= probe11(0);
   probe1_1(15 downto 0) <= probe1(15 downto 0);
-  probe2_1(15 downto 0) <= probe2(15 downto 0);
-  probe3_1(0) <= probe3(0);
-  probe4_1(15 downto 0) <= probe4(15 downto 0);
-  probe5_1(63 downto 0) <= probe5(63 downto 0);
-  probe6_1(15 downto 0) <= probe6(15 downto 0);
-  probe7_1(15 downto 0) <= probe7(15 downto 0);
-  probe8_1(15 downto 0) <= probe8(15 downto 0);
+  probe2_1(63 downto 0) <= probe2(63 downto 0);
+  probe3_1(15 downto 0) <= probe3(15 downto 0);
+  probe4_1(0) <= probe4(0);
+  probe5_1(15 downto 0) <= probe5(15 downto 0);
+  probe6_1(0) <= probe6(0);
+  probe7_1(10 downto 0) <= probe7(10 downto 0);
+  probe8_1(0) <= probe8(0);
   probe9_1(0) <= probe9(0);
   resetn_1 <= resetn;
 g_inst: component bd_13e4_g_inst_0
@@ -455,14 +394,10 @@ g_inst: component bd_13e4_g_inst_0
       m_slot_5_axis_tlast => net_slot_5_axis_tlast,
       m_slot_5_axis_tready => net_slot_5_axis_tready,
       m_slot_5_axis_tvalid => net_slot_5_axis_tvalid,
-      m_slot_6_axis_tdata(31 downto 0) => net_slot_6_axis_tdata(31 downto 0),
+      m_slot_6_axis_tdata(15 downto 0) => net_slot_6_axis_tdata(15 downto 0),
       m_slot_6_axis_tlast => net_slot_6_axis_tlast,
       m_slot_6_axis_tready => net_slot_6_axis_tready,
       m_slot_6_axis_tvalid => net_slot_6_axis_tvalid,
-      m_slot_7_axis_tdata(15 downto 0) => net_slot_7_axis_tdata(15 downto 0),
-      m_slot_7_axis_tlast => net_slot_7_axis_tlast,
-      m_slot_7_axis_tready => net_slot_7_axis_tready,
-      m_slot_7_axis_tvalid => net_slot_7_axis_tvalid,
       slot_0_axis_tdata(15 downto 0) => Conn_TDATA(15 downto 0),
       slot_0_axis_tlast => Conn_TLAST,
       slot_0_axis_tready => Conn_TREADY,
@@ -492,73 +427,58 @@ g_inst: component bd_13e4_g_inst_0
       slot_5_axis_tlast => Conn5_TLAST,
       slot_5_axis_tready => Conn5_TREADY,
       slot_5_axis_tvalid => Conn5_TVALID,
-      slot_6_axis_tdata(31 downto 0) => Conn6_TDATA(31 downto 0),
+      slot_6_axis_tdata(15 downto 0) => Conn6_TDATA(15 downto 0),
       slot_6_axis_tlast => Conn6_TLAST,
       slot_6_axis_tready => Conn6_TREADY,
-      slot_6_axis_tvalid => Conn6_TVALID,
-      slot_7_axis_tdata(15 downto 0) => Conn7_TDATA(15 downto 0),
-      slot_7_axis_tlast => Conn7_TLAST,
-      slot_7_axis_tready => Conn7_TREADY,
-      slot_7_axis_tvalid => Conn7_TVALID
+      slot_6_axis_tvalid => Conn6_TVALID
     );
 ila_lib: component bd_13e4_ila_lib_0
      port map (
       clk => clk_1,
-      probe0(0) => probe0_1(0),
+      probe0(15 downto 0) => probe0_1(15 downto 0),
       probe1(15 downto 0) => probe1_1(15 downto 0),
-      probe10(15 downto 0) => probe10_1(15 downto 0),
-      probe11(63 downto 0) => probe11_1(63 downto 0),
-      probe12(0) => probe12_1(0),
-      probe13(15 downto 0) => probe13_1(15 downto 0),
-      probe14(0) => probe14_1(0),
-      probe15(0) => probe15_1(0),
-      probe16(0) => probe16_1(0),
-      probe17(0) => probe17_1(0),
-      probe18(31 downto 0) => probe18_1(31 downto 0),
-      probe19(15 downto 0) => net_slot_0_axis_tdata(15 downto 0),
-      probe2(15 downto 0) => probe2_1(15 downto 0),
-      probe20(0) => net_slot_0_axis_tvalid,
-      probe21(0) => net_slot_0_axis_tready,
-      probe22(0) => net_slot_0_axis_tlast,
-      probe23(15 downto 0) => net_slot_1_axis_tdata(15 downto 0),
-      probe24(0) => net_slot_1_axis_tvalid,
-      probe25(0) => net_slot_1_axis_tready,
-      probe26(0) => net_slot_1_axis_tlast,
-      probe27(23 downto 0) => net_slot_2_axis_tdata(23 downto 0),
-      probe28(0) => net_slot_2_axis_tdest(0),
-      probe29(0) => net_slot_2_axis_tid(0),
-      probe3(0) => probe3_1(0),
-      probe30(2 downto 0) => net_slot_2_axis_tkeep(2 downto 0),
-      probe31(2 downto 0) => net_slot_2_axis_tstrb(2 downto 0),
-      probe32(1 downto 0) => net_slot_2_axis_tuser(1 downto 0),
-      probe33(0) => net_slot_2_axis_tvalid,
-      probe34(0) => net_slot_2_axis_tready,
-      probe35(0) => net_slot_2_axis_tlast,
-      probe36(63 downto 0) => net_slot_3_axis_tdata(63 downto 0),
-      probe37(0) => net_slot_3_axis_tvalid,
-      probe38(0) => net_slot_3_axis_tready,
-      probe39(0) => net_slot_3_axis_tlast,
-      probe4(15 downto 0) => probe4_1(15 downto 0),
-      probe40(31 downto 0) => net_slot_4_axis_tdata(31 downto 0),
-      probe41(0) => net_slot_4_axis_tvalid,
-      probe42(0) => net_slot_4_axis_tready,
-      probe43(0) => net_slot_4_axis_tlast,
-      probe44(15 downto 0) => net_slot_5_axis_tdata(15 downto 0),
-      probe45(0) => net_slot_5_axis_tvalid,
-      probe46(0) => net_slot_5_axis_tready,
-      probe47(0) => net_slot_5_axis_tlast,
-      probe48(31 downto 0) => net_slot_6_axis_tdata(31 downto 0),
-      probe49(0) => net_slot_6_axis_tvalid,
-      probe5(63 downto 0) => probe5_1(63 downto 0),
-      probe50(0) => net_slot_6_axis_tready,
-      probe51(0) => net_slot_6_axis_tlast,
-      probe52(15 downto 0) => net_slot_7_axis_tdata(15 downto 0),
-      probe53(0) => net_slot_7_axis_tvalid,
-      probe54(0) => net_slot_7_axis_tready,
-      probe55(0) => net_slot_7_axis_tlast,
-      probe6(15 downto 0) => probe6_1(15 downto 0),
-      probe7(15 downto 0) => probe7_1(15 downto 0),
-      probe8(15 downto 0) => probe8_1(15 downto 0),
+      probe10(0) => probe10_1(0),
+      probe11(0) => probe11_1(0),
+      probe12(15 downto 0) => net_slot_0_axis_tdata(15 downto 0),
+      probe13(0) => net_slot_0_axis_tvalid,
+      probe14(0) => net_slot_0_axis_tready,
+      probe15(0) => net_slot_0_axis_tlast,
+      probe16(15 downto 0) => net_slot_1_axis_tdata(15 downto 0),
+      probe17(0) => net_slot_1_axis_tvalid,
+      probe18(0) => net_slot_1_axis_tready,
+      probe19(0) => net_slot_1_axis_tlast,
+      probe2(63 downto 0) => probe2_1(63 downto 0),
+      probe20(23 downto 0) => net_slot_2_axis_tdata(23 downto 0),
+      probe21(0) => net_slot_2_axis_tdest(0),
+      probe22(0) => net_slot_2_axis_tid(0),
+      probe23(2 downto 0) => net_slot_2_axis_tkeep(2 downto 0),
+      probe24(2 downto 0) => net_slot_2_axis_tstrb(2 downto 0),
+      probe25(1 downto 0) => net_slot_2_axis_tuser(1 downto 0),
+      probe26(0) => net_slot_2_axis_tvalid,
+      probe27(0) => net_slot_2_axis_tready,
+      probe28(0) => net_slot_2_axis_tlast,
+      probe29(63 downto 0) => net_slot_3_axis_tdata(63 downto 0),
+      probe3(15 downto 0) => probe3_1(15 downto 0),
+      probe30(0) => net_slot_3_axis_tvalid,
+      probe31(0) => net_slot_3_axis_tready,
+      probe32(0) => net_slot_3_axis_tlast,
+      probe33(31 downto 0) => net_slot_4_axis_tdata(31 downto 0),
+      probe34(0) => net_slot_4_axis_tvalid,
+      probe35(0) => net_slot_4_axis_tready,
+      probe36(0) => net_slot_4_axis_tlast,
+      probe37(15 downto 0) => net_slot_5_axis_tdata(15 downto 0),
+      probe38(0) => net_slot_5_axis_tvalid,
+      probe39(0) => net_slot_5_axis_tready,
+      probe4(0) => probe4_1(0),
+      probe40(0) => net_slot_5_axis_tlast,
+      probe41(15 downto 0) => net_slot_6_axis_tdata(15 downto 0),
+      probe42(0) => net_slot_6_axis_tvalid,
+      probe43(0) => net_slot_6_axis_tready,
+      probe44(0) => net_slot_6_axis_tlast,
+      probe5(15 downto 0) => probe5_1(15 downto 0),
+      probe6(0) => probe6_1(0),
+      probe7(0) => probe7_1(0),
+      probe8(0) => probe8_1(0),
       probe9(0) => probe9_1(0)
     );
 end STRUCTURE;

@@ -39,33 +39,22 @@ entity bd_13e4_wrapper is
     SLOT_5_AXIS_tlast : in STD_LOGIC;
     SLOT_5_AXIS_tready : in STD_LOGIC;
     SLOT_5_AXIS_tvalid : in STD_LOGIC;
-    SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_6_AXIS_tlast : in STD_LOGIC;
     SLOT_6_AXIS_tready : in STD_LOGIC;
     SLOT_6_AXIS_tvalid : in STD_LOGIC;
-    SLOT_7_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    SLOT_7_AXIS_tlast : in STD_LOGIC;
-    SLOT_7_AXIS_tready : in STD_LOGIC;
-    SLOT_7_AXIS_tvalid : in STD_LOGIC;
     clk : in STD_LOGIC;
-    probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe0 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe10 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe13 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe14 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe15 : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe4 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe7 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe8 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe2 : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    probe3 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe7 : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
     resetn : in STD_LOGIC
   );
@@ -75,25 +64,18 @@ architecture STRUCTURE of bd_13e4_wrapper is
   component bd_13e4 is
   port (
     clk : in STD_LOGIC;
-    probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe0 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe2 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe4 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe5 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe6 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe7 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe8 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe2 : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    probe3 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe5 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe6 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe7 : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe10 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe13 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe14 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe15 : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
     resetn : in STD_LOGIC;
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
@@ -124,14 +106,10 @@ architecture STRUCTURE of bd_13e4_wrapper is
     SLOT_5_AXIS_tlast : in STD_LOGIC;
     SLOT_5_AXIS_tready : in STD_LOGIC;
     SLOT_5_AXIS_tvalid : in STD_LOGIC;
-    SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_6_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_6_AXIS_tlast : in STD_LOGIC;
     SLOT_6_AXIS_tready : in STD_LOGIC;
-    SLOT_6_AXIS_tvalid : in STD_LOGIC;
-    SLOT_7_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    SLOT_7_AXIS_tlast : in STD_LOGIC;
-    SLOT_7_AXIS_tready : in STD_LOGIC;
-    SLOT_7_AXIS_tvalid : in STD_LOGIC
+    SLOT_6_AXIS_tvalid : in STD_LOGIC
   );
   end component bd_13e4;
 begin
@@ -166,33 +144,22 @@ bd_13e4_i: component bd_13e4
       SLOT_5_AXIS_tlast => SLOT_5_AXIS_tlast,
       SLOT_5_AXIS_tready => SLOT_5_AXIS_tready,
       SLOT_5_AXIS_tvalid => SLOT_5_AXIS_tvalid,
-      SLOT_6_AXIS_tdata(31 downto 0) => SLOT_6_AXIS_tdata(31 downto 0),
+      SLOT_6_AXIS_tdata(15 downto 0) => SLOT_6_AXIS_tdata(15 downto 0),
       SLOT_6_AXIS_tlast => SLOT_6_AXIS_tlast,
       SLOT_6_AXIS_tready => SLOT_6_AXIS_tready,
       SLOT_6_AXIS_tvalid => SLOT_6_AXIS_tvalid,
-      SLOT_7_AXIS_tdata(15 downto 0) => SLOT_7_AXIS_tdata(15 downto 0),
-      SLOT_7_AXIS_tlast => SLOT_7_AXIS_tlast,
-      SLOT_7_AXIS_tready => SLOT_7_AXIS_tready,
-      SLOT_7_AXIS_tvalid => SLOT_7_AXIS_tvalid,
       clk => clk,
-      probe0(0) => probe0(0),
+      probe0(15 downto 0) => probe0(15 downto 0),
       probe1(15 downto 0) => probe1(15 downto 0),
-      probe10(15 downto 0) => probe10(15 downto 0),
-      probe11(63 downto 0) => probe11(63 downto 0),
-      probe12(0) => probe12(0),
-      probe13(15 downto 0) => probe13(15 downto 0),
-      probe14(0) => probe14(0),
-      probe15(10 downto 0) => probe15(10 downto 0),
-      probe16(0) => probe16(0),
-      probe17(0) => probe17(0),
-      probe18(31 downto 0) => probe18(31 downto 0),
-      probe2(15 downto 0) => probe2(15 downto 0),
-      probe3(0) => probe3(0),
-      probe4(15 downto 0) => probe4(15 downto 0),
-      probe5(63 downto 0) => probe5(63 downto 0),
-      probe6(15 downto 0) => probe6(15 downto 0),
-      probe7(15 downto 0) => probe7(15 downto 0),
-      probe8(15 downto 0) => probe8(15 downto 0),
+      probe10(0) => probe10(0),
+      probe11(0) => probe11(0),
+      probe2(63 downto 0) => probe2(63 downto 0),
+      probe3(15 downto 0) => probe3(15 downto 0),
+      probe4(0) => probe4(0),
+      probe5(15 downto 0) => probe5(15 downto 0),
+      probe6(0) => probe6(0),
+      probe7(10 downto 0) => probe7(10 downto 0),
+      probe8(0) => probe8(0),
       probe9(0) => probe9(0),
       resetn => resetn
     );
