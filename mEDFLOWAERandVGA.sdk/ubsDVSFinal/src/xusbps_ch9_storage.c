@@ -327,7 +327,7 @@ u32 XUsbPs_Ch9SetupStrDescReply(u8 *BufPtr, u32 BufLen, u8 Index)
 		"UNUSED",
 		"INI, UZH-ETHZ",
 		"mEDFLOW DVS",
-		"2A49876D9CC1AA4",
+		"designed by Min",
 		"Default Configuration",
 		"Default Interface",
 	};

@@ -27,10 +27,28 @@
 #define PLATFORM_ZYNQ
  
 /* Definitions for sleep timer configuration */
-#define XSLEEP_TIMER_IS_DEFAULT_TIMER
  
  
 /******************************************************************/
+/* Definitions for driver EVABMOFSTREAMWITHCONTROL */
+#define XPAR_XEVABMOFSTREAMWITHCONTROL_NUM_INSTANCES 1
+
+/* Definitions for peripheral EVABMOFSTREAMWITHCON_0 */
+#define XPAR_EVABMOFSTREAMWITHCON_0_DEVICE_ID 0
+#define XPAR_EVABMOFSTREAMWITHCON_0_S_AXI_CONFIG_BASEADDR 0x40000000
+#define XPAR_EVABMOFSTREAMWITHCON_0_S_AXI_CONFIG_HIGHADDR 0x4000FFFF
+
+
+/******************************************************************/
+
+/* Canonical definitions for peripheral EVABMOFSTREAMWITHCON_0 */
+#define XPAR_XEVABMOFSTREAMWITHCONTROL_0_DEVICE_ID XPAR_EVABMOFSTREAMWITHCON_0_DEVICE_ID
+#define XPAR_XEVABMOFSTREAMWITHCONTROL_0_S_AXI_CONFIG_BASEADDR 0x40000000
+#define XPAR_XEVABMOFSTREAMWITHCONTROL_0_S_AXI_CONFIG_HIGHADDR 0x4000FFFF
+
+
+/******************************************************************/
+
 /* Definitions for driver EVMUXDATATOXYTSSTREAM */
 #define XPAR_XEVMUXDATATOXYTSSTREAM_NUM_INSTANCES 1
 

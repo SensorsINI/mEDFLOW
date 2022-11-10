@@ -809,7 +809,7 @@ static int SetupInterruptSystem(XScuGic *IntcInstancePtr,
 	if (Status != XST_SUCCESS) {
 		return XST_FAILURE;
 	}
-	XScuGic_SetPriorityTriggerType(IntcInstancePtr, FifoIntrId, 0xA0, 0x3);
+//	XScuGic_SetPriorityTriggerType(IntcInstancePtr, FifoIntrId, 0xF0, 0x3);
 
 	Xil_ExceptionInit();
 	/*
@@ -830,17 +830,17 @@ static int SetupInterruptSystem(XScuGic *IntcInstancePtr,
 	if (Status != XST_SUCCESS) {
 		return Status;
 	}
-	Status = XScuGic_Connect(IntcInstancePtr, FifoIntrId,
-				(Xil_InterruptHandler)FifoHandler,
-				&FifoInstance);
-	if (Status != XST_SUCCESS) {
-		return Status;
-	}
+//	Status = XScuGic_Connect(IntcInstancePtr, FifoIntrId,
+//				(Xil_InterruptHandler)FifoHandler,
+//				&FifoInstance);
+//	if (Status != XST_SUCCESS) {
+//		return Status;
+//	}
 	/*
 	 * Enable the interrupt for usb and axi stream fifo.
 	 */
 	XScuGic_Enable(IntcInstancePtr, UsbIntrId);
-	XScuGic_Enable(IntcInstancePtr, FifoIntrId);
+//	XScuGic_Enable(IntcInstancePtr, FifoIntrId);
 
 	/*
 	 * Enable interrupts in the Processor.

@@ -513,68 +513,23 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_LEDShifter_0_0/brd_LEDShifter_0_0.xci">
-          <Proxy FileSetName="brd_LEDShifter_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_1_0/brd_util_vector_logic_1_0.xci">
+          <Proxy FileSetName="brd_util_vector_logic_1_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_axi_gpio_0_0/brd_axi_gpio_0_0.xci">
-          <Proxy FileSetName="brd_axi_gpio_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_axi_vdma_0_0/brd_axi_vdma_0_0.xci">
-          <Proxy FileSetName="brd_axi_vdma_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_ZERO_0/brd_const_ZERO_0.xci">
-          <Proxy FileSetName="brd_const_ZERO_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_testAERDVSSM_0_0/brd_testAERDVSSM_0_0.xci">
-          <Proxy FileSetName="brd_testAERDVSSM_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_EVMUXDataToXYTSStream_0_0/brd_EVMUXDataToXYTSStream_0_0.xci">
-          <Proxy FileSetName="brd_EVMUXDataToXYTSStream_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_system_ila_0_0_1/brd_system_ila_0_0.xci">
-          <Proxy FileSetName="brd_system_ila_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xbar_0/brd_xbar_0.xci">
-          <Proxy FileSetName="brd_xbar_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlslice_0_0/brd_xlslice_0_0.xci">
-          <Proxy FileSetName="brd_xlslice_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_proc_sys_reset_1_0/brd_proc_sys_reset_1_0.xci">
-          <Proxy FileSetName="brd_proc_sys_reset_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_processing_system7_0_0/brd_processing_system7_0_0.xci">
-          <Proxy FileSetName="brd_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_eventStreamToConstEn_0_1/brd_eventStreamToConstEn_0_1.xci">
-          <Proxy FileSetName="brd_eventStreamToConstEn_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_HIGH_0/brd_const_HIGH_0.xci">
-          <Proxy FileSetName="brd_const_HIGH_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_VCC_0/brd_const_VCC_0.xci">
-          <Proxy FileSetName="brd_const_VCC_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_proc_sys_reset_0_0/brd_proc_sys_reset_0_0.xci">
-          <Proxy FileSetName="brd_proc_sys_reset_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_v_axi4s_vid_out_0_0/brd_v_axi4s_vid_out_0_0.xci">
-          <Proxy FileSetName="brd_v_axi4s_vid_out_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_v_tc_0_0/brd_v_tc_0_0.xci">
-          <Proxy FileSetName="brd_v_tc_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_2/brd_util_vector_logic_0_2.xci">
-          <Proxy FileSetName="brd_util_vector_logic_0_2"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_SFAST_process_data_0_0/brd_SFAST_process_data_0_0.xci">
+          <Proxy FileSetName="brd_SFAST_process_data_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlconstant_0_0/brd_xlconstant_0_0.xci">
           <Proxy FileSetName="brd_xlconstant_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_c_counter_binary_0_0/brd_c_counter_binary_0_0.xci">
-          <Proxy FileSetName="brd_c_counter_binary_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_2/brd_util_vector_logic_0_2.xci">
+          <Proxy FileSetName="brd_util_vector_logic_0_2"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlslice_0_1/brd_xlslice_0_1.xci">
           <Proxy FileSetName="brd_xlslice_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_c_counter_binary_0_0/brd_c_counter_binary_0_0.xci">
+          <Proxy FileSetName="brd_c_counter_binary_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_1/brd_util_vector_logic_0_1.xci">
           <Proxy FileSetName="brd_util_vector_logic_0_1"/>
@@ -582,14 +537,59 @@
         <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_0_0/brd_util_vector_logic_0_0.xci">
           <Proxy FileSetName="brd_util_vector_logic_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_util_vector_logic_1_0/brd_util_vector_logic_1_0.xci">
-          <Proxy FileSetName="brd_util_vector_logic_1_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_axi_vdma_0_0/brd_axi_vdma_0_0.xci">
+          <Proxy FileSetName="brd_axi_vdma_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_SFAST_process_data_0_0/brd_SFAST_process_data_0_0.xci">
-          <Proxy FileSetName="brd_SFAST_process_data_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_axi_gpio_0_0/brd_axi_gpio_0_0.xci">
+          <Proxy FileSetName="brd_axi_gpio_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_XYTSStreamToRawStream_0_0/brd_XYTSStreamToRawStream_0_0.xci">
-          <Proxy FileSetName="brd_XYTSStreamToRawStream_0_0"/>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_LEDShifter_0_0/brd_LEDShifter_0_0.xci">
+          <Proxy FileSetName="brd_LEDShifter_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_v_axi4s_vid_out_0_0/brd_v_axi4s_vid_out_0_0.xci">
+          <Proxy FileSetName="brd_v_axi4s_vid_out_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_proc_sys_reset_1_0/brd_proc_sys_reset_1_0.xci">
+          <Proxy FileSetName="brd_proc_sys_reset_1_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_v_tc_0_0/brd_v_tc_0_0.xci">
+          <Proxy FileSetName="brd_v_tc_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_ZERO_0/brd_const_ZERO_0.xci">
+          <Proxy FileSetName="brd_const_ZERO_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xlslice_0_0/brd_xlslice_0_0.xci">
+          <Proxy FileSetName="brd_xlslice_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_testAERDVSSM_0_0/brd_testAERDVSSM_0_0.xci">
+          <Proxy FileSetName="brd_testAERDVSSM_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_eventStreamToConstEn_0_1/brd_eventStreamToConstEn_0_1.xci">
+          <Proxy FileSetName="brd_eventStreamToConstEn_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_proc_sys_reset_0_0/brd_proc_sys_reset_0_0.xci">
+          <Proxy FileSetName="brd_proc_sys_reset_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_system_ila_0_0_1/brd_system_ila_0_0.xci">
+          <Proxy FileSetName="brd_system_ila_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_VCC_0/brd_const_VCC_0.xci">
+          <Proxy FileSetName="brd_const_VCC_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_processing_system7_0_0/brd_processing_system7_0_0.xci">
+          <Proxy FileSetName="brd_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_xbar_0/brd_xbar_0.xci">
+          <Proxy FileSetName="brd_xbar_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_EVMUXDataToXYTSStream_0_0/brd_EVMUXDataToXYTSStream_0_0.xci">
+          <Proxy FileSetName="brd_EVMUXDataToXYTSStream_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_const_HIGH_0/brd_const_HIGH_0.xci">
+          <Proxy FileSetName="brd_const_HIGH_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="brd.bd" FileRelPathName="ip/brd_EVABMOFStreamWithCon_0_0/brd_EVABMOFStreamWithCon_0_0.xci">
+          <Proxy FileSetName="brd_EVABMOFStreamWithCon_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/brd/hdl/brd_wrapper.vhd">
@@ -1411,9 +1411,9 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="brd_XYTSStreamToRawStream_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/brd_XYTSStreamToRawStream_0_0">
+    <FileSet Name="brd_EVABMOFStreamWithCon_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/brd_EVABMOFStreamWithCon_0_0">
       <Config>
-        <Option Name="TopModule" Val="brd_XYTSStreamToRawStream_0_0"/>
+        <Option Name="TopModule" Val="brd_EVABMOFStreamWithCon_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -1671,7 +1671,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="brd_XYTSStreamToRawStream_0_0_synth_1" Type="Ft3:Synth" SrcSet="brd_XYTSStreamToRawStream_0_0" Part="xc7z035ffg676-2" ConstrsSet="brd_XYTSStreamToRawStream_0_0" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/brd_XYTSStreamToRawStream_0_0_synth_1" IncludeInArchive="true">
+    <Run Id="brd_EVABMOFStreamWithCon_0_0_synth_1" Type="Ft3:Synth" SrcSet="brd_EVABMOFStreamWithCon_0_0" Part="xc7z035ffg676-2" ConstrsSet="brd_EVABMOFStreamWithCon_0_0" Description="" WriteIncrSynthDcp="false" Dir="$PRUNDIR/brd_EVABMOFStreamWithCon_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="default" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
@@ -2097,7 +2097,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="brd_XYTSStreamToRawStream_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="brd_XYTSStreamToRawStream_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="brd_XYTSStreamToRawStream_0_0_synth_1" IncludeInArchive="false">
+    <Run Id="brd_EVABMOFStreamWithCon_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z035ffg676-2" ConstrsSet="brd_EVABMOFStreamWithCon_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="brd_EVABMOFStreamWithCon_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
           <Desc>Default settings for Implementation.</Desc>

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-// Date        : Wed Nov  2 18:11:56 2022
+// Date        : Thu Nov  3 12:03:27 2022
 // Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               E:/PhD_project/vivado_prjs/mEDFLOW/mEDFLOWAERandVGA/mEDFLOWAERandVGA.srcs/sources_1/bd/brd/ip/brd_xbar_0/brd_xbar_0_stub.v
@@ -21,7 +21,7 @@ module brd_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   m_axi_awprot, m_axi_awvalid, m_axi_awready, m_axi_wdata, m_axi_wstrb, m_axi_wvalid, 
   m_axi_wready, m_axi_bresp, m_axi_bvalid, m_axi_bready, m_axi_araddr, m_axi_arprot, 
   m_axi_arvalid, m_axi_arready, m_axi_rdata, m_axi_rresp, m_axi_rvalid, m_axi_rready)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axi_awaddr[63:0],s_axi_awprot[5:0],s_axi_awvalid[1:0],s_axi_awready[1:0],s_axi_wdata[63:0],s_axi_wstrb[7:0],s_axi_wvalid[1:0],s_axi_wready[1:0],s_axi_bresp[3:0],s_axi_bvalid[1:0],s_axi_bready[1:0],s_axi_araddr[63:0],s_axi_arprot[5:0],s_axi_arvalid[1:0],s_axi_arready[1:0],s_axi_rdata[63:0],s_axi_rresp[3:0],s_axi_rvalid[1:0],s_axi_rready[1:0],m_axi_awaddr[191:0],m_axi_awprot[17:0],m_axi_awvalid[5:0],m_axi_awready[5:0],m_axi_wdata[191:0],m_axi_wstrb[23:0],m_axi_wvalid[5:0],m_axi_wready[5:0],m_axi_bresp[11:0],m_axi_bvalid[5:0],m_axi_bready[5:0],m_axi_araddr[191:0],m_axi_arprot[17:0],m_axi_arvalid[5:0],m_axi_arready[5:0],m_axi_rdata[191:0],m_axi_rresp[11:0],m_axi_rvalid[5:0],m_axi_rready[5:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axi_awaddr[63:0],s_axi_awprot[5:0],s_axi_awvalid[1:0],s_axi_awready[1:0],s_axi_wdata[63:0],s_axi_wstrb[7:0],s_axi_wvalid[1:0],s_axi_wready[1:0],s_axi_bresp[3:0],s_axi_bvalid[1:0],s_axi_bready[1:0],s_axi_araddr[63:0],s_axi_arprot[5:0],s_axi_arvalid[1:0],s_axi_arready[1:0],s_axi_rdata[63:0],s_axi_rresp[3:0],s_axi_rvalid[1:0],s_axi_rready[1:0],m_axi_awaddr[223:0],m_axi_awprot[20:0],m_axi_awvalid[6:0],m_axi_awready[6:0],m_axi_wdata[223:0],m_axi_wstrb[27:0],m_axi_wvalid[6:0],m_axi_wready[6:0],m_axi_bresp[13:0],m_axi_bvalid[6:0],m_axi_bready[6:0],m_axi_araddr[223:0],m_axi_arprot[20:0],m_axi_arvalid[6:0],m_axi_arready[6:0],m_axi_rdata[223:0],m_axi_rresp[13:0],m_axi_rvalid[6:0],m_axi_rready[6:0]" */;
   input aclk;
   input aresetn;
   input [63:0]s_axi_awaddr;
@@ -43,23 +43,23 @@ module brd_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   output [3:0]s_axi_rresp;
   output [1:0]s_axi_rvalid;
   input [1:0]s_axi_rready;
-  output [191:0]m_axi_awaddr;
-  output [17:0]m_axi_awprot;
-  output [5:0]m_axi_awvalid;
-  input [5:0]m_axi_awready;
-  output [191:0]m_axi_wdata;
-  output [23:0]m_axi_wstrb;
-  output [5:0]m_axi_wvalid;
-  input [5:0]m_axi_wready;
-  input [11:0]m_axi_bresp;
-  input [5:0]m_axi_bvalid;
-  output [5:0]m_axi_bready;
-  output [191:0]m_axi_araddr;
-  output [17:0]m_axi_arprot;
-  output [5:0]m_axi_arvalid;
-  input [5:0]m_axi_arready;
-  input [191:0]m_axi_rdata;
-  input [11:0]m_axi_rresp;
-  input [5:0]m_axi_rvalid;
-  output [5:0]m_axi_rready;
+  output [223:0]m_axi_awaddr;
+  output [20:0]m_axi_awprot;
+  output [6:0]m_axi_awvalid;
+  input [6:0]m_axi_awready;
+  output [223:0]m_axi_wdata;
+  output [27:0]m_axi_wstrb;
+  output [6:0]m_axi_wvalid;
+  input [6:0]m_axi_wready;
+  input [13:0]m_axi_bresp;
+  input [6:0]m_axi_bvalid;
+  output [6:0]m_axi_bready;
+  output [223:0]m_axi_araddr;
+  output [20:0]m_axi_arprot;
+  output [6:0]m_axi_arvalid;
+  input [6:0]m_axi_arready;
+  input [223:0]m_axi_rdata;
+  input [13:0]m_axi_rresp;
+  input [6:0]m_axi_rvalid;
+  output [6:0]m_axi_rready;
 endmodule
