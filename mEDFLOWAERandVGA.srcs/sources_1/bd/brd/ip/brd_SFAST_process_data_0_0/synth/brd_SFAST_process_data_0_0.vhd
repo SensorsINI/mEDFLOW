@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:SFAST_process_data:1.0
--- IP Revision: 2111021112
+-- IP Revision: 2111151856
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -174,7 +174,7 @@ ARCHITECTURE brd_SFAST_process_data_0_0_arch OF brd_SFAST_process_data_0_0 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF brd_SFAST_process_data_0_0_arch : ARCHITECTURE IS "brd_SFAST_process_data_0_0,SFAST_process_data,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF brd_SFAST_process_data_0_0_arch: ARCHITECTURE IS "brd_SFAST_process_data_0_0,SFAST_process_data,{x_ipProduct=Vivado 2018.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=SFAST_process_data,x_ipVersion=1.0,x_ipCoreRevision=2111021112,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S_AXI_CONFIG_ADDR_WIDTH=7,C_S_AXI_CONFIG_DATA_WIDTH=32}";
+  ATTRIBUTE CORE_GENERATION_INFO OF brd_SFAST_process_data_0_0_arch: ARCHITECTURE IS "brd_SFAST_process_data_0_0,SFAST_process_data,{x_ipProduct=Vivado 2018.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=SFAST_process_data,x_ipVersion=1.0,x_ipCoreRevision=2111151856,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S_AXI_CONFIG_ADDR_WIDTH=7,C_S_AXI_CONFIG_DATA_WIDTH=32}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF isFinalCornerStream_V_V_TDATA: SIGNAL IS "xilinx.com:interface:axis:1.0 isFinalCornerStream_V_V TDATA";

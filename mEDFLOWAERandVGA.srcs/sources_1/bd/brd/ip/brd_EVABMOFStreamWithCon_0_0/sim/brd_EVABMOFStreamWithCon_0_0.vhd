@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:EVABMOFStreamWithControl:1.0
--- IP Revision: 2111022139
+-- IP Revision: 2111151823
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

@@ -849,12 +849,15 @@
 <includePath path="#undef __ARM_FEATURE_DSP" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_QBIT" removed="true"/>
 <includePath path="d:\xilinx\sdk\2018.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.2.1/include"/>
+<includePath path="#undef __thumb__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_CLZ" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_SAT" removed="true"/>
 <includePath path="d:\xilinx\sdk\2018.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.2.1/include-fixed"/>
+<includePath path="#undef __thumb2__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_NUMERIC_MAXMIN" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_CRYPTO" removed="true"/>
 <includePath path="d:\xilinx\sdk\2018.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="#undef __THUMBEL__" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_SIMD32" removed="true"/>
 <includePath path="#undef __ARM_FEATURE_UNALIGNED" removed="true"/>
 <includePath path="d:\xilinx\sdk\2018.1\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>

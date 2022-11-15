@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:hls:eventStreamToConstEncntFrameStream:1.0
--- IP Revision: 1912181534
+-- IP Revision: 2111151811
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -204,7 +204,7 @@ ARCHITECTURE brd_eventStreamToConstEn_0_1_arch OF brd_eventStreamToConstEn_0_1 I
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF brd_eventStreamToConstEn_0_1_arch : ARCHITECTURE IS "brd_eventStreamToConstEn_0_1,eventStreamToConstEncntFrameStream,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF brd_eventStreamToConstEn_0_1_arch: ARCHITECTURE IS "brd_eventStreamToConstEn_0_1,eventStreamToConstEncntFrameStream,{x_ipProduct=Vivado 2018.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=eventStreamToConstEncntFrameStream,x_ipVersion=1.0,x_ipCoreRevision=1912181534,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S_AXI_CONFIG_ADDR_WIDTH=5,C_S_AXI_CONFIG_DATA_WIDTH=32}";
+  ATTRIBUTE CORE_GENERATION_INFO OF brd_eventStreamToConstEn_0_1_arch: ARCHITECTURE IS "brd_eventStreamToConstEn_0_1,eventStreamToConstEncntFrameStream,{x_ipProduct=Vivado 2018.1,x_ipVendor=xilinx.com,x_ipLibrary=hls,x_ipName=eventStreamToConstEncntFrameStream,x_ipVersion=1.0,x_ipCoreRevision=2111151811,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S_AXI_CONFIG_ADDR_WIDTH=5,C_S_AXI_CONFIG_DATA_WIDTH=32}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF tsReg_V: SIGNAL IS "XIL_INTERFACENAME tsReg_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value" & 
