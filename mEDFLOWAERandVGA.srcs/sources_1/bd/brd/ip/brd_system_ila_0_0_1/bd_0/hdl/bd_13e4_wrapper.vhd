@@ -23,18 +23,10 @@ entity bd_13e4_wrapper is
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe13 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe14 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe15 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe19 : in STD_LOGIC_VECTOR ( 11 downto 0 );
+    probe14 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe20 : in STD_LOGIC_VECTOR ( 11 downto 0 );
-    probe21 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe22 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe5 : in STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -62,17 +54,9 @@ architecture STRUCTURE of bd_13e4_wrapper is
     probe9 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe13 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe14 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe15 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe19 : in STD_LOGIC_VECTOR ( 11 downto 0 );
-    probe20 : in STD_LOGIC_VECTOR ( 11 downto 0 );
-    probe21 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe22 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe14 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     resetn : in STD_LOGIC;
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 23 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
@@ -100,18 +84,10 @@ bd_13e4_i: component bd_13e4
       probe1(15 downto 0) => probe1(15 downto 0),
       probe10(0) => probe10(0),
       probe11(0) => probe11(0),
-      probe12(15 downto 0) => probe12(15 downto 0),
+      probe12(0) => probe12(0),
       probe13(0) => probe13(0),
-      probe14(15 downto 0) => probe14(15 downto 0),
-      probe15(15 downto 0) => probe15(15 downto 0),
-      probe16(0) => probe16(0),
-      probe17(0) => probe17(0),
-      probe18(0) => probe18(0),
-      probe19(11 downto 0) => probe19(11 downto 0),
+      probe14(31 downto 0) => probe14(31 downto 0),
       probe2(63 downto 0) => probe2(63 downto 0),
-      probe20(11 downto 0) => probe20(11 downto 0),
-      probe21(0) => probe21(0),
-      probe22(31 downto 0) => probe22(31 downto 0),
       probe3(15 downto 0) => probe3(15 downto 0),
       probe4(0) => probe4(0),
       probe5(15 downto 0) => probe5(15 downto 0),

@@ -68,17 +68,9 @@ ENTITY brd_system_ila_0_0 IS
     probe9 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     probe10 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     probe11 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe12 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    probe12 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     probe13 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe14 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    probe15 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    probe16 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe17 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe18 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe19 : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-    probe20 : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-    probe21 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe22 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe14 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     SLOT_0_AXIS_tdata : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
     SLOT_0_AXIS_tlast : IN STD_LOGIC;
     SLOT_0_AXIS_tvalid : IN STD_LOGIC;
@@ -109,17 +101,9 @@ ARCHITECTURE brd_system_ila_0_0_arch OF brd_system_ila_0_0 IS
       probe9 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       probe10 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       probe11 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe12 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      probe12 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       probe13 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe14 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      probe15 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      probe16 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe17 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe18 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe19 : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-      probe20 : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-      probe21 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      probe22 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      probe14 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       SLOT_0_AXIS_tdata : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
       SLOT_0_AXIS_tlast : IN STD_LOGIC;
       SLOT_0_AXIS_tvalid : IN STD_LOGIC;
@@ -170,14 +154,6 @@ BEGIN
       probe12 => probe12,
       probe13 => probe13,
       probe14 => probe14,
-      probe15 => probe15,
-      probe16 => probe16,
-      probe17 => probe17,
-      probe18 => probe18,
-      probe19 => probe19,
-      probe20 => probe20,
-      probe21 => probe21,
-      probe22 => probe22,
       SLOT_0_AXIS_tdata => SLOT_0_AXIS_tdata,
       SLOT_0_AXIS_tlast => SLOT_0_AXIS_tlast,
       SLOT_0_AXIS_tvalid => SLOT_0_AXIS_tvalid,

@@ -1456,23 +1456,23 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 //				BufferTmp[i] = pull(BufferDVS, &BufferDVSHead, &BufferDVSTail);
 				*BufferTmpPtr = XLlFifo_RxGetWord(&FifoInstance);
 				BufferTmpPtr++;
-				for (int j = 0; j < 2; j++)
-				{
-					u8 code = (u8) ((BufferTmp[2 * i + j] & 0xf000) >> 12);
-					if(6 == code)
-					{
-						if((BufferTmp[2 * i + j] & 0x7ff) != ((glCounter + glCounterDiff) & 0x7ff))
-						{
-							u32 regData = ((BufferTmp[2 * i + j] & 0x7ff) << 20) +  ((glCounter & 0x7ff) << 8) + 7;
-							XGpio_DiscreteWrite(&Gpio, 1, regData);
-							glCounterDiff++;
-							xil_printf("Data skipped, received data is %d and glCounter is %d\r\n", BufferTmp[2 * i + j] & 0x7ff, glCounter & 0x7ff);
-//							xil_printf("...\r\n");
-						}
-						XGpio_DiscreteWrite(&Gpio, 1, 3);
-						glCounter++;
-					}
-				}
+//				for (int j = 0; j < 2; j++)
+//				{
+//					u8 code = (u8) ((BufferTmp[2 * i + j] & 0xf000) >> 12);
+//					if(6 == code)
+//					{
+//						if((BufferTmp[2 * i + j] & 0x7ff) != ((glCounter + glCounterDiff) & 0x7ff))
+//						{
+//							u32 regData = ((BufferTmp[2 * i + j] & 0x7ff) << 20) +  ((glCounter & 0x7ff) << 8) + 7;
+//							XGpio_DiscreteWrite(&Gpio, 1, regData);
+//							glCounterDiff++;
+//							xil_printf("Data skipped, received data is %d and glCounter is %d\r\n", BufferTmp[2 * i + j] & 0x7ff, glCounter & 0x7ff);
+////							xil_printf("...\r\n");
+//						}
+//						XGpio_DiscreteWrite(&Gpio, 1, 3);
+//						glCounter++;
+//					}
+//				}
 			}
 			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)BufferTmp, usbSendSize * 4);
 			u32 generatedBytes = 2 * XGpio_DiscreteRead(&Gpio, 2); // Because every raw data is 16-bit data.
