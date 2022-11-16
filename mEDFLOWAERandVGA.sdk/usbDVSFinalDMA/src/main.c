@@ -471,10 +471,12 @@ XDmaPs_Config *DmaCfg;
 XDmaPs_Cmd DmaCmd;
 unsigned int Chnl = 0;
 
+static int PSDMAReadFromAXISFIFO(XDmaPs *XDmaPsInstPtr, XDmaPs_Cmd *DmaCmdPtr);
+
 static volatile int NumIrqs = 0;
 
 /************************** Constant Definitions *****************************/
-#define MEMORY_SIZE (DMA_LENGTH * WORD_SIZE)
+#define MEMORY_SIZE (DMA_LENGTH * WORD_SIZE * 16)
 #ifdef __ICCARM__
 #pragma data_alignment = 32
 u8 Buffer[MEMORY_SIZE];
@@ -888,29 +890,23 @@ static int UsbIntrExample(XScuGic *IntcInstancePtr, XUsbPs *UsbInstancePtr,
 
 	XGpio_SetDataDirection(&Gpio, 2, 1);
 
-    u32 RLRRegVal, ReceiveLength;
     while(1)
     {
-//    	RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
-//    	ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
-////    	xil_printf("Receive length is: %d.\r\n", ReceiveLength);
-////    	DmaCmd.BD.Length = ReceiveLength * WORD_SIZE;
-//
-//    	if(ReceiveLength >= DMA_LENGTH)
+//        u32 RLRRegVal, ReceiveLength;
+//        u8 moveTimes = 0;
+//        DmaCmd.BD.DstAddr = (u32)(Buffer);
+//    	while(moveTimes < 16)
 //    	{
-//            Status = XDmaPs_Start(&DmaInstance, Chnl, &DmaCmd, 0);
-//            if (Status != XST_SUCCESS)
-//            {
-//            	ReturnStatus = XST_FAILURE;
-//            }
-//			while(!(XDmaPs_ReadReg(DmaInstance.Config.BaseAddress,
-//					XDMAPS_INTSTATUS_OFFSET) & 0x1));
-//			XDmaPs_DoneISR_0(&DmaInstance);
-//			volatile int *DmaStatus = (volatile int *)(DmaInstance.Chans[0].DoneRef);
-//			Status = DmaStatus[0];
-//			if(Status != XST_SUCCESS)
+//			RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
+//			ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
+//			if(ReceiveLength >= DMA_LENGTH)
 //			{
-//				ReturnStatus = XST_FAILURE;
+//				Status = PSDMAReadFromAXISFIFO(&DmaInstance, &DmaCmd);
+//				if(Status == XST_SUCCESS)
+//				{
+//					DmaCmd.BD.DstAddr = (u32)(Buffer + moveTimes * DMA_LENGTH * WORD_SIZE);
+//					moveTimes++;
+//				}
 //			}
 //    	}
     }
@@ -1108,29 +1104,41 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 
 //	xil_printf("XUsbPs_Ep2InEventHandler is revoked.\r\n");
 
-//	RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
-//	ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
+	RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
+	ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
 //	int usbSendSize = (ReceiveLength >= DMA_LENGTH) ? DMA_LENGTH : ReceiveLength;
+
+    u8 moveTimes = 0;
+    DmaCmd.BD.DstAddr = (u32)(Buffer);
 
 	switch (EventType) {
 	case XUSBPS_EP_EVENT_DATA_TX:
-    	if(ReceiveLength >= DMA_LENGTH)
+    	while(moveTimes < 1)
     	{
-            Status = XDmaPs_Start(&DmaInstance, Chnl, &DmaCmd, 0);
-            if (Status != XST_SUCCESS)
-            {
-            	xil_printf("PS DMA read failed.\r\n");
-        		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, 0 * WORD_SIZE);
-                break;
-            }
-			while(!(XDmaPs_ReadReg(DmaInstance.Config.BaseAddress,
-					XDMAPS_INTSTATUS_OFFSET) & 0x1));
-			XDmaPs_DoneISR_0(&DmaInstance);
-			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, DMA_LENGTH * WORD_SIZE);
+			RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
+			ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
+			if(ReceiveLength >= DMA_LENGTH)
+			{
+				Status = PSDMAReadFromAXISFIFO(&DmaInstance, &DmaCmd);
+				if(Status == XST_SUCCESS)
+				{
+					DmaCmd.BD.DstAddr = (u32)(Buffer + moveTimes * DMA_LENGTH * WORD_SIZE);
+					moveTimes++;
+				}
+				else
+				{
+					break;
+				}
+			}
+    	}
+    	if(Status == XST_SUCCESS)
+    	{
+//    		xil_printf("Hey\r\n");
+    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, DMA_LENGTH * WORD_SIZE * 1);
     	}
     	else
     	{
-    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, 0 * WORD_SIZE);
+    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, 0);
     	}
 		break;
 
@@ -1138,6 +1146,24 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 		/* Unhandled event. Ignore. */
 		break;
 	}
+}
+
+
+static int PSDMAReadFromAXISFIFO(XDmaPs *XDmaPsInstPtr, XDmaPs_Cmd *DmaCmdPtr)
+{
+	int Status;
+	Status = XDmaPs_Start(XDmaPsInstPtr, Chnl, DmaCmdPtr, 0);
+	if (Status != XST_SUCCESS)
+	{
+		xil_printf("PS DMA read failed.\r\n");
+		return XST_FAILURE;
+	}
+	while(!(XDmaPs_ReadReg(XDmaPsInstPtr->Config.BaseAddress,
+			XDMAPS_INTSTATUS_OFFSET) & 0x1));
+	XDmaPs_DoneISR_0(XDmaPsInstPtr);
+//	volatile int *DmaStatus = (volatile int *)(XDmaPsInstPtr->Chans[0].DoneRef);
+//	Status = DmaStatus[0];
+	return Status;
 }
 
 /*****************************************************************************/
