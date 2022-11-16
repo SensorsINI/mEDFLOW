@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -187,8 +187,8 @@ ARCHITECTURE brd_EVMUXDataToXYTSStream_0_0_arch OF brd_EVMUXDataToXYTSStream_0_0
   ATTRIBUTE X_INTERFACE_PARAMETER OF dataReg_V: SIGNAL IS "XIL_INTERFACENAME dataReg_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} val" & 
 "ue false}}}}}";
   ATTRIBUTE X_INTERFACE_INFO OF dataReg_V: SIGNAL IS "xilinx.com:signal:data:1.0 dataReg_V DATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF eventFIFODataValid_V: SIGNAL IS "XIL_INTERFACENAME eventFIFODataValid_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maxim" & 
-"um {}} value false}}}}}";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF eventFIFODataValid_V: SIGNAL IS "XIL_INTERFACENAME eventFIFODataValid_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maxi" & 
+"mum {}} value false}}}}}";
   ATTRIBUTE X_INTERFACE_INFO OF eventFIFODataValid_V: SIGNAL IS "xilinx.com:signal:data:1.0 eventFIFODataValid_V DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF eventFIFOIn_V: SIGNAL IS "XIL_INTERFACENAME eventFIFOIn_V, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}}" & 
 " value false}}}}}";

@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="35">
   <CompositeFile CompositeFileTopName="bd_13e4" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1668539834"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1668539834"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1668539834"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1668539834"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1668594829"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1668594829"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1668594829"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1668594829"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\ip_0\bd_13e4_ila_lib_0.xci" Type="IP">
         <Instance HierarchyPath="ila_lib"/>
@@ -17,6 +17,46 @@
       </File>
       <File Name="ip\ip_1\bd_13e4_g_inst_0.xci" Type="IP">
         <Instance HierarchyPath="g_inst"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\ip_2\bd_13e4_slot_2_aw_0.xci" Type="IP">
+        <Instance HierarchyPath="slot_2_aw"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\ip_3\bd_13e4_slot_2_w_0.xci" Type="IP">
+        <Instance HierarchyPath="slot_2_w"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\ip_4\bd_13e4_slot_2_b_0.xci" Type="IP">
+        <Instance HierarchyPath="slot_2_b"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\ip_5\bd_13e4_slot_2_ar_0.xci" Type="IP">
+        <Instance HierarchyPath="slot_2_ar"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\ip_6\bd_13e4_slot_2_r_0.xci" Type="IP">
+        <Instance HierarchyPath="slot_2_r"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
