@@ -954,11 +954,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Nov 16 10:32:12 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 16 14:31:44 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:76eddb13</spirit:value>
+            <spirit:value>8:51e1602c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -972,11 +972,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Nov 16 10:32:40 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 16 14:32:27 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:76eddb13</spirit:value>
+            <spirit:value>8:51e1602c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -988,7 +988,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5ad9a03e</spirit:value>
+            <spirit:value>8:95fd76ba</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1003,11 +1003,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Nov 16 10:33:43 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 16 14:33:56 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5ad9a03e</spirit:value>
+            <spirit:value>8:95fd76ba</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1023,11 +1023,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Nov 16 10:33:43 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 16 14:33:56 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5ad9a03e</spirit:value>
+            <spirit:value>8:95fd76ba</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1040,7 +1040,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:00294a6c</spirit:value>
+            <spirit:value>8:ce2b6448</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1056,11 +1056,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Nov 16 10:33:43 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 16 14:33:56 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:00294a6c</spirit:value>
+            <spirit:value>8:ce2b6448</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1074,11 +1074,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Nov 16 10:42:19 UTC 2022</spirit:value>
+            <spirit:value>Wed Nov 16 14:42:18 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5ad9a03e</spirit:value>
+            <spirit:value>8:95fd76ba</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1283,26 +1283,6 @@
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
             <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>probe10</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">0</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -2085,6 +2065,10 @@
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
+      <spirit:name>choice_list_1f4ec695</spirit:name>
+      <spirit:enumeration>115</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
       <spirit:name>choice_list_27190e43</spirit:name>
       <spirit:enumeration>NATIVE</spirit:enumeration>
       <spirit:enumeration>INTERFACE</spirit:enumeration>
@@ -2376,10 +2360,6 @@
       <spirit:enumeration>xilinx.com:interface:cpri_hdlc_rtl:1.0</spirit:enumeration>
       <spirit:enumeration>xilinx.com:interface:mipi_vid_rtl:1.0</spirit:enumeration>
       <spirit:enumeration>xilinx.com:interface:vid_io_rtl:1.0</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_4b289c7d</spirit:name>
-      <spirit:enumeration>108</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
       <spirit:name>choice_list_4b79ee38</spirit:name>
@@ -4850,7 +4830,7 @@
     <spirit:parameter>
       <spirit:name>C_BRAM_CNT</spirit:name>
       <spirit:displayName>BRAM utilization count</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.C_BRAM_CNT" spirit:choiceRef="choice_list_4b289c7d" spirit:order="9.1038e+07">108</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.C_BRAM_CNT" spirit:choiceRef="choice_list_1f4ec695" spirit:order="9.1038e+07">115</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -31022,7 +31002,7 @@
     <spirit:parameter>
       <spirit:name>C_NUM_OF_PROBES</spirit:name>
       <spirit:displayName>Number of Probes</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_NUM_OF_PROBES" spirit:order="10700" spirit:configGroups="1 UnGrouped" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">11</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_NUM_OF_PROBES" spirit:order="10700" spirit:configGroups="1 UnGrouped" spirit:minimum="0" spirit:maximum="1024" spirit:rangeType="long">10</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>

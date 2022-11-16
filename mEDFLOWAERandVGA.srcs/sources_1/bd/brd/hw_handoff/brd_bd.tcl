@@ -1089,11 +1089,11 @@ proc create_root_design { parentCell } {
   # Create instance: system_ila_0, and set properties
   set system_ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0 ]
   set_property -dict [ list \
-   CONFIG.C_BRAM_CNT {108} \
+   CONFIG.C_BRAM_CNT {115} \
    CONFIG.C_DATA_DEPTH {16384} \
    CONFIG.C_MON_TYPE {MIX} \
    CONFIG.C_NUM_MONITOR_SLOTS {3} \
-   CONFIG.C_NUM_OF_PROBES {11} \
+   CONFIG.C_NUM_OF_PROBES {10} \
    CONFIG.C_PROBE0_TYPE {0} \
    CONFIG.C_PROBE10_TYPE {0} \
    CONFIG.C_PROBE11_TYPE {0} \
@@ -1320,16 +1320,12 @@ HDL_ATTRIBUTE.DEBUG {true} \
   connect_bd_net -net LEDShifter_0_LEDs [get_bd_ports LEDs] [get_bd_pins LEDShifter_0/LEDs]
   connect_bd_net -net Net1 [get_bd_pins axi_fifo_mm_s_0/axi_str_rxd_tlast] [get_bd_pins const_ZERO/dout] [get_bd_pins v_axi4s_vid_out_0/fid] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_reset]
   connect_bd_net -net Net2 [get_bd_pins const_HIGH/dout] [get_bd_pins v_axi4s_vid_out_0/aclken] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce]
-  connect_bd_net -net TxBufferBusy_Res [get_bd_pins TxBufferBusy/Res] [get_bd_pins testAERDVSSM_0/AERSMFifoAlmostFull_AI]
   connect_bd_net -net XYTSStreamToRawStream_0_sentCnt_V [get_bd_pins XYTSStreamToRawStream_0/sentCnt_V] [get_bd_pins axi_gpio_0/gpio2_io_i]
   connect_bd_net -net axi_fifo_mm_s_0_axi_str_rxd_tready [get_bd_pins TxBufferBusy/Op1] [get_bd_pins axi_fifo_mm_s_0/axi_str_rxd_tready] [get_bd_pins axis_dwidth_converter_0/m_axis_tready] [get_bd_pins system_ila_0/probe7]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_nets axi_fifo_mm_s_0_axi_str_rxd_tready]
-  connect_bd_net -net axi_fifo_mm_s_0_interrupt [get_bd_pins axi_fifo_mm_s_0/interrupt] [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins system_ila_0/probe10]
-  set_property -dict [ list \
-HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_nets axi_fifo_mm_s_0_interrupt]
+  connect_bd_net -net axi_fifo_mm_s_0_interrupt [get_bd_pins axi_fifo_mm_s_0/interrupt] [get_bd_pins processing_system7_0/IRQ_F2P]
   connect_bd_net -net axi_gpio_0_gpio_io_o [get_bd_pins axi_gpio_0/gpio_io_o] [get_bd_pins xlslice_0/Din] [get_bd_pins xlslice_1/Din]
   connect_bd_net -net axis_dwidth_converter_0_m_axis_tdata [get_bd_pins axi_fifo_mm_s_0/axi_str_rxd_tdata] [get_bd_pins axis_dwidth_converter_0/m_axis_tdata] [get_bd_pins system_ila_0/probe9]
   set_property -dict [ list \

@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Wed Nov 16 11:33:33 2022
+--Date        : Wed Nov 16 15:33:42 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd.bd
 --Design      : brd
@@ -5705,7 +5705,6 @@ architecture STRUCTURE of brd is
     SLOT_1_AXIS_tlast : in STD_LOGIC;
     SLOT_1_AXIS_tvalid : in STD_LOGIC;
     SLOT_1_AXIS_tready : in STD_LOGIC;
-    resetn : in STD_LOGIC;
     SLOT_2_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_2_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     SLOT_2_AXI_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5739,7 +5738,7 @@ architecture STRUCTURE of brd is
     SLOT_2_AXI_rlast : in STD_LOGIC;
     SLOT_2_AXI_rvalid : in STD_LOGIC;
     SLOT_2_AXI_rready : in STD_LOGIC;
-    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 )
+    resetn : in STD_LOGIC
   );
   end component brd_system_ila_0_0;
   component brd_v_axi4s_vid_out_0_0 is
@@ -6292,7 +6291,6 @@ architecture STRUCTURE of brd is
   signal SFAST_process_data_0_yStreamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal SFAST_process_data_0_yStreamOut_V_V_TREADY : STD_LOGIC;
   signal SFAST_process_data_0_yStreamOut_V_V_TVALID : STD_LOGIC;
-  signal TxBufferBusy_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal XYTSStreamToRawStream_0_sentCnt_V : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal XYTSStreamToRawStream_0_streamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute CONN_BUS_INFO of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is "XYTSStreamToRawStream_0_streamOut_V_V xilinx.com:interface:axis:1.0 None TDATA";
@@ -6310,8 +6308,6 @@ architecture STRUCTURE of brd is
   attribute DEBUG of axi_fifo_mm_s_0_axi_str_rxd_tready : signal is "true";
   attribute MARK_DEBUG of axi_fifo_mm_s_0_axi_str_rxd_tready : signal is std.standard.true;
   signal axi_fifo_mm_s_0_interrupt : STD_LOGIC;
-  attribute DEBUG of axi_fifo_mm_s_0_interrupt : signal is "true";
-  attribute MARK_DEBUG of axi_fifo_mm_s_0_interrupt : signal is std.standard.true;
   signal axi_gpio_0_gpio_io_o : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_smc_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal axi_smc_M00_AXI_ARBURST : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -6798,6 +6794,7 @@ architecture STRUCTURE of brd is
   signal NLW_SFAST_process_data_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_SFAST_process_data_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_SFAST_process_data_0_ap_ready_UNCONNECTED : STD_LOGIC;
+  signal NLW_TxBufferBusy_Res_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_XYTSStreamToRawStream_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_ap_ready_UNCONNECTED : STD_LOGIC;
@@ -7115,7 +7112,7 @@ SFAST_process_data_0: component brd_SFAST_process_data_0_0
 TxBufferBusy: component brd_util_vector_logic_4_0
      port map (
       Op1(0) => axi_fifo_mm_s_0_axi_str_rxd_tready,
-      Res(0) => TxBufferBusy_Res(0)
+      Res(0) => NLW_TxBufferBusy_Res_UNCONNECTED(0)
     );
 XYTSStreamToRawStream_0: component brd_XYTSStreamToRawStream_0_0
      port map (
@@ -7962,7 +7959,6 @@ system_ila_0: component brd_system_ila_0_0
       clk => processing_system7_0_FCLK_CLK0,
       probe0(0) => testAERDVSSM_0_AERSMOutFifoWrite_SO,
       probe1(15 downto 0) => testAERDVSSM_0_AERSMOutFifoData_DO(15 downto 0),
-      probe10(0) => axi_fifo_mm_s_0_interrupt,
       probe2(10 downto 0) => DVSAERData_AI_0_1(10 downto 0),
       probe3(0) => DVSAERReq_ABI_0_1,
       probe4(0) => testAERDVSSM_0_DVSAERAck_SBO,
@@ -7976,7 +7972,7 @@ system_ila_0: component brd_system_ila_0_0
 testAERDVSSM_0: component brd_testAERDVSSM_0_0
      port map (
       ADCClk_CI => processing_system7_0_FCLK_CLK0,
-      AERSMFifoAlmostFull_AI => TxBufferBusy_Res(0),
+      AERSMFifoAlmostFull_AI => '0',
       AERSMFifoFull_AI => '0',
       AERSMOutFifoData_DO(15 downto 0) => testAERDVSSM_0_AERSMOutFifoData_DO(15 downto 0),
       AERSMOutFifoWrite_SO => testAERDVSSM_0_AERSMOutFifoWrite_SO,

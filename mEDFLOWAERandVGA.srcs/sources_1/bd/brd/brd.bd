@@ -403,7 +403,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>power_3v3_ctrl</spirit:name>
+          <spirit:name>power_1v8_ctrl</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
             <spirit:vector>
@@ -413,7 +413,7 @@
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>power_1v8_ctrl</spirit:name>
+          <spirit:name>power_3v3_ctrl</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
             <spirit:vector>
@@ -1043,7 +1043,7 @@
           <spirit:configurableElementValue spirit:referenceId="C_PROBE1_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_PROBE0_TYPE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_DATA_DEPTH">16384</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_NUM_OF_PROBES">11</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_NUM_OF_PROBES">10</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_NUM_MONITOR_SLOTS">3</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_0_INTF_TYPE">xilinx.com:interface:axis_rtl:1.0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_SLOT_1_INTF_TYPE">xilinx.com:interface:axis_rtl:1.0</spirit:configurableElementValue>
@@ -1717,8 +1717,8 @@
       <spirit:adHocConnection>
         <spirit:name>util_vector_logic_1_Res</spirit:name>
         <spirit:internalPortReference spirit:componentRef="util_vector_logic_1" spirit:portRef="Res"/>
-        <spirit:externalPortReference spirit:portRef="power_1v8_ctrl"/>
         <spirit:externalPortReference spirit:portRef="power_3v3_ctrl"/>
+        <spirit:externalPortReference spirit:portRef="power_1v8_ctrl"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>util_vector_logic_3_Res</spirit:name>
@@ -1738,11 +1738,6 @@
         <spirit:name>axi_fifo_mm_s_0_interrupt</spirit:name>
         <spirit:internalPortReference spirit:componentRef="axi_fifo_mm_s_0" spirit:portRef="interrupt"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="IRQ_F2P"/>
-        <spirit:internalPortReference spirit:componentRef="system_ila_0" spirit:portRef="probe10"/>
-        <bd:hdl_attributes>
-          <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
-          <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
-        </bd:hdl_attributes>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>XYTSStreamToRawStream_0_sentCnt_V</spirit:name>
@@ -1771,11 +1766,6 @@
           <bd:hdl_attribute bd:name="DEBUG" bd:value="true"/>
           <bd:hdl_attribute bd:name="MARK_DEBUG" bd:value="true"/>
         </bd:hdl_attributes>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>TxBufferBusy_Res</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="TxBufferBusy" spirit:portRef="Res"/>
-        <spirit:internalPortReference spirit:componentRef="testAERDVSSM_0" spirit:portRef="AERSMFifoAlmostFull_AI"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>axi_fifo_mm_s_0_axi_str_rxd_tready</spirit:name>

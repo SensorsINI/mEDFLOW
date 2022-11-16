@@ -54,7 +54,6 @@ entity bd_13e4 is
     clk : in STD_LOGIC;
     probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe2 : in STD_LOGIC_VECTOR ( 10 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -85,45 +84,44 @@ architecture STRUCTURE of bd_13e4 is
     probe7 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe13 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe14 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe15 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe14 : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    probe15 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe16 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe17 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe18 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe19 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe20 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe21 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe22 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    probe23 : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    probe24 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe25 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe26 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    probe27 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe28 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe29 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe30 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe31 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    probe32 : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    probe33 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe34 : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    probe35 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    probe36 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe18 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    probe19 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe20 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    probe21 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe22 : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    probe23 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe24 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe25 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe26 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe27 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    probe28 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe29 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    probe30 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe31 : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    probe32 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe33 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe34 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe35 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe36 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     probe37 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     probe38 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe39 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe40 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe41 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe42 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    probe43 : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    probe44 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe45 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe39 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe40 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    probe41 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe42 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe43 : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    probe44 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    probe45 : in STD_LOGIC_VECTOR ( 1 downto 0 );
     probe46 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe47 : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    probe48 : in STD_LOGIC_VECTOR ( 2 downto 0 )
+    probe47 : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
   end component bd_13e4_ila_lib_0;
   component bd_13e4_g_inst_0 is
@@ -348,7 +346,6 @@ architecture STRUCTURE of bd_13e4 is
   signal net_slot_2_axi_wstrb : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal net_slot_2_axi_wvalid : STD_LOGIC;
   signal probe0_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe10_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal probe1_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal probe2_1 : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal probe3_1 : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -453,7 +450,6 @@ begin
   Conn_TVALID <= SLOT_0_AXIS_tvalid;
   clk_1 <= clk;
   probe0_1(0) <= probe0(0);
-  probe10_1(0) <= probe10(0);
   probe1_1(15 downto 0) <= probe1(15 downto 0);
   probe2_1(10 downto 0) <= probe2(10 downto 0);
   probe3_1(0) <= probe3(0);
@@ -560,48 +556,47 @@ ila_lib: component bd_13e4_ila_lib_0
       clk => clk_1,
       probe0(0) => probe0_1(0),
       probe1(15 downto 0) => probe1_1(15 downto 0),
-      probe10(0) => probe10_1(0),
-      probe11(23 downto 0) => net_slot_0_axis_tdata(23 downto 0),
-      probe12(0) => net_slot_0_axis_tvalid,
-      probe13(0) => net_slot_0_axis_tready,
-      probe14(0) => net_slot_0_axis_tlast,
-      probe15(15 downto 0) => net_slot_1_axis_tdata(15 downto 0),
-      probe16(0) => net_slot_1_axis_tvalid,
-      probe17(0) => net_slot_1_axis_tready,
-      probe18(0) => net_slot_1_axis_tlast,
-      probe19(1 downto 0) => net_slot_2_axi_ar_cnt(1 downto 0),
+      probe10(23 downto 0) => net_slot_0_axis_tdata(23 downto 0),
+      probe11(0) => net_slot_0_axis_tvalid,
+      probe12(0) => net_slot_0_axis_tready,
+      probe13(0) => net_slot_0_axis_tlast,
+      probe14(15 downto 0) => net_slot_1_axis_tdata(15 downto 0),
+      probe15(0) => net_slot_1_axis_tvalid,
+      probe16(0) => net_slot_1_axis_tready,
+      probe17(0) => net_slot_1_axis_tlast,
+      probe18(1 downto 0) => net_slot_2_axi_ar_cnt(1 downto 0),
+      probe19(31 downto 0) => net_slot_2_axi_araddr(31 downto 0),
       probe2(0) => probe2_1(0),
-      probe20(31 downto 0) => net_slot_2_axi_araddr(31 downto 0),
-      probe21(1 downto 0) => net_slot_2_axi_arburst(1 downto 0),
-      probe22(3 downto 0) => net_slot_2_axi_arcache(3 downto 0),
-      probe23(7 downto 0) => net_slot_2_axi_arlen(7 downto 0),
-      probe24(0) => net_slot_2_axi_arlock(0),
-      probe25(2 downto 0) => net_slot_2_axi_arprot(2 downto 0),
-      probe26(3 downto 0) => net_slot_2_axi_arqos(3 downto 0),
-      probe27(2 downto 0) => net_slot_2_axi_arsize(2 downto 0),
-      probe28(1 downto 0) => net_slot_2_axi_aw_cnt(1 downto 0),
-      probe29(31 downto 0) => net_slot_2_axi_awaddr(31 downto 0),
+      probe20(1 downto 0) => net_slot_2_axi_arburst(1 downto 0),
+      probe21(3 downto 0) => net_slot_2_axi_arcache(3 downto 0),
+      probe22(7 downto 0) => net_slot_2_axi_arlen(7 downto 0),
+      probe23(0) => net_slot_2_axi_arlock(0),
+      probe24(2 downto 0) => net_slot_2_axi_arprot(2 downto 0),
+      probe25(3 downto 0) => net_slot_2_axi_arqos(3 downto 0),
+      probe26(2 downto 0) => net_slot_2_axi_arsize(2 downto 0),
+      probe27(1 downto 0) => net_slot_2_axi_aw_cnt(1 downto 0),
+      probe28(31 downto 0) => net_slot_2_axi_awaddr(31 downto 0),
+      probe29(1 downto 0) => net_slot_2_axi_awburst(1 downto 0),
       probe3(0) => probe3_1(0),
-      probe30(1 downto 0) => net_slot_2_axi_awburst(1 downto 0),
-      probe31(3 downto 0) => net_slot_2_axi_awcache(3 downto 0),
-      probe32(7 downto 0) => net_slot_2_axi_awlen(7 downto 0),
-      probe33(0) => net_slot_2_axi_awlock(0),
-      probe34(2 downto 0) => net_slot_2_axi_awprot(2 downto 0),
-      probe35(3 downto 0) => net_slot_2_axi_awqos(3 downto 0),
-      probe36(2 downto 0) => net_slot_2_axi_awsize(2 downto 0),
-      probe37(1 downto 0) => net_slot_2_axi_b_cnt(1 downto 0),
-      probe38(1 downto 0) => net_slot_2_axi_bresp(1 downto 0),
-      probe39(1 downto 0) => net_slot_2_axi_r_cnt(1 downto 0),
+      probe30(3 downto 0) => net_slot_2_axi_awcache(3 downto 0),
+      probe31(7 downto 0) => net_slot_2_axi_awlen(7 downto 0),
+      probe32(0) => net_slot_2_axi_awlock(0),
+      probe33(2 downto 0) => net_slot_2_axi_awprot(2 downto 0),
+      probe34(3 downto 0) => net_slot_2_axi_awqos(3 downto 0),
+      probe35(2 downto 0) => net_slot_2_axi_awsize(2 downto 0),
+      probe36(1 downto 0) => net_slot_2_axi_b_cnt(1 downto 0),
+      probe37(1 downto 0) => net_slot_2_axi_bresp(1 downto 0),
+      probe38(1 downto 0) => net_slot_2_axi_r_cnt(1 downto 0),
+      probe39(31 downto 0) => net_slot_2_axi_rdata(31 downto 0),
       probe4(0) => probe4_1(0),
-      probe40(31 downto 0) => net_slot_2_axi_rdata(31 downto 0),
-      probe41(1 downto 0) => net_slot_2_axi_rresp(1 downto 0),
-      probe42(31 downto 0) => net_slot_2_axi_wdata(31 downto 0),
-      probe43(3 downto 0) => net_slot_2_axi_wstrb(3 downto 0),
-      probe44(1 downto 0) => net_slot_2_axi_aw_ctrl(1 downto 0),
-      probe45(2 downto 0) => net_slot_2_axi_w_ctrl(2 downto 0),
-      probe46(1 downto 0) => net_slot_2_axi_b_ctrl(1 downto 0),
-      probe47(1 downto 0) => net_slot_2_axi_ar_ctrl(1 downto 0),
-      probe48(2 downto 0) => net_slot_2_axi_r_ctrl(2 downto 0),
+      probe40(1 downto 0) => net_slot_2_axi_rresp(1 downto 0),
+      probe41(31 downto 0) => net_slot_2_axi_wdata(31 downto 0),
+      probe42(3 downto 0) => net_slot_2_axi_wstrb(3 downto 0),
+      probe43(1 downto 0) => net_slot_2_axi_aw_ctrl(1 downto 0),
+      probe44(2 downto 0) => net_slot_2_axi_w_ctrl(2 downto 0),
+      probe45(1 downto 0) => net_slot_2_axi_b_ctrl(1 downto 0),
+      probe46(1 downto 0) => net_slot_2_axi_ar_ctrl(1 downto 0),
+      probe47(2 downto 0) => net_slot_2_axi_r_ctrl(2 downto 0),
       probe5(0) => probe5_1(0),
       probe6(0) => probe6_1(0),
       probe7(0) => probe7_1(0),
