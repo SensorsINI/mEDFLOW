@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -215,9 +215,8 @@ ARCHITECTURE brd_EVABMOFStreamWithCon_0_0_arch OF brd_EVABMOFStreamWithCon_0_0 I
   ATTRIBUTE X_INTERFACE_INFO OF xStreamOut_V_V_TVALID: SIGNAL IS "xilinx.com:interface:axis:1.0 xStreamOut_V_V TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF controlStreamIn_V_V_TDATA: SIGNAL IS "xilinx.com:interface:axis:1.0 controlStreamIn_V_V TDATA";
   ATTRIBUTE X_INTERFACE_INFO OF controlStreamIn_V_V_TREADY: SIGNAL IS "xilinx.com:interface:axis:1.0 controlStreamIn_V_V TREADY";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF controlStreamIn_V_V_TVALID: SIGNAL IS "XIL_INTERFACENAME controlStreamIn_V_V, TDATA_NUM_BYTES 1, TUSER_WIDTH 0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} TDATA {datatype {name {attribs {resolve_type immediate de" & 
-"pendency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 10} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} TDATA_WIDTH 16}, TDEST_WIDTH 0, TID_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0." & 
-"000, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF controlStreamIn_V_V_TVALID: SIGNAL IS "XIL_INTERFACENAME controlStreamIn_V_V, TDATA_NUM_BYTES 1, TUSER_WIDTH 0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {CLK {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}}}, TDEST_WIDTH 0, TID_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, " & 
+"HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN brd_processing_system7_0_0_FCLK_CLK0";
   ATTRIBUTE X_INTERFACE_INFO OF controlStreamIn_V_V_TVALID: SIGNAL IS "xilinx.com:interface:axis:1.0 controlStreamIn_V_V TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF polStreamIn_V_V_TDATA: SIGNAL IS "xilinx.com:interface:axis:1.0 polStreamIn_V_V TDATA";
   ATTRIBUTE X_INTERFACE_INFO OF polStreamIn_V_V_TREADY: SIGNAL IS "xilinx.com:interface:axis:1.0 polStreamIn_V_V TREADY";

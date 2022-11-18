@@ -1095,7 +1095,7 @@ proc create_root_design { parentCell } {
    CONFIG.C_DATA_DEPTH {16384} \
    CONFIG.C_MON_TYPE {MIX} \
    CONFIG.C_NUM_MONITOR_SLOTS {2} \
-   CONFIG.C_NUM_OF_PROBES {12} \
+   CONFIG.C_NUM_OF_PROBES {13} \
    CONFIG.C_PROBE0_TYPE {0} \
    CONFIG.C_PROBE10_TYPE {0} \
    CONFIG.C_PROBE11_TYPE {0} \
@@ -1273,7 +1273,6 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net EVMUXDataToXYTSStream_0_tsStreamOut_V_V [get_bd_intf_pins EVMUXDataToXYTSStream_0/tsStreamOut_V_V] [get_bd_intf_pins SFAST_process_data_0/tsStreamIn_V_V]
   connect_bd_intf_net -intf_net EVMUXDataToXYTSStream_0_xStreamOut_V_V [get_bd_intf_pins EVMUXDataToXYTSStream_0/xStreamOut_V_V] [get_bd_intf_pins SFAST_process_data_0/xStreamIn_V_V]
   connect_bd_intf_net -intf_net EVMUXDataToXYTSStream_0_yStreamOut_V_V [get_bd_intf_pins EVMUXDataToXYTSStream_0/yStreamOut_V_V] [get_bd_intf_pins SFAST_process_data_0/yStreamIn_V_V]
-  connect_bd_intf_net -intf_net SFAST_process_data_0_isFinalCornerStream_V_V [get_bd_intf_pins EVABMOFStreamWithCon_0/controlStreamIn_V_V] [get_bd_intf_pins SFAST_process_data_0/isFinalCornerStream_V_V]
   connect_bd_intf_net -intf_net SFAST_process_data_0_polStreamOut_V_V [get_bd_intf_pins EVABMOFStreamWithCon_0/polStreamIn_V_V] [get_bd_intf_pins SFAST_process_data_0/polStreamOut_V_V]
   connect_bd_intf_net -intf_net SFAST_process_data_0_tsStreamOut_V_V [get_bd_intf_pins EVABMOFStreamWithCon_0/tsStreamIn_V_V] [get_bd_intf_pins SFAST_process_data_0/tsStreamOut_V_V]
   connect_bd_intf_net -intf_net SFAST_process_data_0_xStreamOut_V_V [get_bd_intf_pins EVABMOFStreamWithCon_0/xStreamIn_V_V] [get_bd_intf_pins SFAST_process_data_0/xStreamOut_V_V]
@@ -1315,12 +1314,18 @@ HDL_ATTRIBUTE.DEBUG {true} \
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_nets DVSAERReq_ABI_0_1]
+  connect_bd_net -net EVABMOFStreamWithCon_0_controlStreamIn_V_V_TREADY [get_bd_pins EVABMOFStreamWithCon_0/controlStreamIn_V_V_TREADY] [get_bd_pins SFAST_process_data_0/isFinalCornerStream_V_V_TREADY] [get_bd_pins TxBufferBusy/Op1] [get_bd_pins system_ila_0/probe10]
+  set_property -dict [ list \
+HDL_ATTRIBUTE.DEBUG {true} \
+ ] [get_bd_nets EVABMOFStreamWithCon_0_controlStreamIn_V_V_TREADY]
   connect_bd_net -net LEDShifter_0_LEDs [get_bd_ports LEDs] [get_bd_pins LEDShifter_0/LEDs]
   connect_bd_net -net Net1 [get_bd_pins const_ZERO/dout] [get_bd_pins v_axi4s_vid_out_0/fid] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_reset]
   connect_bd_net -net Net2 [get_bd_pins const_HIGH/dout] [get_bd_pins v_axi4s_vid_out_0/aclken] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_ce]
+  connect_bd_net -net SFAST_process_data_0_isFinalCornerStream_V_V_TDATA [get_bd_pins EVABMOFStreamWithCon_0/controlStreamIn_V_V_TDATA] [get_bd_pins SFAST_process_data_0/isFinalCornerStream_V_V_TDATA]
+  connect_bd_net -net SFAST_process_data_0_isFinalCornerStream_V_V_TVALID [get_bd_pins EVABMOFStreamWithCon_0/controlStreamIn_V_V_TVALID] [get_bd_pins SFAST_process_data_0/isFinalCornerStream_V_V_TVALID]
   connect_bd_net -net TxBufferBusy_Res [get_bd_pins TxBufferBusy/Res] [get_bd_pins testAERDVSSM_0/AERSMFifoAlmostFull_AI]
   connect_bd_net -net XYTSStreamToRawStream_0_sentCnt_V [get_bd_pins XYTSStreamToRawStream_0/sentCnt_V] [get_bd_pins axi_gpio_0/gpio2_io_i]
-  connect_bd_net -net axi_fifo_mm_s_0_axi_str_rxd_tready [get_bd_pins TxBufferBusy/Op1] [get_bd_pins axi_fifo_mm_s_0/axi_str_rxd_tready] [get_bd_pins axis_dwidth_converter_0/m_axis_tready] [get_bd_pins system_ila_0/probe7]
+  connect_bd_net -net axi_fifo_mm_s_0_axi_str_rxd_tready [get_bd_pins axi_fifo_mm_s_0/axi_str_rxd_tready] [get_bd_pins axis_dwidth_converter_0/m_axis_tready] [get_bd_pins system_ila_0/probe7]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_nets axi_fifo_mm_s_0_axi_str_rxd_tready]
@@ -1377,14 +1382,14 @@ HDL_ATTRIBUTE.DEBUG {true} \
  ] [get_bd_nets testAERDVSSM_0_DVSAERAck_SBO]
   connect_bd_net -net testAERDVSSM_0_DVSAERReset_SBO [get_bd_ports DVSAERReset_SBO_0] [get_bd_pins testAERDVSSM_0/DVSAERReset_SBO]
   connect_bd_net -net testAERDVSSM_0_SPIMISO_DZO [get_bd_pins processing_system7_0/SPI0_MISO_I] [get_bd_pins testAERDVSSM_0/SPIMISO_DZO]
-  connect_bd_net -net tsRegReg_V [get_bd_pins EVMUXDataToXYTSStream_0/tsRegReg_V] [get_bd_pins system_ila_0/probe11]
+  connect_bd_net -net tsReg_V [get_bd_pins XYTSStreamToRawStream_0/tsReg_V] [get_bd_pins system_ila_0/probe11]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_nets tsRegReg_V]
-  connect_bd_net -net tsRegReg_V_ap_vld [get_bd_pins EVMUXDataToXYTSStream_0/tsRegReg_V_ap_vld] [get_bd_pins system_ila_0/probe10]
+ ] [get_bd_nets tsReg_V]
+  connect_bd_net -net tsReg_V_ap_vld [get_bd_pins XYTSStreamToRawStream_0/tsReg_V_ap_vld] [get_bd_pins system_ila_0/probe12]
   set_property -dict [ list \
 HDL_ATTRIBUTE.DEBUG {true} \
- ] [get_bd_nets tsRegReg_V_ap_vld]
+ ] [get_bd_nets tsReg_V_ap_vld]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins c_counter_binary_0/CE] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net util_vector_logic_1_Res [get_bd_ports power_1v8_ctrl] [get_bd_ports power_3v3_ctrl] [get_bd_pins util_vector_logic_1/Res]
   connect_bd_net -net util_vector_logic_2_Res [get_bd_pins util_vector_logic_1/Op1] [get_bd_pins util_vector_logic_2/Res]

@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Get desc" key="selection"/>
+		<item value="XUsbPs_HandleVendorReq" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="XUsbPs_HandleVendorReq"/>
+			<item value="Requested"/>
 			<item value="Get desc"/>
 			<item value="UsbSetupIntrSystem"/>
 			<item value="UsbIntrHandler"/>
 			<item value="SetupInterruptSystem"/>
 			<item value="Xil_DCacheFlushRange"/>
 			<item value="abmof"/>
-			<item value="sfast"/>
-			<item value="spiConfigData"/>
 		</list>
 		<list key="replacehistory">
 		</list>
