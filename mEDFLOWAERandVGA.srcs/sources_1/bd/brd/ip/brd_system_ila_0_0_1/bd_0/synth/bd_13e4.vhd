@@ -51,7 +51,7 @@ entity bd_13e4 is
     probe0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe1 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 47 downto 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 10 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -83,7 +83,7 @@ architecture STRUCTURE of bd_13e4 is
     probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 47 downto 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
     probe12 : in STD_LOGIC_VECTOR ( 15 downto 0 );
     probe13 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe14 : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -327,7 +327,7 @@ architecture STRUCTURE of bd_13e4 is
   signal net_slot_1_axi_wvalid : STD_LOGIC;
   signal probe0_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal probe10_1 : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal probe11_1 : STD_LOGIC_VECTOR ( 47 downto 0 );
+  signal probe11_1 : STD_LOGIC_VECTOR ( 63 downto 0 );
   signal probe1_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal probe2_1 : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal probe3_1 : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -424,7 +424,7 @@ begin
   clk_1 <= clk;
   probe0_1(0) <= probe0(0);
   probe10_1(0) <= probe10(0);
-  probe11_1(47 downto 0) <= probe11(47 downto 0);
+  probe11_1(63 downto 0) <= probe11(63 downto 0);
   probe1_1(15 downto 0) <= probe1(15 downto 0);
   probe2_1(10 downto 0) <= probe2(10 downto 0);
   probe3_1(0) <= probe3(0);
@@ -524,7 +524,7 @@ ila_lib: component bd_13e4_ila_lib_0
       probe0(0) => probe0_1(0),
       probe1(15 downto 0) => probe1_1(15 downto 0),
       probe10(0) => probe10_1(0),
-      probe11(47 downto 0) => probe11_1(47 downto 0),
+      probe11(63 downto 0) => probe11_1(63 downto 0),
       probe12(15 downto 0) => net_slot_0_axis_tdata(15 downto 0),
       probe13(0) => net_slot_0_axis_tvalid,
       probe14(0) => net_slot_0_axis_tready,

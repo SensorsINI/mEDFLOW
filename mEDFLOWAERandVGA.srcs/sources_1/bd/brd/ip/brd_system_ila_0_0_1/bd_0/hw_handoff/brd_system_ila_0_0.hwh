@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 18 10:55:30 2022" VIVADOVERSION="2018.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 18 18:04:48 2022" VIVADOVERSION="2018.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z035" NAME="bd_13e4" PACKAGE="ffg676" SPEEDGRADE="-2"/>
 
@@ -65,7 +65,7 @@
         <CONNECTION INSTANCE="ila_lib" PORT="probe10"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="47" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe11">
+    <PORT DIR="I" LEFT="63" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe11">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ila_lib" PORT="probe11"/>
       </CONNECTIONS>
@@ -2040,7 +2040,7 @@
         <PARAMETER NAME="C_PROBE8_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE9_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_PROBE10_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="C_PROBE11_WIDTH" VALUE="48"/>
+        <PARAMETER NAME="C_PROBE11_WIDTH" VALUE="64"/>
         <PARAMETER NAME="C_PROBE12_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_PROBE13_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_PROBE14_WIDTH" VALUE="1"/>
@@ -5185,7 +5185,7 @@
             <CONNECTION INSTANCE="External_Ports" PORT="probe10"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="47" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe11">
+        <PORT DIR="I" LEFT="63" NAME="probe11" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_probe11">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="probe11"/>
           </CONNECTIONS>

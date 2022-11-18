@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
--- Date        : Fri Nov 18 11:00:21 2022
+-- Date        : Fri Nov 18 18:09:18 2022
 -- Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               E:/PhD_project/vivado_prjs/mEDFLOW/mEDFLOWAERandVGA/mEDFLOWAERandVGA.srcs/sources_1/bd/brd/ip/brd_axi_fifo_mm_s_0_1/brd_axi_fifo_mm_s_0_1_sim_netlist.vhdl
@@ -878,15 +878,15 @@ begin
   s_axi4_awready <= \^s_axi4_awready\;
 \FSM_sequential_gaxi_full_sm.present_state[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"EEEEEEEEEEEEEEEF"
+      INIT => X"FFFFFFFFAAAAAAAB"
     )
         port map (
       I0 => \FSM_sequential_gaxi_full_sm.present_state[0]_i_2_n_0\,
-      I1 => \FSM_sequential_gaxi_full_sm.present_state[0]_i_3_n_0\,
-      I2 => \gaxi_full_sm.aw_ready_r_i_3_n_0\,
-      I3 => s_axi4_wvalid,
-      I4 => present_state(0),
-      I5 => present_state(1),
+      I1 => present_state(0),
+      I2 => present_state(1),
+      I3 => \gaxi_full_sm.aw_ready_r_i_3_n_0\,
+      I4 => s_axi4_wvalid,
+      I5 => \FSM_sequential_gaxi_full_sm.present_state[0]_i_3_n_0\,
       O => next_state(0)
     );
 \FSM_sequential_gaxi_full_sm.present_state[0]_i_2\: unisim.vcomponents.LUT6
@@ -939,14 +939,14 @@ begin
     );
 \FSM_sequential_gaxi_full_sm.present_state[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAAAABAABABABBBA"
+      INIT => X"AAAAAABAAAFFAABA"
     )
         port map (
       I0 => \FSM_sequential_gaxi_full_sm.present_state[1]_i_2_n_0\,
-      I1 => present_state(0),
-      I2 => present_state(1),
-      I3 => s_axi4_wvalid,
-      I4 => \gaxi_full_sm.aw_ready_r_i_3_n_0\,
+      I1 => \gaxi_full_sm.aw_ready_r_i_3_n_0\,
+      I2 => s_axi4_wvalid,
+      I3 => present_state(0),
+      I4 => present_state(1),
       I5 => \FSM_sequential_gaxi_full_sm.present_state[1]_i_3_n_0\,
       O => next_state(1)
     );
@@ -31411,7 +31411,7 @@ entity brd_axi_fifo_mm_s_0_1_rd_pe_ss is
     \sig_register_array_reg[0][12]_0\ : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[1]_0\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
-    \gdiff.gcry_1_sym.diff_pntr_pad_reg[9]\ : in STD_LOGIC;
+    \gdiff.gcry_1_sym.diff_pntr_pad_reg[2]\ : in STD_LOGIC;
     p_9_out : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -31514,7 +31514,7 @@ begin
       I0 => \grstd1.grst_full.grst_f.rst_d3_reg\,
       I1 => \gntv_or_sync_fifo.gl0.wr/gwss.gpf.wrpf/ram_wr_en_i\,
       I2 => \gntv_or_sync_fifo.gl0.wr/gwss.gpf.wrpf/ram_rd_en_i\,
-      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg[9]\,
+      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg[2]\,
       I4 => p_9_out,
       O => \gpfs.prog_full_i_reg\
     );
@@ -35669,34 +35669,34 @@ begin
         port map (
       I0 => \gpfs.prog_full_i_i_3_n_0\,
       I1 => \gpfs.prog_full_i_i_4_n_0\,
-      I2 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[9]\,
-      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[6]\,
-      I4 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[12]\,
+      I2 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[2]\,
+      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[11]\,
+      I4 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[14]\,
       I5 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[7]\,
       O => \gpfs.prog_full_i_reg_0\
     );
 \gpfs.prog_full_i_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000800000000000"
+      INIT => X"4000000000000000"
     )
         port map (
-      I0 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[2]\,
-      I1 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[13]\,
-      I2 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[4]\,
-      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[11]\,
-      I4 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[1]\,
-      I5 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[3]\,
+      I0 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[8]\,
+      I1 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[3]\,
+      I2 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[10]\,
+      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[13]\,
+      I4 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[6]\,
+      I5 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[4]\,
       O => \gpfs.prog_full_i_i_3_n_0\
     );
 \gpfs.prog_full_i_i_4\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"DFFF"
+      INIT => X"FFDF"
     )
         port map (
-      I0 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[10]\,
-      I1 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[14]\,
-      I2 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[8]\,
-      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[5]\,
+      I0 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[12]\,
+      I1 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[9]\,
+      I2 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[5]\,
+      I3 => \gdiff.gcry_1_sym.diff_pntr_pad_reg_n_0_[1]\,
       O => \gpfs.prog_full_i_i_4_n_0\
     );
 \gpfs.prog_full_i_reg\: unisim.vcomponents.FDSE
@@ -41658,7 +41658,7 @@ entity brd_axi_fifo_mm_s_0_1_rd_logic is
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC;
     p_13_out : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
-    \gdiff.gcry_1_sym.diff_pntr_pad_reg[9]\ : in STD_LOGIC;
+    \gdiff.gcry_1_sym.diff_pntr_pad_reg[2]\ : in STD_LOGIC;
     p_9_out : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -41838,7 +41838,7 @@ begin
       \gcc0.gc0.count_d1_reg[11]\(3 downto 0) => \gcc0.gc0.count_d1_reg[11]\(3 downto 0),
       \gcc0.gc0.count_d1_reg[13]\(1 downto 0) => \gcc0.gc0.count_d1_reg[13]\(1 downto 0),
       \gcc0.gc0.count_d1_reg[7]\(3 downto 0) => \gcc0.gc0.count_d1_reg[7]\(3 downto 0),
-      \gdiff.gcry_1_sym.diff_pntr_pad_reg[9]\ => \gdiff.gcry_1_sym.diff_pntr_pad_reg[9]\,
+      \gdiff.gcry_1_sym.diff_pntr_pad_reg[2]\ => \gdiff.gcry_1_sym.diff_pntr_pad_reg[2]\,
       \gpfs.prog_full_i_reg\ => \gpfs.prog_full_i_reg\,
       \grstd1.grst_full.grst_f.rst_d3_reg\ => \grstd1.grst_full.grst_f.rst_d3_reg\,
       \ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[1]\ => \ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[1]\,
@@ -44333,8 +44333,8 @@ begin
       \gcc0.gc0.count_d1_reg[7]\(0) => \gntv_or_sync_fifo.gl0.wr_n_51\,
       \gcc0.gc0.count_d1_reg[8]\ => \gntv_or_sync_fifo.gl0.wr_n_36\,
       \gdiff.gcry_1_sym.diff_pntr_pad_reg[14]\(0) => \gntv_or_sync_fifo.gl0.rd_n_57\,
+      \gdiff.gcry_1_sym.diff_pntr_pad_reg[2]\ => \gntv_or_sync_fifo.gl0.wr_n_30\,
       \gdiff.gcry_1_sym.diff_pntr_pad_reg[4]\(0) => \gntv_or_sync_fifo.gl0.rd_n_73\,
-      \gdiff.gcry_1_sym.diff_pntr_pad_reg[9]\ => \gntv_or_sync_fifo.gl0.wr_n_30\,
       \goreg_dm.dout_i_reg[18]\(13 downto 0) => Q(13 downto 0),
       \gpfs.prog_full_i_reg\ => \gntv_or_sync_fifo.gl0.rd_n_72\,
       \grstd1.grst_full.grst_f.rst_d3_reg\ => rst_full_gen_i,
@@ -47390,7 +47390,7 @@ entity brd_axi_fifo_mm_s_0_1_axi_fifo_mm_s is
   attribute C_RX_FIFO_PE_THRESHOLD : integer;
   attribute C_RX_FIFO_PE_THRESHOLD of brd_axi_fifo_mm_s_0_1_axi_fifo_mm_s : entity is 2;
   attribute C_RX_FIFO_PF_THRESHOLD : integer;
-  attribute C_RX_FIFO_PF_THRESHOLD of brd_axi_fifo_mm_s_0_1_axi_fifo_mm_s : entity is 8192;
+  attribute C_RX_FIFO_PF_THRESHOLD of brd_axi_fifo_mm_s_0_1_axi_fifo_mm_s : entity is 16000;
   attribute C_S_AXI4_DATA_WIDTH : integer;
   attribute C_S_AXI4_DATA_WIDTH of brd_axi_fifo_mm_s_0_1_axi_fifo_mm_s : entity is 32;
   attribute C_S_AXI_ADDR_WIDTH : integer;
@@ -48074,7 +48074,7 @@ architecture STRUCTURE of brd_axi_fifo_mm_s_0_1 is
   attribute C_RX_FIFO_PE_THRESHOLD : integer;
   attribute C_RX_FIFO_PE_THRESHOLD of U0 : label is 2;
   attribute C_RX_FIFO_PF_THRESHOLD : integer;
-  attribute C_RX_FIFO_PF_THRESHOLD of U0 : label is 8192;
+  attribute C_RX_FIFO_PF_THRESHOLD of U0 : label is 16000;
   attribute C_S_AXI4_DATA_WIDTH : integer;
   attribute C_S_AXI4_DATA_WIDTH of U0 : label is 32;
   attribute C_S_AXI_ADDR_WIDTH : integer;

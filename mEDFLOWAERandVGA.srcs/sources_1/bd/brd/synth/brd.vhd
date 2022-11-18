@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Fri Nov 18 10:55:13 2022
+--Date        : Fri Nov 18 18:04:30 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd.bd
 --Design      : brd
@@ -5697,11 +5697,11 @@ architecture STRUCTURE of brd is
     probe7 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
     SLOT_0_AXIS_tvalid : in STD_LOGIC;
     SLOT_0_AXIS_tready : in STD_LOGIC;
-    resetn : in STD_LOGIC;
     SLOT_1_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
     SLOT_1_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     SLOT_1_AXI_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -5735,8 +5735,8 @@ architecture STRUCTURE of brd is
     SLOT_1_AXI_rlast : in STD_LOGIC;
     SLOT_1_AXI_rvalid : in STD_LOGIC;
     SLOT_1_AXI_rready : in STD_LOGIC;
-    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 47 downto 0 )
+    resetn : in STD_LOGIC;
+    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 )
   );
   end component brd_system_ila_0_0;
   component brd_v_axi4s_vid_out_0_0 is
@@ -6747,12 +6747,12 @@ architecture STRUCTURE of brd is
   attribute MARK_DEBUG of testAERDVSSM_0_DVSAERAck_SBO : signal is std.standard.true;
   signal testAERDVSSM_0_DVSAERReset_SBO : STD_LOGIC;
   signal testAERDVSSM_0_SPIMISO_DZO : STD_LOGIC;
+  signal tsRegReg_V : STD_LOGIC_VECTOR ( 63 downto 0 );
+  attribute DEBUG of tsRegReg_V : signal is "true";
+  attribute MARK_DEBUG of tsRegReg_V : signal is std.standard.true;
   signal tsRegReg_V_ap_vld : STD_LOGIC;
   attribute DEBUG of tsRegReg_V_ap_vld : signal is "true";
   attribute MARK_DEBUG of tsRegReg_V_ap_vld : signal is std.standard.true;
-  signal tsWrapRegReg_V : STD_LOGIC_VECTOR ( 47 downto 0 );
-  attribute DEBUG of tsWrapRegReg_V : signal is "true";
-  attribute MARK_DEBUG of tsWrapRegReg_V : signal is std.standard.true;
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_1_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_2_Res : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -6782,7 +6782,7 @@ architecture STRUCTURE of brd is
   signal NLW_EVMUXDataToXYTSStream_0_yRegReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_dataReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_polRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_EVMUXDataToXYTSStream_0_tsRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 63 downto 0 );
+  signal NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 47 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_xRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_yRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_SFAST_process_data_0_ap_done_UNCONNECTED : STD_LOGIC;
@@ -7024,12 +7024,12 @@ EVMUXDataToXYTSStream_0: component brd_EVMUXDataToXYTSStream_0_0
       s_axi_config_WREADY => ps7_0_axi_periph_M05_AXI_WREADY,
       s_axi_config_WSTRB(3 downto 0) => ps7_0_axi_periph_M05_AXI_WSTRB(3 downto 0),
       s_axi_config_WVALID => ps7_0_axi_periph_M05_AXI_WVALID,
-      tsRegReg_V(63 downto 0) => NLW_EVMUXDataToXYTSStream_0_tsRegReg_V_UNCONNECTED(63 downto 0),
+      tsRegReg_V(63 downto 0) => tsRegReg_V(63 downto 0),
       tsRegReg_V_ap_vld => tsRegReg_V_ap_vld,
       tsStreamOut_V_V_TDATA(63 downto 0) => EVMUXDataToXYTSStream_0_tsStreamOut_V_V_TDATA(63 downto 0),
       tsStreamOut_V_V_TREADY => EVMUXDataToXYTSStream_0_tsStreamOut_V_V_TREADY,
       tsStreamOut_V_V_TVALID => EVMUXDataToXYTSStream_0_tsStreamOut_V_V_TVALID,
-      tsWrapRegReg_V(47 downto 0) => tsWrapRegReg_V(47 downto 0),
+      tsWrapRegReg_V(47 downto 0) => NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_UNCONNECTED(47 downto 0),
       tsWrapRegReg_V_ap_vld => NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_ap_vld_UNCONNECTED,
       xRegReg_V(15 downto 0) => NLW_EVMUXDataToXYTSStream_0_xRegReg_V_UNCONNECTED(15 downto 0),
       xRegReg_V_ap_vld => NLW_EVMUXDataToXYTSStream_0_xRegReg_V_ap_vld_UNCONNECTED,
@@ -7157,7 +7157,7 @@ XYTSStreamToRawStream_0: component brd_XYTSStreamToRawStream_0_0
 axi_fifo_mm_s_0: component brd_axi_fifo_mm_s_0_1
      port map (
       axi_str_rxd_tdata(31 downto 0) => axis_dwidth_converter_0_m_axis_tdata(31 downto 0),
-      axi_str_rxd_tlast => Net1(0),
+      axi_str_rxd_tlast => '0',
       axi_str_rxd_tready => axi_fifo_mm_s_0_axi_str_rxd_tready,
       axi_str_rxd_tvalid => axis_dwidth_converter_0_m_axis_tvalid,
       interrupt => axi_fifo_mm_s_0_interrupt,
@@ -7949,7 +7949,7 @@ system_ila_0: component brd_system_ila_0_0
       probe0(0) => testAERDVSSM_0_AERSMOutFifoWrite_SO,
       probe1(15 downto 0) => testAERDVSSM_0_AERSMOutFifoData_DO(15 downto 0),
       probe10(0) => tsRegReg_V_ap_vld,
-      probe11(47 downto 0) => tsWrapRegReg_V(47 downto 0),
+      probe11(63 downto 0) => tsRegReg_V(63 downto 0),
       probe2(10 downto 0) => DVSAERData_AI_0_1(10 downto 0),
       probe3(0) => DVSAERReq_ABI_0_1,
       probe4(0) => testAERDVSSM_0_DVSAERAck_SBO,

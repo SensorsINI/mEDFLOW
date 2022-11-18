@@ -487,6 +487,19 @@ u8 Buffer[MEMORY_SIZE] ALIGNMENT_CACHELINE;
 
 u8 DVSBuffer[(DMA_LENGTH * WORD_SIZE * 16)] ALIGNMENT_CACHELINE;
 
+
+#include "xeventstreamtoconstencntframestream.h"
+XEventstreamtoconstencntframestream etf_inst;
+
+#include "xevmuxdatatoxytsstream.h"
+XEvmuxdatatoxytsstream evMuxToXYTS_inst;
+
+#include "xsfast_process_data.h"
+XSfast_process_data SFAST_inst;
+
+#include "xevabmofstreamwithcontrol.h"
+XEvabmofstreamwithcontrol ABMOF_inst;
+
 /*****************************************************************************/
 /**
  *
@@ -542,6 +555,33 @@ int main(void)
     Xil_Out32 (XPAR_AXI_VDMA_0_BASEADDR + 0x54, 800*3);
     Xil_Out32 (XPAR_AXI_VDMA_0_BASEADDR + 0x50, 600);
 	/* End of VDMA Configuration */
+
+    //Initialize the EvMux IP
+    Status = XEvmuxdatatoxytsstream_Initialize(&evMuxToXYTS_inst, XPAR_EVMUXDATATOXYTSSTREAM_0_DEVICE_ID);
+    if(Status!= XST_SUCCESS)
+    {
+    	xil_printf("EvMux configuration failed\r\n");
+    	return(XST_FAILURE);
+    }
+	xil_printf("Config EvMux Successfully.\r\n");
+
+    //Initialize the SFAST IP
+    Status = XSfast_process_data_Initialize(&SFAST_inst, XPAR_SFAST_PROCESS_DATA_0_DEVICE_ID);
+    if(Status!= XST_SUCCESS)
+    {
+    	xil_printf("SFAST configuration failed\r\n");
+    	return(XST_FAILURE);
+    }
+	xil_printf("Config SFAST Successfully.\r\n");
+
+    //Initialize the ABMOF IP
+    Status = XEvabmofstreamwithcontrol_Initialize(&ABMOF_inst, XPAR_EVABMOFSTREAMWITHCON_0_DEVICE_ID);
+    if(Status!= XST_SUCCESS)
+    {
+    	xil_printf("ABMOF configuration failed\r\n");
+    	return(XST_FAILURE);
+    }
+	xil_printf("Config ABMOF Successfully.\r\n");
 
 //	xil_printf("Start to configure various DVS state machines. \r\n");
 
@@ -1115,7 +1155,7 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 
 	switch (EventType) {
 	case XUSBPS_EP_EVENT_DATA_TX:
-    	while(moveTimes < 1)
+    	while(moveTimes < 2)
     	{
 			RLRRegVal = (XLlFifo_iRxGetLen(&FifoInstance));
 			ReceiveLength = (RLRRegVal & 0x00FFFFFF)/WORD_SIZE;
