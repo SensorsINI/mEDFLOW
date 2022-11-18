@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Wed Nov 16 15:33:42 2022
+--Date        : Fri Nov 18 10:55:13 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd.bd
 --Design      : brd
@@ -5697,48 +5697,46 @@ architecture STRUCTURE of brd is
     probe7 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
     SLOT_0_AXIS_tvalid : in STD_LOGIC;
     SLOT_0_AXIS_tready : in STD_LOGIC;
-    SLOT_1_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    SLOT_1_AXIS_tlast : in STD_LOGIC;
-    SLOT_1_AXIS_tvalid : in STD_LOGIC;
-    SLOT_1_AXIS_tready : in STD_LOGIC;
-    SLOT_2_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    SLOT_2_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    SLOT_2_AXI_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    SLOT_2_AXI_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    SLOT_2_AXI_awlock : in STD_LOGIC_VECTOR ( 0 to 0 );
-    SLOT_2_AXI_awcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_2_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    SLOT_2_AXI_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_2_AXI_awvalid : in STD_LOGIC;
-    SLOT_2_AXI_awready : in STD_LOGIC;
-    SLOT_2_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    SLOT_2_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_2_AXI_wlast : in STD_LOGIC;
-    SLOT_2_AXI_wvalid : in STD_LOGIC;
-    SLOT_2_AXI_wready : in STD_LOGIC;
-    SLOT_2_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    SLOT_2_AXI_bvalid : in STD_LOGIC;
-    SLOT_2_AXI_bready : in STD_LOGIC;
-    SLOT_2_AXI_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    SLOT_2_AXI_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    SLOT_2_AXI_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    SLOT_2_AXI_arburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    SLOT_2_AXI_arlock : in STD_LOGIC_VECTOR ( 0 to 0 );
-    SLOT_2_AXI_arcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_2_AXI_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    SLOT_2_AXI_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    SLOT_2_AXI_arvalid : in STD_LOGIC;
-    SLOT_2_AXI_arready : in STD_LOGIC;
-    SLOT_2_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    SLOT_2_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    SLOT_2_AXI_rlast : in STD_LOGIC;
-    SLOT_2_AXI_rvalid : in STD_LOGIC;
-    SLOT_2_AXI_rready : in STD_LOGIC;
-    resetn : in STD_LOGIC
+    resetn : in STD_LOGIC;
+    SLOT_1_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_1_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    SLOT_1_AXI_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    SLOT_1_AXI_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    SLOT_1_AXI_awlock : in STD_LOGIC_VECTOR ( 0 to 0 );
+    SLOT_1_AXI_awcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    SLOT_1_AXI_awqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_awvalid : in STD_LOGIC;
+    SLOT_1_AXI_awready : in STD_LOGIC;
+    SLOT_1_AXI_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_1_AXI_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_wlast : in STD_LOGIC;
+    SLOT_1_AXI_wvalid : in STD_LOGIC;
+    SLOT_1_AXI_wready : in STD_LOGIC;
+    SLOT_1_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    SLOT_1_AXI_bvalid : in STD_LOGIC;
+    SLOT_1_AXI_bready : in STD_LOGIC;
+    SLOT_1_AXI_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_1_AXI_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    SLOT_1_AXI_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    SLOT_1_AXI_arburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    SLOT_1_AXI_arlock : in STD_LOGIC_VECTOR ( 0 to 0 );
+    SLOT_1_AXI_arcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    SLOT_1_AXI_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    SLOT_1_AXI_arvalid : in STD_LOGIC;
+    SLOT_1_AXI_arready : in STD_LOGIC;
+    SLOT_1_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    SLOT_1_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    SLOT_1_AXI_rlast : in STD_LOGIC;
+    SLOT_1_AXI_rvalid : in STD_LOGIC;
+    SLOT_1_AXI_rready : in STD_LOGIC;
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 47 downto 0 )
   );
   end component brd_system_ila_0_0;
   component brd_v_axi4s_vid_out_0_0 is
@@ -6237,18 +6235,8 @@ architecture STRUCTURE of brd is
   attribute DEBUG of DVSAERReq_ABI_0_1 : signal is "true";
   attribute MARK_DEBUG of DVSAERReq_ABI_0_1 : signal is std.standard.true;
   signal EVABMOFStreamWithCon_0_pixelDataStream_V_V_TDATA : STD_LOGIC_VECTOR ( 23 downto 0 );
-  attribute CONN_BUS_INFO : string;
-  attribute CONN_BUS_INFO of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TDATA : signal is "EVABMOFStreamWithCon_0_pixelDataStream_V_V xilinx.com:interface:axis:1.0 None TDATA";
-  attribute DEBUG of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TDATA : signal is "true";
-  attribute MARK_DEBUG of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TDATA : signal is std.standard.true;
   signal EVABMOFStreamWithCon_0_pixelDataStream_V_V_TREADY : STD_LOGIC;
-  attribute CONN_BUS_INFO of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TREADY : signal is "EVABMOFStreamWithCon_0_pixelDataStream_V_V xilinx.com:interface:axis:1.0 None TREADY";
-  attribute DEBUG of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TREADY : signal is "true";
-  attribute MARK_DEBUG of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TREADY : signal is std.standard.true;
   signal EVABMOFStreamWithCon_0_pixelDataStream_V_V_TVALID : STD_LOGIC;
-  attribute CONN_BUS_INFO of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TVALID : signal is "EVABMOFStreamWithCon_0_pixelDataStream_V_V xilinx.com:interface:axis:1.0 None TVALID";
-  attribute DEBUG of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TVALID : signal is "true";
-  attribute MARK_DEBUG of EVABMOFStreamWithCon_0_pixelDataStream_V_V_TVALID : signal is std.standard.true;
   signal EVABMOFStreamWithCon_0_polStreamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal EVABMOFStreamWithCon_0_polStreamOut_V_V_TREADY : STD_LOGIC;
   signal EVABMOFStreamWithCon_0_polStreamOut_V_V_TVALID : STD_LOGIC;
@@ -6291,8 +6279,10 @@ architecture STRUCTURE of brd is
   signal SFAST_process_data_0_yStreamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal SFAST_process_data_0_yStreamOut_V_V_TREADY : STD_LOGIC;
   signal SFAST_process_data_0_yStreamOut_V_V_TVALID : STD_LOGIC;
+  signal TxBufferBusy_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal XYTSStreamToRawStream_0_sentCnt_V : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal XYTSStreamToRawStream_0_streamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
+  attribute CONN_BUS_INFO : string;
   attribute CONN_BUS_INFO of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is "XYTSStreamToRawStream_0_streamOut_V_V xilinx.com:interface:axis:1.0 None TDATA";
   attribute DEBUG of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is "true";
   attribute MARK_DEBUG of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is std.standard.true;
@@ -6757,6 +6747,12 @@ architecture STRUCTURE of brd is
   attribute MARK_DEBUG of testAERDVSSM_0_DVSAERAck_SBO : signal is std.standard.true;
   signal testAERDVSSM_0_DVSAERReset_SBO : STD_LOGIC;
   signal testAERDVSSM_0_SPIMISO_DZO : STD_LOGIC;
+  signal tsRegReg_V_ap_vld : STD_LOGIC;
+  attribute DEBUG of tsRegReg_V_ap_vld : signal is "true";
+  attribute MARK_DEBUG of tsRegReg_V_ap_vld : signal is std.standard.true;
+  signal tsWrapRegReg_V : STD_LOGIC_VECTOR ( 47 downto 0 );
+  attribute DEBUG of tsWrapRegReg_V : signal is "true";
+  attribute MARK_DEBUG of tsWrapRegReg_V : signal is std.standard.true;
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_1_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal util_vector_logic_2_Res : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -6781,20 +6777,17 @@ architecture STRUCTURE of brd is
   signal NLW_EVMUXDataToXYTSStream_0_ap_ready_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_dataReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_polRegReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
-  signal NLW_EVMUXDataToXYTSStream_0_tsRegReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_xRegReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_yRegReg_V_ap_vld_UNCONNECTED : STD_LOGIC;
   signal NLW_EVMUXDataToXYTSStream_0_dataReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_polRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_EVMUXDataToXYTSStream_0_tsRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 63 downto 0 );
-  signal NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 47 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_xRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_yRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_SFAST_process_data_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_SFAST_process_data_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_SFAST_process_data_0_ap_ready_UNCONNECTED : STD_LOGIC;
-  signal NLW_TxBufferBusy_Res_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_XYTSStreamToRawStream_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_XYTSStreamToRawStream_0_ap_ready_UNCONNECTED : STD_LOGIC;
@@ -7032,11 +7025,11 @@ EVMUXDataToXYTSStream_0: component brd_EVMUXDataToXYTSStream_0_0
       s_axi_config_WSTRB(3 downto 0) => ps7_0_axi_periph_M05_AXI_WSTRB(3 downto 0),
       s_axi_config_WVALID => ps7_0_axi_periph_M05_AXI_WVALID,
       tsRegReg_V(63 downto 0) => NLW_EVMUXDataToXYTSStream_0_tsRegReg_V_UNCONNECTED(63 downto 0),
-      tsRegReg_V_ap_vld => NLW_EVMUXDataToXYTSStream_0_tsRegReg_V_ap_vld_UNCONNECTED,
+      tsRegReg_V_ap_vld => tsRegReg_V_ap_vld,
       tsStreamOut_V_V_TDATA(63 downto 0) => EVMUXDataToXYTSStream_0_tsStreamOut_V_V_TDATA(63 downto 0),
       tsStreamOut_V_V_TREADY => EVMUXDataToXYTSStream_0_tsStreamOut_V_V_TREADY,
       tsStreamOut_V_V_TVALID => EVMUXDataToXYTSStream_0_tsStreamOut_V_V_TVALID,
-      tsWrapRegReg_V(47 downto 0) => NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_UNCONNECTED(47 downto 0),
+      tsWrapRegReg_V(47 downto 0) => tsWrapRegReg_V(47 downto 0),
       tsWrapRegReg_V_ap_vld => NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_ap_vld_UNCONNECTED,
       xRegReg_V(15 downto 0) => NLW_EVMUXDataToXYTSStream_0_xRegReg_V_UNCONNECTED(15 downto 0),
       xRegReg_V_ap_vld => NLW_EVMUXDataToXYTSStream_0_xRegReg_V_ap_vld_UNCONNECTED,
@@ -7112,7 +7105,7 @@ SFAST_process_data_0: component brd_SFAST_process_data_0_0
 TxBufferBusy: component brd_util_vector_logic_4_0
      port map (
       Op1(0) => axi_fifo_mm_s_0_axi_str_rxd_tready,
-      Res(0) => NLW_TxBufferBusy_Res_UNCONNECTED(0)
+      Res(0) => TxBufferBusy_Res(0)
     );
 XYTSStreamToRawStream_0: component brd_XYTSStreamToRawStream_0_0
      port map (
@@ -7915,50 +7908,48 @@ ps7_0_axi_periph: entity work.brd_ps7_0_axi_periph_0
     );
 system_ila_0: component brd_system_ila_0_0
      port map (
-      SLOT_0_AXIS_tdata(23 downto 0) => EVABMOFStreamWithCon_0_pixelDataStream_V_V_TDATA(23 downto 0),
+      SLOT_0_AXIS_tdata(15 downto 0) => XYTSStreamToRawStream_0_streamOut_V_V_TDATA(15 downto 0),
       SLOT_0_AXIS_tlast => '0',
-      SLOT_0_AXIS_tready => EVABMOFStreamWithCon_0_pixelDataStream_V_V_TREADY,
-      SLOT_0_AXIS_tvalid => EVABMOFStreamWithCon_0_pixelDataStream_V_V_TVALID,
-      SLOT_1_AXIS_tdata(15 downto 0) => XYTSStreamToRawStream_0_streamOut_V_V_TDATA(15 downto 0),
-      SLOT_1_AXIS_tlast => '0',
-      SLOT_1_AXIS_tready => XYTSStreamToRawStream_0_streamOut_V_V_TREADY,
-      SLOT_1_AXIS_tvalid => XYTSStreamToRawStream_0_streamOut_V_V_TVALID,
-      SLOT_2_AXI_araddr(31 downto 0) => ps7_0_axi_periph_M07_AXI_ARADDR(31 downto 0),
-      SLOT_2_AXI_arburst(1 downto 0) => ps7_0_axi_periph_M07_AXI_ARBURST(1 downto 0),
-      SLOT_2_AXI_arcache(3 downto 0) => ps7_0_axi_periph_M07_AXI_ARCACHE(3 downto 0),
-      SLOT_2_AXI_arlen(7 downto 0) => ps7_0_axi_periph_M07_AXI_ARLEN(7 downto 0),
-      SLOT_2_AXI_arlock(0) => ps7_0_axi_periph_M07_AXI_ARLOCK,
-      SLOT_2_AXI_arprot(2 downto 0) => ps7_0_axi_periph_M07_AXI_ARPROT(2 downto 0),
-      SLOT_2_AXI_arqos(3 downto 0) => ps7_0_axi_periph_M07_AXI_ARQOS(3 downto 0),
-      SLOT_2_AXI_arready => ps7_0_axi_periph_M07_AXI_ARREADY,
-      SLOT_2_AXI_arsize(2 downto 0) => ps7_0_axi_periph_M07_AXI_ARSIZE(2 downto 0),
-      SLOT_2_AXI_arvalid => ps7_0_axi_periph_M07_AXI_ARVALID,
-      SLOT_2_AXI_awaddr(31 downto 0) => ps7_0_axi_periph_M07_AXI_AWADDR(31 downto 0),
-      SLOT_2_AXI_awburst(1 downto 0) => ps7_0_axi_periph_M07_AXI_AWBURST(1 downto 0),
-      SLOT_2_AXI_awcache(3 downto 0) => ps7_0_axi_periph_M07_AXI_AWCACHE(3 downto 0),
-      SLOT_2_AXI_awlen(7 downto 0) => ps7_0_axi_periph_M07_AXI_AWLEN(7 downto 0),
-      SLOT_2_AXI_awlock(0) => ps7_0_axi_periph_M07_AXI_AWLOCK(0),
-      SLOT_2_AXI_awprot(2 downto 0) => ps7_0_axi_periph_M07_AXI_AWPROT(2 downto 0),
-      SLOT_2_AXI_awqos(3 downto 0) => ps7_0_axi_periph_M07_AXI_AWQOS(3 downto 0),
-      SLOT_2_AXI_awready => '0',
-      SLOT_2_AXI_awsize(2 downto 0) => ps7_0_axi_periph_M07_AXI_AWSIZE(2 downto 0),
-      SLOT_2_AXI_awvalid => ps7_0_axi_periph_M07_AXI_AWVALID(0),
-      SLOT_2_AXI_bready => ps7_0_axi_periph_M07_AXI_BREADY(0),
-      SLOT_2_AXI_bresp(1 downto 0) => B"00",
-      SLOT_2_AXI_bvalid => '0',
-      SLOT_2_AXI_rdata(31 downto 0) => ps7_0_axi_periph_M07_AXI_RDATA(31 downto 0),
-      SLOT_2_AXI_rlast => ps7_0_axi_periph_M07_AXI_RLAST,
-      SLOT_2_AXI_rready => ps7_0_axi_periph_M07_AXI_RREADY,
-      SLOT_2_AXI_rresp(1 downto 0) => ps7_0_axi_periph_M07_AXI_RRESP(1 downto 0),
-      SLOT_2_AXI_rvalid => ps7_0_axi_periph_M07_AXI_RVALID,
-      SLOT_2_AXI_wdata(31 downto 0) => ps7_0_axi_periph_M07_AXI_WDATA(31 downto 0),
-      SLOT_2_AXI_wlast => ps7_0_axi_periph_M07_AXI_WLAST(0),
-      SLOT_2_AXI_wready => '0',
-      SLOT_2_AXI_wstrb(3 downto 0) => ps7_0_axi_periph_M07_AXI_WSTRB(3 downto 0),
-      SLOT_2_AXI_wvalid => ps7_0_axi_periph_M07_AXI_WVALID(0),
+      SLOT_0_AXIS_tready => XYTSStreamToRawStream_0_streamOut_V_V_TREADY,
+      SLOT_0_AXIS_tvalid => XYTSStreamToRawStream_0_streamOut_V_V_TVALID,
+      SLOT_1_AXI_araddr(31 downto 0) => ps7_0_axi_periph_M07_AXI_ARADDR(31 downto 0),
+      SLOT_1_AXI_arburst(1 downto 0) => ps7_0_axi_periph_M07_AXI_ARBURST(1 downto 0),
+      SLOT_1_AXI_arcache(3 downto 0) => ps7_0_axi_periph_M07_AXI_ARCACHE(3 downto 0),
+      SLOT_1_AXI_arlen(7 downto 0) => ps7_0_axi_periph_M07_AXI_ARLEN(7 downto 0),
+      SLOT_1_AXI_arlock(0) => ps7_0_axi_periph_M07_AXI_ARLOCK,
+      SLOT_1_AXI_arprot(2 downto 0) => ps7_0_axi_periph_M07_AXI_ARPROT(2 downto 0),
+      SLOT_1_AXI_arqos(3 downto 0) => ps7_0_axi_periph_M07_AXI_ARQOS(3 downto 0),
+      SLOT_1_AXI_arready => ps7_0_axi_periph_M07_AXI_ARREADY,
+      SLOT_1_AXI_arsize(2 downto 0) => ps7_0_axi_periph_M07_AXI_ARSIZE(2 downto 0),
+      SLOT_1_AXI_arvalid => ps7_0_axi_periph_M07_AXI_ARVALID,
+      SLOT_1_AXI_awaddr(31 downto 0) => ps7_0_axi_periph_M07_AXI_AWADDR(31 downto 0),
+      SLOT_1_AXI_awburst(1 downto 0) => ps7_0_axi_periph_M07_AXI_AWBURST(1 downto 0),
+      SLOT_1_AXI_awcache(3 downto 0) => ps7_0_axi_periph_M07_AXI_AWCACHE(3 downto 0),
+      SLOT_1_AXI_awlen(7 downto 0) => ps7_0_axi_periph_M07_AXI_AWLEN(7 downto 0),
+      SLOT_1_AXI_awlock(0) => ps7_0_axi_periph_M07_AXI_AWLOCK(0),
+      SLOT_1_AXI_awprot(2 downto 0) => ps7_0_axi_periph_M07_AXI_AWPROT(2 downto 0),
+      SLOT_1_AXI_awqos(3 downto 0) => ps7_0_axi_periph_M07_AXI_AWQOS(3 downto 0),
+      SLOT_1_AXI_awready => '0',
+      SLOT_1_AXI_awsize(2 downto 0) => ps7_0_axi_periph_M07_AXI_AWSIZE(2 downto 0),
+      SLOT_1_AXI_awvalid => ps7_0_axi_periph_M07_AXI_AWVALID(0),
+      SLOT_1_AXI_bready => ps7_0_axi_periph_M07_AXI_BREADY(0),
+      SLOT_1_AXI_bresp(1 downto 0) => B"00",
+      SLOT_1_AXI_bvalid => '0',
+      SLOT_1_AXI_rdata(31 downto 0) => ps7_0_axi_periph_M07_AXI_RDATA(31 downto 0),
+      SLOT_1_AXI_rlast => ps7_0_axi_periph_M07_AXI_RLAST,
+      SLOT_1_AXI_rready => ps7_0_axi_periph_M07_AXI_RREADY,
+      SLOT_1_AXI_rresp(1 downto 0) => ps7_0_axi_periph_M07_AXI_RRESP(1 downto 0),
+      SLOT_1_AXI_rvalid => ps7_0_axi_periph_M07_AXI_RVALID,
+      SLOT_1_AXI_wdata(31 downto 0) => ps7_0_axi_periph_M07_AXI_WDATA(31 downto 0),
+      SLOT_1_AXI_wlast => ps7_0_axi_periph_M07_AXI_WLAST(0),
+      SLOT_1_AXI_wready => '0',
+      SLOT_1_AXI_wstrb(3 downto 0) => ps7_0_axi_periph_M07_AXI_WSTRB(3 downto 0),
+      SLOT_1_AXI_wvalid => ps7_0_axi_periph_M07_AXI_WVALID(0),
       clk => processing_system7_0_FCLK_CLK0,
       probe0(0) => testAERDVSSM_0_AERSMOutFifoWrite_SO,
       probe1(15 downto 0) => testAERDVSSM_0_AERSMOutFifoData_DO(15 downto 0),
+      probe10(0) => tsRegReg_V_ap_vld,
+      probe11(47 downto 0) => tsWrapRegReg_V(47 downto 0),
       probe2(10 downto 0) => DVSAERData_AI_0_1(10 downto 0),
       probe3(0) => DVSAERReq_ABI_0_1,
       probe4(0) => testAERDVSSM_0_DVSAERAck_SBO,
@@ -7972,7 +7963,7 @@ system_ila_0: component brd_system_ila_0_0
 testAERDVSSM_0: component brd_testAERDVSSM_0_0
      port map (
       ADCClk_CI => processing_system7_0_FCLK_CLK0,
-      AERSMFifoAlmostFull_AI => '0',
+      AERSMFifoAlmostFull_AI => TxBufferBusy_Res(0),
       AERSMFifoFull_AI => '0',
       AERSMOutFifoData_DO(15 downto 0) => testAERDVSSM_0_AERSMOutFifoData_DO(15 downto 0),
       AERSMOutFifoWrite_SO => testAERDVSSM_0_AERSMOutFifoWrite_SO,

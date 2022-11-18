@@ -7,8 +7,8 @@ BEGIN OS
  PARAMETER OS_VER = 6.6
  PARAMETER PROC_INSTANCE = ps7_cortexa9_0
  PARAMETER sleep_timer = ps7_globaltimer_0
- PARAMETER stdin = ps7_coresight_comp_0
- PARAMETER stdout = ps7_coresight_comp_0
+ PARAMETER stdin = ps7_uart_0
+ PARAMETER stdout = ps7_uart_0
 END
 
 

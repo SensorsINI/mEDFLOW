@@ -460,7 +460,7 @@ XDmaPs DmaInstance;
 
 #define DMA_DEVICE_ID 			XPAR_XDMAPS_1_DEVICE_ID
 
-#define DMA_LENGTH 256          /* Length of the Dma Transfers */
+#define DMA_LENGTH (256 * 8)         /* Length of the Dma Transfers */
 
 // u32 SrcBuf[MAX_DATA_BUFFER_SIZE * WORD_SIZE] __attribute__ ((aligned (32)));
 u32 DestBuf[DMA_LENGTH * WORD_SIZE * 100] __attribute__ ((aligned (32)));
@@ -476,7 +476,7 @@ static int PSDMAReadFromAXISFIFO(XDmaPs *XDmaPsInstPtr, XDmaPs_Cmd *DmaCmdPtr);
 static volatile int NumIrqs = 0;
 
 /************************** Constant Definitions *****************************/
-#define MEMORY_SIZE (DMA_LENGTH * WORD_SIZE * 16)
+#define MEMORY_SIZE (64 * 1024)
 #ifdef __ICCARM__
 #pragma data_alignment = 32
 u8 Buffer[MEMORY_SIZE];
@@ -484,6 +484,8 @@ u8 Buffer[MEMORY_SIZE];
 #else
 u8 Buffer[MEMORY_SIZE] ALIGNMENT_CACHELINE;
 #endif
+
+u8 DVSBuffer[(DMA_LENGTH * WORD_SIZE * 16)] ALIGNMENT_CACHELINE;
 
 /*****************************************************************************/
 /**
@@ -1109,7 +1111,7 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 //	int usbSendSize = (ReceiveLength >= DMA_LENGTH) ? DMA_LENGTH : ReceiveLength;
 
     u8 moveTimes = 0;
-    DmaCmd.BD.DstAddr = (u32)(Buffer);
+    DmaCmd.BD.DstAddr = (u32)(DVSBuffer);
 
 	switch (EventType) {
 	case XUSBPS_EP_EVENT_DATA_TX:
@@ -1122,8 +1124,8 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 				Status = PSDMAReadFromAXISFIFO(&DmaInstance, &DmaCmd);
 				if(Status == XST_SUCCESS)
 				{
-					DmaCmd.BD.DstAddr = (u32)(Buffer + moveTimes * DMA_LENGTH * WORD_SIZE);
 					moveTimes++;
+					DmaCmd.BD.DstAddr = (u32)(DVSBuffer + moveTimes * DMA_LENGTH * WORD_SIZE);
 				}
 				else
 				{
@@ -1133,13 +1135,30 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
     	}
     	if(Status == XST_SUCCESS)
     	{
-//    		xil_printf("Hey\r\n");
-    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, DMA_LENGTH * WORD_SIZE * 1);
+    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)DVSBuffer, DMA_LENGTH * WORD_SIZE * moveTimes);
     	}
     	else
     	{
-    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)Buffer, 0);
+    		XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)DVSBuffer, 0);
     	}
+//		if(ReceiveLength >= DMA_LENGTH)
+//		{
+//			Status = XDmaPs_Start(&DmaInstance, Chnl, &DmaCmd, 0);
+//			if (Status != XST_SUCCESS)
+//			{
+//				xil_printf("PS DMA read failed.\r\n");
+//				XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)DVSBuffer, 0 * WORD_SIZE);
+//				break;
+//			}
+//			while(!(XDmaPs_ReadReg(DmaInstance.Config.BaseAddress,
+//					XDMAPS_INTSTATUS_OFFSET) & 0x1));
+//			XDmaPs_DoneISR_0(&DmaInstance);
+//			Status = XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)DVSBuffer, DMA_LENGTH * WORD_SIZE);
+//		}
+//		else
+//		{
+//			XUsbPs_EpBufferSend((XUsbPs *)InstancePtr, 2, (u8 *)DVSBuffer, 0 * WORD_SIZE);
+//		}
 		break;
 
 	default:

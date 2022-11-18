@@ -3,5 +3,5 @@ the_ROM_image:
 {
 	[bootloader]E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\fsbl\Debug\fsbl.elf
 	[load = 0x100000]E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\brd_wrapper_hw_platform_0\brd_wrapper.bit
-	E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\ubsDVSFinal\Debug\ubsDVSFinal.elf
+	E:\PhD_project\vivado_prjs\mEDFLOW\mEDFLOWAERandVGA\mEDFLOWAERandVGA.sdk\usbDVSFinalDMA\Debug\usbDVSFinalDMA.elf
 }
