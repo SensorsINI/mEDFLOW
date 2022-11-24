@@ -500,6 +500,72 @@ XSfast_process_data SFAST_inst;
 #include "xevabmofstreamwithcontrol.h"
 XEvabmofstreamwithcontrol ABMOF_inst;
 
+
+void checkButtonStatus()
+{
+	u32 buttonsReg = XGpio_DiscreteRead(&Gpio, 2);
+	u32 button1 = buttonsReg & 0xF;
+	u32 button2 = (buttonsReg & 0xF0) >> 4;
+	XGpio_DiscreteWrite(&Gpio, 1, (~(((button1%4) + (4 * button2))) << 16) + 3);
+	if(button1%4 == 0)
+	{
+		if(button2%2 == 0)
+		{
+			u32 tmpConfig = XSfast_process_data_Get_config_V(&SFAST_inst);
+			tmpConfig &= ~0x1;
+			XSfast_process_data_Set_config_V(&SFAST_inst, tmpConfig);
+		}
+		else if(button2%2 == 1)
+		{
+			u32 tmpConfig = XSfast_process_data_Get_config_V(&SFAST_inst);
+			tmpConfig |= 0x1;
+			XSfast_process_data_Set_config_V(&SFAST_inst, tmpConfig);
+		}
+	}
+	else if(button1%4 == 1)
+	{
+		u16 commandChar = (button2%16);
+		u16 ToSetSFASTThrVal = 3;
+		ToSetSFASTThrVal = commandChar;
+		u32 tmpConfig = XSfast_process_data_Get_config_V(&SFAST_inst);
+		char low8Bits = tmpConfig & 0xff;
+		low8Bits |= 0x04;      // set bit 2 to 1 to set SFAST threshold
+		u16 new16Bits = ((u16)ToSetSFASTThrVal << 8) + low8Bits;
+		tmpConfig = ((tmpConfig >> 16) << 16) + new16Bits;
+		XSfast_process_data_Set_config_V(&SFAST_inst, tmpConfig); // Enable the config bit and send the value
+    	tmpConfig &= ~0x04;
+    	XSfast_process_data_Set_config_V(&SFAST_inst, tmpConfig); // Clear the config bit
+//    	u32 SFASTCurrentThreshold = XSfast_process_data_Get_status_currentThreshold(&SFAST_inst);
+//    	printf("Current SFAST threshold is: %ld\r\n", SFASTCurrentThreshold);
+	}
+	else if(button1%4 == 2)
+	{
+		u16 commandVal = (button2%16) * 100;
+		u32 tmpConfigABMOF = XEvabmofstreamwithcontrol_Get_config_V(&ABMOF_inst);
+    	u32 tmpConfigSFAST = XSfast_process_data_Get_config_V(&SFAST_inst);
+		char low8BitsSFAST = tmpConfigSFAST & 0xff;
+		low8BitsSFAST |= 0x08;      // set bit 2 to 1 so the threshold will use external config
+		u32 new24BitsSFAST = ((u32)commandVal << 8) + low8BitsSFAST;
+		tmpConfigSFAST = ((tmpConfigSFAST >> 24) << 24) + new24BitsSFAST;
+		XSfast_process_data_Set_config_V(&SFAST_inst, tmpConfigSFAST); // Enable the config bit and send the config value
+//   		for(int i = 0; i< 1000; i++);   // Delay some time for config big to make sure HW capture it.
+		tmpConfigSFAST &= ~0x08;
+		XSfast_process_data_Set_config_V(&SFAST_inst, tmpConfigSFAST); // Clear the config bit
+
+		char low8BitsABMOF = tmpConfigABMOF & 0xff;
+		low8BitsABMOF |= 0x01;      // set bit 0 to 1 so the ABMOF threshold will use external config
+		u32 new24BitsABMOF = ((u32)commandVal << 8) + low8BitsABMOF;
+		tmpConfigABMOF = ((tmpConfigABMOF >> 24) << 24) + new24BitsABMOF;
+		XEvabmofstreamwithcontrol_Set_config_V(&ABMOF_inst, tmpConfigABMOF); // Enable the config bit and send the config value
+//   		for(int i = 0; i< 1000; i++);  // Delay some time for config big to make sure HW capture it.
+		tmpConfigABMOF &= ~0x01;
+		XEvabmofstreamwithcontrol_Set_config_V(&ABMOF_inst, tmpConfigABMOF); // Clear the config bit
+//		u32 ABMOFAreaCntCurrentThreshold = XEvabmofstreamwithcontrol_Get_status_currentAreaCntThr(&ABMOF_inst);
+//		printf("Current ABMOF area threshold is: %ld\r\n", ABMOFAreaCntCurrentThreshold);
+	}
+}
+
+
 /*****************************************************************************/
 /**
  *
@@ -934,6 +1000,7 @@ static int UsbIntrExample(XScuGic *IntcInstancePtr, XUsbPs *UsbInstancePtr,
 
     while(1)
     {
+//    	checkButtonStatus();
 //        u32 RLRRegVal, ReceiveLength;
 //        u8 moveTimes = 0;
 //        DmaCmd.BD.DstAddr = (u32)(Buffer);
@@ -1114,7 +1181,6 @@ static void XUsbPs_Ep2OutEventHandler(void *CallBackRef, u8 EpNum,
 	}
 }
 
-
 /*****************************************************************************/
 /**
 * This funtion is registered to handle callbacks for endpoint 1 (Bulk data).
@@ -1152,6 +1218,8 @@ static void XUsbPs_Ep2InEventHandler(void *CallBackRef, u8 EpNum,
 
     u8 moveTimes = 0;
     DmaCmd.BD.DstAddr = (u32)(DVSBuffer);
+
+    checkButtonStatus();
 
 	switch (EventType) {
 	case XUSBPS_EP_EVENT_DATA_TX:

@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Fri Nov 18 19:57:49 2022
+--Date        : Mon Nov 21 23:41:13 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd.bd
 --Design      : brd
@@ -5286,9 +5286,10 @@ entity brd is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     LEDs : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    key1 : in STD_LOGIC;
+    key2 : in STD_LOGIC;
     power_1v8_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 );
     power_3v3_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 );
-    rst_n : in STD_LOGIC;
     sys_clk_n : in STD_LOGIC;
     sys_clk_p : in STD_LOGIC;
     vid_data : out STD_LOGIC_VECTOR ( 23 downto 0 );
@@ -5296,7 +5297,7 @@ entity brd is
     vid_vsync : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of brd : entity is "brd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=brd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=51,numReposBlks=40,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=5,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=41,da_bram_cntlr_cnt=3,da_clkrst_cnt=11,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of brd : entity is "brd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=brd,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=55,numReposBlks=44,numNonXlnxBlks=0,numHierBlks=11,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=5,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=41,da_bram_cntlr_cnt=3,da_clkrst_cnt=13,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of brd : entity is "brd.hwdef";
 end brd;
@@ -5697,6 +5698,9 @@ architecture STRUCTURE of brd is
     probe7 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe8 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe9 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
     SLOT_0_AXIS_tvalid : in STD_LOGIC;
@@ -5735,9 +5739,8 @@ architecture STRUCTURE of brd is
     SLOT_1_AXI_rvalid : in STD_LOGIC;
     SLOT_1_AXI_rready : in STD_LOGIC;
     resetn : in STD_LOGIC;
-    probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
-    probe12 : in STD_LOGIC_VECTOR ( 0 to 0 )
+    probe13 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe14 : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component brd_system_ila_0_0;
   component brd_v_axi4s_vid_out_0_0 is
@@ -6227,6 +6230,33 @@ architecture STRUCTURE of brd is
     tsWrappedVal_V : out STD_LOGIC_VECTOR ( 11 downto 0 )
   );
   end component brd_XYTSStreamToRawStream_0_0;
+  component brd_FallEdgeCounter_0_0 is
+  port (
+    clk : in STD_LOGIC;
+    button : in STD_LOGIC;
+    buttonEdgeNum : out STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  end component brd_FallEdgeCounter_0_0;
+  component brd_FallEdgeCounter_0_1 is
+  port (
+    clk : in STD_LOGIC;
+    button : in STD_LOGIC;
+    buttonEdgeNum : out STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  end component brd_FallEdgeCounter_0_1;
+  component brd_xlconcat_0_0 is
+  port (
+    In0 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    In1 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    dout : out STD_LOGIC_VECTOR ( 7 downto 0 )
+  );
+  end component brd_xlconcat_0_0;
+  component brd_xlslice_0_2 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 5 downto 0 )
+  );
+  end component brd_xlslice_0_2;
   signal DVSAERData_AI_0_1 : STD_LOGIC_VECTOR ( 10 downto 0 );
   attribute DEBUG : string;
   attribute DEBUG of DVSAERData_AI_0_1 : signal is "true";
@@ -6265,7 +6295,12 @@ architecture STRUCTURE of brd is
   signal EVMUXDataToXYTSStream_0_yStreamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal EVMUXDataToXYTSStream_0_yStreamOut_V_V_TREADY : STD_LOGIC;
   signal EVMUXDataToXYTSStream_0_yStreamOut_V_V_TVALID : STD_LOGIC;
-  signal LEDShifter_0_LEDs : STD_LOGIC_VECTOR ( 5 downto 0 );
+  signal FallEdgeCounter_0_buttonEdgeNum : STD_LOGIC_VECTOR ( 3 downto 0 );
+  attribute DEBUG of FallEdgeCounter_0_buttonEdgeNum : signal is "true";
+  attribute MARK_DEBUG of FallEdgeCounter_0_buttonEdgeNum : signal is std.standard.true;
+  signal FallEdgeCounter_1_buttonEdgeNum : STD_LOGIC_VECTOR ( 3 downto 0 );
+  attribute DEBUG of FallEdgeCounter_1_buttonEdgeNum : signal is "true";
+  attribute MARK_DEBUG of FallEdgeCounter_1_buttonEdgeNum : signal is std.standard.true;
   signal Net1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal Net2 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal SFAST_process_data_0_isFinalCornerStream_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -6283,7 +6318,6 @@ architecture STRUCTURE of brd is
   signal SFAST_process_data_0_yStreamOut_V_V_TREADY : STD_LOGIC;
   signal SFAST_process_data_0_yStreamOut_V_V_TVALID : STD_LOGIC;
   signal TxBufferBusy_Res : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal XYTSStreamToRawStream_0_sentCnt_V : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal XYTSStreamToRawStream_0_streamOut_V_V_TDATA : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute CONN_BUS_INFO : string;
   attribute CONN_BUS_INFO of XYTSStreamToRawStream_0_streamOut_V_V_TDATA : signal is "XYTSStreamToRawStream_0_streamOut_V_V xilinx.com:interface:axis:1.0 None TDATA";
@@ -6375,6 +6409,8 @@ architecture STRUCTURE of brd is
   signal axis_dwidth_converter_0_m_axis_tvalid : STD_LOGIC;
   attribute DEBUG of axis_dwidth_converter_0_m_axis_tvalid : signal is "true";
   attribute MARK_DEBUG of axis_dwidth_converter_0_m_axis_tvalid : signal is std.standard.true;
+  signal button_0_1 : STD_LOGIC;
+  signal button_1_1 : STD_LOGIC;
   signal c_counter_binary_0_THRESH0 : STD_LOGIC;
   signal const_VCC_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal eventStreamToConstEn_0_frameStream_TDATA : STD_LOGIC_VECTOR ( 23 downto 0 );
@@ -6730,7 +6766,6 @@ architecture STRUCTURE of brd is
   attribute CONN_BUS_INFO of ps7_0_axi_periph_M07_AXI_WVALID : signal is "ps7_0_axi_periph_M07_AXI xilinx.com:interface:aximm:1.0 AXI4 WVALID";
   attribute DEBUG of ps7_0_axi_periph_M07_AXI_WVALID : signal is "true";
   attribute MARK_DEBUG of ps7_0_axi_periph_M07_AXI_WVALID : signal is std.standard.true;
-  signal rst_n_0_1 : STD_LOGIC;
   signal sys_clk_n_0_1 : STD_LOGIC;
   signal sys_clk_p_0_1 : STD_LOGIC;
   signal testAERDVSSM_0_AERSMOutFifoData_DO : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -6769,9 +6804,11 @@ architecture STRUCTURE of brd is
   signal v_tc_0_vtiming_out_HSYNC : STD_LOGIC;
   signal v_tc_0_vtiming_out_VBLANK : STD_LOGIC;
   signal v_tc_0_vtiming_out_VSYNC : STD_LOGIC;
+  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal xlslice_2_Dout : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal NLW_EVABMOFStreamWithCon_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_EVABMOFStreamWithCon_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_EVABMOFStreamWithCon_0_ap_ready_UNCONNECTED : STD_LOGIC;
@@ -6790,6 +6827,7 @@ architecture STRUCTURE of brd is
   signal NLW_EVMUXDataToXYTSStream_0_tsWrapRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 47 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_xRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_EVMUXDataToXYTSStream_0_yRegReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal NLW_LEDShifter_0_LEDs_UNCONNECTED : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal NLW_SFAST_process_data_0_ap_done_UNCONNECTED : STD_LOGIC;
   signal NLW_SFAST_process_data_0_ap_idle_UNCONNECTED : STD_LOGIC;
   signal NLW_SFAST_process_data_0_ap_ready_UNCONNECTED : STD_LOGIC;
@@ -6807,12 +6845,14 @@ architecture STRUCTURE of brd is
   signal NLW_XYTSStreamToRawStream_0_glLastTSReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 63 downto 0 );
   signal NLW_XYTSStreamToRawStream_0_glLastYReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_XYTSStreamToRawStream_0_rotateInfoOutReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 63 downto 0 );
+  signal NLW_XYTSStreamToRawStream_0_sentCnt_V_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal NLW_XYTSStreamToRawStream_0_tsDiffFlgReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_XYTSStreamToRawStream_0_tsWrappedVal_V_UNCONNECTED : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal NLW_XYTSStreamToRawStream_0_yDiffFlgReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_XYTSStreamToRawStream_0_yReg_V_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal NLW_axi_fifo_mm_s_0_s2mm_prmry_reset_out_n_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_fifo_mm_s_0_s_axi4_rid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_axi_gpio_0_gpio2_io_i_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 8 );
   signal NLW_axi_vdma_0_mm2s_introut_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_vdma_0_s2mm_introut_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_vdma_0_m_axis_mm2s_tkeep_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -6903,8 +6943,6 @@ architecture STRUCTURE of brd is
   attribute X_INTERFACE_INFO of FIXED_IO_ps_clk : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK";
   attribute X_INTERFACE_INFO of FIXED_IO_ps_porb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB";
   attribute X_INTERFACE_INFO of FIXED_IO_ps_srstb : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB";
-  attribute X_INTERFACE_INFO of rst_n : signal is "xilinx.com:signal:reset:1.0 RST.RST_N RST";
-  attribute X_INTERFACE_PARAMETER of rst_n : signal is "XIL_INTERFACENAME RST.RST_N, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of sys_clk_n : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLK_N CLK";
   attribute X_INTERFACE_PARAMETER of sys_clk_n : signal is "XIL_INTERFACENAME CLK.SYS_CLK_N, ASSOCIATED_RESET rst_n, CLK_DOMAIN brd_sys_clk_n_0, FREQ_HZ 100000000, PHASE 0.000";
   attribute X_INTERFACE_INFO of sys_clk_p : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLK_P CLK";
@@ -6928,10 +6966,11 @@ begin
   DVSAERData_AI_0_1(10 downto 0) <= DVSAERData_AI_0(10 downto 0);
   DVSAERReq_ABI_0_1 <= DVSAERReq_ABI_0;
   DVSAERReset_SBO_0 <= testAERDVSSM_0_DVSAERReset_SBO;
-  LEDs(5 downto 0) <= LEDShifter_0_LEDs(5 downto 0);
+  LEDs(5 downto 0) <= xlslice_2_Dout(5 downto 0);
+  button_0_1 <= key1;
+  button_1_1 <= key2;
   power_1v8_ctrl(0) <= util_vector_logic_1_Res(0);
   power_3v3_ctrl(0) <= util_vector_logic_1_Res(0);
-  rst_n_0_1 <= rst_n;
   sys_clk_n_0_1 <= sys_clk_n;
   sys_clk_p_0_1 <= sys_clk_p;
   vid_data(23 downto 0) <= v_axi4s_vid_out_0_vid_data(23 downto 0);
@@ -7045,10 +7084,22 @@ EVMUXDataToXYTSStream_0: component brd_EVMUXDataToXYTSStream_0_0
       yStreamOut_V_V_TREADY => EVMUXDataToXYTSStream_0_yStreamOut_V_V_TREADY,
       yStreamOut_V_V_TVALID => EVMUXDataToXYTSStream_0_yStreamOut_V_V_TVALID
     );
+FallEdgeCounter_0: component brd_FallEdgeCounter_0_0
+     port map (
+      button => button_0_1,
+      buttonEdgeNum(3 downto 0) => FallEdgeCounter_0_buttonEdgeNum(3 downto 0),
+      clk => processing_system7_0_FCLK_CLK0
+    );
+FallEdgeCounter_1: component brd_FallEdgeCounter_0_1
+     port map (
+      button => button_1_1,
+      buttonEdgeNum(3 downto 0) => FallEdgeCounter_1_buttonEdgeNum(3 downto 0),
+      clk => processing_system7_0_FCLK_CLK0
+    );
 LEDShifter_0: component brd_LEDShifter_0_0
      port map (
-      LEDs(5 downto 0) => LEDShifter_0_LEDs(5 downto 0),
-      rst_n => rst_n_0_1,
+      LEDs(5 downto 0) => NLW_LEDShifter_0_LEDs_UNCONNECTED(5 downto 0),
+      rst_n => Net2(0),
       sys_clk_n => sys_clk_n_0_1,
       sys_clk_p => sys_clk_p_0_1
     );
@@ -7132,7 +7183,7 @@ XYTSStreamToRawStream_0: component brd_XYTSStreamToRawStream_0_0
       polStreamIn_V_V_TVALID => EVABMOFStreamWithCon_0_polStreamOut_V_V_TVALID,
       rotateInfoOutReg_V(63 downto 0) => NLW_XYTSStreamToRawStream_0_rotateInfoOutReg_V_UNCONNECTED(63 downto 0),
       rotateInfoOutReg_V_ap_vld => NLW_XYTSStreamToRawStream_0_rotateInfoOutReg_V_ap_vld_UNCONNECTED,
-      sentCnt_V(31 downto 0) => XYTSStreamToRawStream_0_sentCnt_V(31 downto 0),
+      sentCnt_V(31 downto 0) => NLW_XYTSStreamToRawStream_0_sentCnt_V_UNCONNECTED(31 downto 0),
       sentCnt_V_ap_vld => NLW_XYTSStreamToRawStream_0_sentCnt_V_ap_vld_UNCONNECTED,
       streamOut_V_V_TDATA(15 downto 0) => XYTSStreamToRawStream_0_streamOut_V_V_TDATA(15 downto 0),
       streamOut_V_V_TREADY => XYTSStreamToRawStream_0_streamOut_V_V_TREADY,
@@ -7203,7 +7254,8 @@ axi_fifo_mm_s_0: component brd_axi_fifo_mm_s_0_1
     );
 axi_gpio_0: component brd_axi_gpio_0_0
      port map (
-      gpio2_io_i(31 downto 0) => XYTSStreamToRawStream_0_sentCnt_V(31 downto 0),
+      gpio2_io_i(31 downto 8) => NLW_axi_gpio_0_gpio2_io_i_UNCONNECTED(31 downto 8),
+      gpio2_io_i(7 downto 0) => xlconcat_0_dout(7 downto 0),
       gpio_io_o(31 downto 0) => axi_gpio_0_gpio_io_o(31 downto 0),
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(8 downto 0) => ps7_0_axi_periph_M00_AXI_ARADDR(8 downto 0),
@@ -7954,6 +8006,8 @@ system_ila_0: component brd_system_ila_0_0
       probe10(0) => EVABMOFStreamWithCon_0_controlStreamIn_V_V_TREADY,
       probe11(63 downto 0) => tsReg_V(63 downto 0),
       probe12(0) => tsReg_V_ap_vld,
+      probe13(3 downto 0) => FallEdgeCounter_0_buttonEdgeNum(3 downto 0),
+      probe14(3 downto 0) => FallEdgeCounter_1_buttonEdgeNum(3 downto 0),
       probe2(10 downto 0) => DVSAERData_AI_0_1(10 downto 0),
       probe3(0) => DVSAERReq_ABI_0_1,
       probe4(0) => testAERDVSSM_0_DVSAERAck_SBO,
@@ -7968,7 +8022,7 @@ testAERDVSSM_0: component brd_testAERDVSSM_0_0
      port map (
       ADCClk_CI => processing_system7_0_FCLK_CLK0,
       AERSMFifoAlmostFull_AI => TxBufferBusy_Res(0),
-      AERSMFifoFull_AI => '0',
+      AERSMFifoFull_AI => TxBufferBusy_Res(0),
       AERSMOutFifoData_DO(15 downto 0) => testAERDVSSM_0_AERSMOutFifoData_DO(15 downto 0),
       AERSMOutFifoWrite_SO => testAERDVSSM_0_AERSMOutFifoWrite_SO,
       ChipBiasAddrSelect_SBO => testAERDVSSM_0_ChipBiasAddrSelect_SBO,
@@ -8012,13 +8066,13 @@ util_vector_logic_1: component brd_util_vector_logic_0_1
     );
 util_vector_logic_2: component brd_util_vector_logic_1_0
      port map (
-      Op1(0) => rst_n_0_1,
+      Op1(0) => Net2(0),
       Op2(0) => c_counter_binary_0_THRESH0,
       Res(0) => util_vector_logic_2_Res(0)
     );
 util_vector_logic_3: component brd_util_vector_logic_0_2
      port map (
-      Op1(0) => rst_n_0_1,
+      Op1(0) => Net2(0),
       Res(0) => util_vector_logic_3_Res(0)
     );
 v_axi4s_vid_out_0: component brd_v_axi4s_vid_out_0_0
@@ -8067,6 +8121,12 @@ v_tc_0: component brd_v_tc_0_0
       vblank_out => v_tc_0_vtiming_out_VBLANK,
       vsync_out => v_tc_0_vtiming_out_VSYNC
     );
+xlconcat_0: component brd_xlconcat_0_0
+     port map (
+      In0(3 downto 0) => FallEdgeCounter_0_buttonEdgeNum(3 downto 0),
+      In1(3 downto 0) => FallEdgeCounter_1_buttonEdgeNum(3 downto 0),
+      dout(7 downto 0) => xlconcat_0_dout(7 downto 0)
+    );
 xlconstant_0: component brd_xlconstant_0_0
      port map (
       dout(15 downto 0) => xlconstant_0_dout(15 downto 0)
@@ -8080,5 +8140,10 @@ xlslice_1: component brd_xlslice_0_1
      port map (
       Din(3 downto 0) => axi_gpio_0_gpio_io_o(3 downto 0),
       Dout(0) => xlslice_1_Dout(0)
+    );
+xlslice_2: component brd_xlslice_0_2
+     port map (
+      Din(31 downto 0) => axi_gpio_0_gpio_io_o(31 downto 0),
+      Dout(5 downto 0) => xlslice_2_Dout(5 downto 0)
     );
 end STRUCTURE;

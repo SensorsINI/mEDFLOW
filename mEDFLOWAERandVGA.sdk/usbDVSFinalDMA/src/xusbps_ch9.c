@@ -632,8 +632,8 @@ const static u8	Reply[8] = {0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17};
 			Xil_DCacheInvalidateRange((unsigned int)BufferPtr,
 								BufferLen);
 
-			xil_printf("Received Vendor OUT request.\n\r");
-			xil_printf("Requested moduleAddr is %d, paraAddr is %d.\n\r", SetupData->wValue, SetupData->wIndex);
+//			xil_printf("Received Vendor OUT request.\n\r");
+//			xil_printf("Requested moduleAddr is %d, paraAddr is %d.\n\r", SetupData->wValue, SetupData->wIndex);
 #ifdef CH9_DEBUG
 			int 	Len;
 			xil_printf("Vendor data:\n\r");
@@ -649,9 +649,12 @@ const static u8	Reply[8] = {0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17};
 			spiConfigData |= (BufferPtr[2] & 0x00FF) << 8;
 			spiConfigData |= (BufferPtr[3] & 0x00FF) << 0;
 //			xil_printf("\n\rSpiConfigData is 0x%x \n\r",spiConfigData);
-			Status = dvsSPIWrite(&SpiInstance, SetupData->wValue, SetupData->wIndex, spiConfigData);
-			if (Status != XST_SUCCESS) {
-				return XST_FAILURE;
+			if(SetupData->wValue != 2 && SetupData->wValue != 3 && SetupData->wValue != 4 && SetupData->wValue != 9)  // We dont't support modules 2, 3, 4, 9 configuration
+			{
+				Status = dvsSPIWrite(&SpiInstance, SetupData->wValue, SetupData->wIndex, spiConfigData);
+				if (Status != XST_SUCCESS) {
+					return XST_FAILURE;
+				}
 			}
 
 			if (Status == XST_SUCCESS) {
@@ -666,7 +669,7 @@ const static u8	Reply[8] = {0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17};
 	} else {
 		if (SetupData->wLength > 0) {
 			uint32_t retData;
-			xil_printf("Received Vendor IN request.\n\r");
+//			xil_printf("Received Vendor IN request.\n\r");
 //			xil_printf("Requested moduleAddr is %d, paraAddr is %d.\n\r", SetupData->wValue, SetupData->wIndex);
 			dvsSPIRead(&SpiInstance, SetupData->wValue, SetupData->wIndex, &retData);
 			xil_printf("Requested parameter from DVS is 0x%x.\n\r", retData);

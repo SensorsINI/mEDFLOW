@@ -53,6 +53,8 @@ entity bd_13e4_wrapper is
     probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
     probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe13 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe14 : in STD_LOGIC_VECTOR ( 3 downto 0 );
     probe2 : in STD_LOGIC_VECTOR ( 10 downto 0 );
     probe3 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe4 : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -82,6 +84,8 @@ architecture STRUCTURE of bd_13e4_wrapper is
     probe10 : in STD_LOGIC_VECTOR ( 0 to 0 );
     probe11 : in STD_LOGIC_VECTOR ( 63 downto 0 );
     probe12 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    probe13 : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    probe14 : in STD_LOGIC_VECTOR ( 3 downto 0 );
     resetn : in STD_LOGIC;
     SLOT_0_AXIS_tdata : in STD_LOGIC_VECTOR ( 15 downto 0 );
     SLOT_0_AXIS_tlast : in STD_LOGIC;
@@ -168,6 +172,8 @@ bd_13e4_i: component bd_13e4
       probe10(0) => probe10(0),
       probe11(63 downto 0) => probe11(63 downto 0),
       probe12(0) => probe12(0),
+      probe13(3 downto 0) => probe13(3 downto 0),
+      probe14(3 downto 0) => probe14(3 downto 0),
       probe2(10 downto 0) => probe2(10 downto 0),
       probe3(0) => probe3(0),
       probe4(0) => probe4(0),

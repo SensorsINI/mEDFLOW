@@ -69,6 +69,8 @@ ENTITY brd_system_ila_0_0 IS
     probe10 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     probe11 : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
     probe12 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe13 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    probe14 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     SLOT_0_AXIS_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     SLOT_0_AXIS_tlast : IN STD_LOGIC;
     SLOT_0_AXIS_tvalid : IN STD_LOGIC;
@@ -129,6 +131,8 @@ ARCHITECTURE brd_system_ila_0_0_arch OF brd_system_ila_0_0 IS
       probe10 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       probe11 : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
       probe12 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+      probe13 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      probe14 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       SLOT_0_AXIS_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       SLOT_0_AXIS_tlast : IN STD_LOGIC;
       SLOT_0_AXIS_tvalid : IN STD_LOGIC;
@@ -234,6 +238,8 @@ BEGIN
       probe10 => probe10,
       probe11 => probe11,
       probe12 => probe12,
+      probe13 => probe13,
+      probe14 => probe14,
       SLOT_0_AXIS_tdata => SLOT_0_AXIS_tdata,
       SLOT_0_AXIS_tlast => SLOT_0_AXIS_tlast,
       SLOT_0_AXIS_tvalid => SLOT_0_AXIS_tvalid,

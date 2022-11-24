@@ -249,8 +249,10 @@ set_property PACKAGE_PIN AD19 [get_ports {LEDs[1]}]
 set_property PACKAGE_PIN AD18 [get_ports {LEDs[0]}]
 
 
-set_property PACKAGE_PIN Y20 [get_ports rst_n]
-set_property IOSTANDARD LVCMOS33 [get_ports rst_n]
+set_property PACKAGE_PIN Y20 [get_ports key1]
+set_property IOSTANDARD LVCMOS33 [get_ports key1]
+set_property PACKAGE_PIN W20 [get_ports key2]
+set_property IOSTANDARD LVCMOS33 [get_ports key2]
 
 set_property PACKAGE_PIN C8 [get_ports sys_clk_p]
 set_property IOSTANDARD DIFF_SSTL15 [get_ports sys_clk_p]

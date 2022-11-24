@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
---Date        : Fri Nov 18 19:57:50 2022
+--Date        : Mon Nov 21 23:41:14 2022
 --Host        : DESKTOP-3TNSMFC running 64-bit major release  (build 9200)
 --Command     : generate_target brd_wrapper.bd
 --Design      : brd_wrapper
@@ -45,9 +45,10 @@ entity brd_wrapper is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     LEDs : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    key1 : in STD_LOGIC;
+    key2 : in STD_LOGIC;
     power_1v8_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 );
     power_3v3_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 );
-    rst_n : in STD_LOGIC;
     sys_clk_n : in STD_LOGIC;
     sys_clk_p : in STD_LOGIC;
     vid_data : out STD_LOGIC_VECTOR ( 23 downto 0 );
@@ -95,10 +96,11 @@ architecture STRUCTURE of brd_wrapper is
     vid_vsync : out STD_LOGIC;
     sys_clk_n : in STD_LOGIC;
     sys_clk_p : in STD_LOGIC;
-    rst_n : in STD_LOGIC;
     LEDs : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    power_3v3_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 );
     power_1v8_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 );
-    power_3v3_ctrl : out STD_LOGIC_VECTOR ( 0 to 0 )
+    key1 : in STD_LOGIC;
+    key2 : in STD_LOGIC
   );
   end component brd;
 begin
@@ -136,9 +138,10 @@ brd_i: component brd
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
       LEDs(5 downto 0) => LEDs(5 downto 0),
+      key1 => key1,
+      key2 => key2,
       power_1v8_ctrl(0) => power_1v8_ctrl(0),
       power_3v3_ctrl(0) => power_3v3_ctrl(0),
-      rst_n => rst_n,
       sys_clk_n => sys_clk_n,
       sys_clk_p => sys_clk_p,
       vid_data(23 downto 0) => vid_data(23 downto 0),
